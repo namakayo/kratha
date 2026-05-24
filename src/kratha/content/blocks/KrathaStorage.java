@@ -1,0 +1,36 @@
+package kratha.content.blocks;
+
+import arc.graphics.Color;
+import mindustry.world.Block;
+import mindustry.world.blocks.storage.*;
+import mindustry.type.Category;
+import mindustry.type.ItemStack;
+import mindustry.content.*;
+import mindustry.graphics.*;
+import mindustry.gen.Sounds;
+import mindustry.content.*;
+import kratha.content.KrathaUnitTypes;
+import kratha.content.*;
+
+import static mindustry.type.ItemStack.with;
+
+public class KrathaStorage {
+    public static Block
+            coreAfterpiece;
+    public static void load() {
+        {
+            {
+                coreAfterpiece = new CoreBlock("core-afterpiece"){{
+                    requirements(Category.effect, with(KrathaItems.krathite, 700));
+                    size = 5;
+                    isFirstTier = true;
+                    squareSprite = false;
+                    itemCapacity = 4000;
+                    health = 5500;
+                    unitType = KrathaUnitTypes.settler;
+                    alwaysUnlocked = true;
+                }};
+            }
+        }
+    }
+}
