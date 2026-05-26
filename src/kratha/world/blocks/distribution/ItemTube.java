@@ -30,7 +30,7 @@ public class ItemTube extends Conveyor {
         bridgeReplacement = KrathaDistribution.itemOverpass; //i still hate you
         junctionReplacement = null;
         int y = 0;
-        for(int cy = 0; cy < 5; cy++, y+=32){
+        for(int cy = 0; cy < 4; cy++, y+=32){
             int x = 0;
             for(int cx = 0; cx < 4; cx++, x+=32){
                 topRegions[cy][cx]=new TextureRegion(Core.atlas.find(name+"-top-atlas"), x, y, 32, 32);
