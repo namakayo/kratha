@@ -29,6 +29,7 @@ public class KrathaStorage {
                     health = 5500;
                     unitType = KrathaUnitTypes.settler;
                     alwaysUnlocked = true;
+                    thrusterLength = 40/4f;
                 }};
             }
         }
