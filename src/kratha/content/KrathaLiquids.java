@@ -27,7 +27,7 @@ public class KrathaLiquids{
             moveThroughBlocks = true;
             incinerable = false;
             blockReactive = false;
-            canStayOn.addAll(Liquids.water, watergel, Liquids.oil, Liquids.cryofluid);
+            canStayOn.addAll(Liquids.water, Liquids.oil, Liquids.cryofluid);
 
             colorFrom = Color.valueOf("524809");
             colorTo = Color.valueOf("D4C98A");
