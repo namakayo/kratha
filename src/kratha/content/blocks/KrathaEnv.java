@@ -62,8 +62,8 @@ public class KrathaEnv {
                 //terrastone
                 terrastoneWall = new StaticTree("terrastone-wall"){{variants=5;}};
                 terrastoneErodedWall = new StaticWall("terrastone-eroded-wall");
-                terrastoneGrassy = new Floor("terrastone-grassy", 4);
                 terrastoneFloor = new Floor("terrastone-floor", 4);
+                terrastoneGrassy = new Floor("terrastone-grassy", 4);
                 terrastoneEroded = new Floor("terrastone-eroded", 4);
                 terrastoneBoulder = new Prop("terrastone-boulder"){{
                     variants = 2;
