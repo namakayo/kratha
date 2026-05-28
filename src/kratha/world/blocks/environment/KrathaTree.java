@@ -4,7 +4,6 @@ import arc.Core;
 import arc.graphics.g2d.*;
 import arc.math.*;
 import arc.util.*;
-import mindustry.annotations.Annotations.*;
 import mindustry.world.*;
 import mindustry.world.blocks.environment.TallBlock;
 
