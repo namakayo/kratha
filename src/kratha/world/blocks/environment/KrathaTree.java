@@ -16,7 +16,7 @@ public class KrathaTree extends TallBlock{
     
     public int lobesMin = 2, lobesMax = 4;
     public float botAngle = 60f, origin = 0.1f;
-    public float sclMin = 30f, sclMax = 50f, magMin = 5f, magMax = 15f, timeRange = 40f, spread = 0f;
+    public float sclMin = 90f, sclMax = 120f, magMin = 5f, magMax = 15f, timeRange = 40f, spread = 32f;
 
     static Rand rand = new Rand();
 
@@ -42,7 +42,7 @@ public class KrathaTree extends TallBlock{
         int lobes = rand.random(lobesMin, lobesMax);
         for(int i = 0; i < lobes; i++){
             float ba =  i / (float)lobes * 360f + offset + rand.range(spread), angle = ba + Mathf.sin(Time.time + rand.random(0, timeRange), rand.random(sclMin, sclMax), rand.random(magMin, magMax));
-            float w = region.width * region.scl(), h = region.height * region.scl();
+            float w = region.width * branchRegion1.scl(), h = region.height * branchRegion1.scl();
             int variant = rand.random(0, 2);
             var region = Angles.angleDist(ba, 225f) <= botAngle ? (variant>1?branchRegion1bot:branchRegion2bot) : (variant>1?branchRegion1:branchRegion2);
 
