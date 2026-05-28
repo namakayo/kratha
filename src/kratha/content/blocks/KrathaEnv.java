@@ -42,7 +42,7 @@ public class KrathaEnv {
                     krathiteKrathagen.asFloor().decoration = this;
                 }};
                 //terrastone
-                terrastoneWall = new StaticTree("terrastone-wall"){{variants=5}};
+                terrastoneWall = new StaticTree("terrastone-wall"){{variants=5;}};
                 terrastoneErodedWall = new StaticWall("terrastone-eroded+wall");
                 terrastoneFloor = new Floor("terrastone-floor", 4);
                 terrastoneEroded = new Floor("terrastone-eroded", 4);
