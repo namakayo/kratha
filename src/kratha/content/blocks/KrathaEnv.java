@@ -10,6 +10,7 @@ import mindustry.graphics.*;
 import mindustry.gen.Sounds.*;
 import mindustry.content.Fx;
 import mindustry.world.meta.*;
+import mindustry.graphics.Layer;
 import kratha.content.KrathaItems;
 import kratha.content.KrathaLiquids;
 import kratha.world.blocks.environment.*;
@@ -45,6 +46,7 @@ public class KrathaEnv {
                     variants = 0;
                     lobesMin = 4;
                     lobesMax = 6;
+                    layer = Layer.power + 2;
                 }};
                 //krathite
                 krathiteStaticwall = new StaticWall("krathite-staticwall");
