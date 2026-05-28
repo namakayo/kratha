@@ -1,5 +1,6 @@
 package kratha.world.blocks.environment;
 
+import arc.Core;
 import arc.graphics.g2d.*;
 import arc.math.*;
 import arc.util.*;
@@ -25,7 +26,8 @@ public class KrathaTree extends TallBlock{
         variants = 2;
         obstructsLight = true;
     }
-    @Override void load(){
+    @Override
+    public void load(){
       super.load();
       branchRegion1=Core.atlas.find(name+"-branch1");
       branchRegion2=Core.atlas.find(name+"-branch2");
