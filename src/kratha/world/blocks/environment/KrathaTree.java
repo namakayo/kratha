@@ -42,8 +42,9 @@ public class KrathaTree extends TallBlock{
         int lobes = rand.random(lobesMin, lobesMax);
         for(int i = 0; i < lobes; i++){
             float ba =  i / (float)lobes * 360f + offset + rand.range(spread), angle = ba + Mathf.sin(Time.time + rand.random(0, timeRange), rand.random(sclMin, sclMax), rand.random(magMin, magMax));
-            float w = branchRegion1.width * branchRegion1.scl(), h = branchRegion1.height * branchRegion1.scl();
             int variant = rand.random(0, 2);
+            var bReg = (variant>1?branchRegion1:branchRegion2);
+            float w = bReg.width * bReg.scl(), h = bReg.height * bReg.scl();
             var region = Angles.angleDist(ba, 225f) <= botAngle ? (variant>1?branchRegion1bot:branchRegion2bot) : (variant>1?branchRegion1:branchRegion2);
 
             Draw.rect(region,
