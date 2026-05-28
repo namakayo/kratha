@@ -43,8 +43,8 @@ public class KrathaEnv {
                 }};
                 terrasporeTreeLarge = new KrathaTree("terraspore-tree-large"){{
                     variants = 0;
-                    lobesMin = 5;
-                    lobesMax = 8;
+                    lobesMin = 4;
+                    lobesMax = 6;
                 }};
                 //krathite
                 krathiteStaticwall = new StaticWall("krathite-staticwall");
