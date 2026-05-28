@@ -5,6 +5,7 @@ import arc.math.*;
 import arc.util.*;
 import mindustry.annotations.Annotations.*;
 import mindustry.world.*;
+import mindustry.world.blocks.environment.TallBlock;
 
 public class KrathaTree extends TallBlock{
     //why
