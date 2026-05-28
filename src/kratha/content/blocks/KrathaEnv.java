@@ -20,8 +20,8 @@ public class KrathaEnv {
     public static Block
             terrasporeTree,terrasporeFern,terrasporeFernLarge,
             krathiteStaticwall,krathiteFloor,krathitePlated,krathiteKrathagen,krathiteBoulder,
-            terrastoneWall,terrastoneErodedWall,terrastoneGrassy,terrastoneFloor,terrastoneEroded,terrastoneErodedBoulder,
-            krathagenFloor,krathagenDeep;
+            terrastoneWall,terrastoneErodedWall,terrastoneGrassy,terrastoneFloor,terrastoneEroded,terrastoneBoulder,terrastoneErodedBoulder,
+            krathagenFloor,krathagenDeep,krathagenWall;
     public static void load() {
         {
             {
@@ -65,11 +65,16 @@ public class KrathaEnv {
                 terrastoneGrassy = new Floor("terrastone-grassy", 4);
                 terrastoneFloor = new Floor("terrastone-floor", 4);
                 terrastoneEroded = new Floor("terrastone-eroded", 4);
+                terrastoneBoulder = new Prop("terrastone-boulder"){{
+                    variants = 2;
+                    terrastoneFloor.asFloor().decoration = this;
+                }};
                 terrastoneErodedBoulder = new Prop("terrastone-eroded-boulder"){{
                     variants = 2;
                     terrastoneEroded.asFloor().decoration = this;
                 }};
                 //krathagen
+                krathagenWall = new StaticWall("krathagen-wall");
                 krathagenFloor = new Floor("krathagen-floor"){{
                     speedMultiplier = 0.8f;
                     variants = 4;
