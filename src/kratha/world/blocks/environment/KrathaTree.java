@@ -21,7 +21,7 @@ public class KrathaTree extends TallBlock{
     public int lobesMin = 4, lobesMax = 7;
     public float botAngle = 50f, origin = 0.1f;
     public float sclMin = 300f, sclMax = 360f, magMin = 5f, magMax = 15f, timeRange = 40f, spread = 0f;
-    public float fadeDist = 60f, fadeDistTo = 40f, fadeAmount=0.75f; //fade amount 1 means 100% 0 means no fade
+    public float fadeDist = 70f, fadeDistTo = 50f, fadeAmount=0.75f; //fade amount 1 means 100% 0 means no fade
 
     static Rand rand = new Rand();
 
@@ -73,7 +73,7 @@ public class KrathaTree extends TallBlock{
             Draw.color(1f,1f,1f,bAlpha);
             Draw.z(layer);
             Draw.rect(region,
-                tile.worldx() - Angles.trnsx(angle, origin) + w*0.5f, tile.worldy() - Angles.trnsy(angle, origin),
+                tile.worldx() - Angles.trnsx(angle, origin+w*0.5f), tile.worldy() - Angles.trnsy(angle, origin),
                 w, h,
                 origin*4f, h/2f,
                 angle
