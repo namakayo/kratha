@@ -67,7 +67,7 @@ public class KrathaTree extends TallBlock{
             }
             float bAlpha=1f;
             if(Vars.player.unit()!=null&&!Vars.player.unit().dead()){
-                bAlpha=Mathf.min(50,Mathf.dst(tile.worldx() - Angles.trnsx(angle, origin) + w*0.5f,tile.worldy() - Angles.trnsy(angle, origin),Vars.player.unit().x,Vars.player.unit().y))/50
+                bAlpha=Mathf.min(50,Mathf.dst(tile.worldx() - Angles.trnsx(angle, origin) + w*0.5f,tile.worldy() - Angles.trnsy(angle, origin),Vars.player.unit().x,Vars.player.unit().y))/50;
             }
             Draw.color(1f,1f,1f,bAlpha);
             Draw.z(layer);
@@ -86,7 +86,7 @@ public class KrathaTree extends TallBlock{
             tile.worldx() + shadowOffset, tile.worldy() + shadowOffset, rot);
         float tAlpha=1f;
         if(Vars.player.unit()!=null&&!Vars.player.unit().dead()){
-            tAlpha=Mathf.min(50,Mathf.dst(tile.worldx(),tile.worldy(),Vars.player.unit().x,Vars.player.unit().y))/50
+            tAlpha=Mathf.min(50,Mathf.dst(tile.worldx(),tile.worldy(),Vars.player.unit().x,Vars.player.unit().y))/50;
         }
         Draw.color(1f,1f,1f,tAlpha);
 
