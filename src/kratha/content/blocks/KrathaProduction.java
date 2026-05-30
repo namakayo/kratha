@@ -14,6 +14,7 @@ import mindustry.world.draw.*;
 import mindustry.type.*;
 import kratha.content.KrathaItems;
 import kratha.graphics.KrathaPal;
+import kratha.world.blocks.production.*;
 
 import static mindustry.type.ItemStack.with;
 
