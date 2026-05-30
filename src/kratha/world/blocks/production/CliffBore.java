@@ -36,13 +36,13 @@ public class CliffDrill extends BeamDrill {
     }
     @Override
     public TextureRegion[] icons(){
-        return new TextureRegion[]{region, topRegions[0]};
+        return new TextureRegion[]{region, topRegions1};
     }
     public class CliffDrillBuild extends BeamDrillBuild {
         @Override
         public void draw(){
             Draw.rect(block.region, x, y);
-            Draw.rect((plan.rotation>1?topRegion2:topRegion1), x, y, rotdeg());
+            Draw.rect((rotation>1?topRegion2:topRegion1), x, y, rotdeg());
 
             if(isPayload()) return;
 
