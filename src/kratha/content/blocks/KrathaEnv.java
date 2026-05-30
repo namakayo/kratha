@@ -44,12 +44,13 @@ public class KrathaEnv {
                 terrasporeTree = new KrathaTree("terraspore-tree"){{
                     variants = 2;
                     clipSize = 9999;
+                    layer = Layer.darkness + 1;
                 }};
                 terrasporeTreeLarge = new KrathaTree("terraspore-tree-large"){{
                     variants = 0;
                     lobesMin = 4;
                     lobesMax = 6;
-                    layer = Layer.power + 2;
+                    layer = Layer.darkness + 2;
                     clipSize = 9999;
                 }};
                 woodWall = new StaticWall("wood-wall");
