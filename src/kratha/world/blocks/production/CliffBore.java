@@ -36,7 +36,7 @@ public class CliffDrill extends BeamDrill {
     }
     @Override
     public TextureRegion[] icons(){
-        return new TextureRegion[]{region, topRegions1};
+        return new TextureRegion[]{region, topRegion1};
     }
     public class CliffDrillBuild extends BeamDrillBuild {
         @Override
