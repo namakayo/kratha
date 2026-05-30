@@ -109,7 +109,9 @@ public class KrathaEnv {
                 fallenLeaves = new OverlayFloor("fallen-leaves");
                 pebbles = new OverlayFloor("pebbles");
                 //ores
-                krathiteOreWall = new StaticWall("krathite-ore-wall");
+                krathiteOreWall = new StaticWall("krathite-ore-wall"){{
+                    itemDrop = KrathaItems.krathite;
+                }};
                 guartzOre = new OreBlock("guartz-ore",KrathaItems.guartz);
             }
         }
