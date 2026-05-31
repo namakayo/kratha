@@ -31,6 +31,7 @@ public class KrathaPower{
             size = 3;
             squareSprite = false;
             powerProduction = 60f/60f;
+            customShadow = true;
             drawer = new DrawMulti(new DrawDefault(), new DrawRegion("-rotator", 2, true));
             researchCost = with(KrathaItems.krathite,25,KrathaItems.guartz,40);
         }};
