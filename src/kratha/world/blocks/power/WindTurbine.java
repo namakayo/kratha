@@ -53,11 +53,11 @@ public class WindTurbine extends PowerGenerator{
         Drawf.dashSquare(baseColor, x, y, range * tilesize);
         int bcount = 0;
         int frange = (int) Math.floor(range/2);
-        for(int xm = -frange+1;xm<=frange;xm++){
-            for(int ym = -frange+1;ym<=frange;ym++){
+        for(int xm = -frange;xm<=frange;xm++){
+            for(int ym = -frange;ym<=frange;ym++){
                 Tile other = world.tile(ox+xm,oy+ym);
                 if(other!=null&&other.solid()&&
-                  !((xm>-(int)Math.ceil(size/2)&&ym>-(int)Math.ceil(size/2))&&(xm<(int)Math.floor(size/2)+1&&ym<(int)Math.floor(size/2)+1))
+                  !((xm>-(int)Math.ceil(size/2)-1&&ym>-(int)Math.ceil(size/2)-1)&&(xm<(int)Math.floor(size/2)+1&&ym<(int)Math.floor(size/2)+1))
                   ) {
                     Drawf.selected(other.x, other.y, Blocks.router, obstructionColor);
                     bcount++;
@@ -111,8 +111,8 @@ public class WindTurbine extends PowerGenerator{
         public int eachTile(int range){
             int rcount = 0;
             int frange = (int) Math.floor(range/2);
-            for(int xm = -frange+1;xm<=frange;xm++){
-                for(int ym = -frange+1;ym<=frange;ym++){
+            for(int xm = -frange;xm<=frange;xm++){
+                for(int ym = -frange;ym<=frange;ym++){
                     Tile other = tile.nearby(xm,ym);
                     if(other!=null&&other.solid()) {
                         rcount++;
@@ -139,8 +139,8 @@ public class WindTurbine extends PowerGenerator{
 
             Drawf.dashSquare(baseColor, x, y, range * tilesize);
             int frange = (int) Math.floor(range/2);
-            for(int xm = -frange+1;xm<=frange;xm++){
-                for(int ym = -frange+1;ym<=frange;ym++){
+            for(int xm = -frange;xm<=frange;xm++){
+                for(int ym = -frange;ym<=frange;ym++){
                     Tile other = tile.nearby(xm,ym);
                     if(other!=null&&other.solid()&&other.build!=this) {
                         Drawf.selected(other.x, other.y, Blocks.router, obstructionColor);
