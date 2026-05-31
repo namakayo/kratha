@@ -71,7 +71,7 @@ public class KrathaProduction {
             size = 3;
             hasPower = true;
             hasLiquids = false;
-            drawer = new DrawMulti(new DrawDefault(), new DrawFlame(Color.valueOf("ffef99")));
+            drawer = new DrawMulti(new DrawRegion("-bottom"),new DrawDefault(), new DrawGlowRegion(), new DrawArcFlame());
             ambientSound = Sounds.loopSmelter;
             ambientSoundVolume = 0.07f;
 
