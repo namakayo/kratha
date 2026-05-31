@@ -25,7 +25,7 @@ public class WindTurbine extends PowerGenerator{
     public DrawBlock drawer = new DrawDefault();
     public Color baseColor = Pal.accent;
     public Color obstructionColor = Pal.remove;
-    public int maxObstruction = 20;
+    public int maxObstruction = 25;
     public boolean displayEfficiency = true;
 
     public WindTurbine(String name){
@@ -56,7 +56,7 @@ public class WindTurbine extends PowerGenerator{
         for(int xm = -frange+1;xm<=frange;xm++){
             for(int ym = -frange+1;ym<=frange;ym++){
                 Tile other = world.tile(ox+xm,oy+ym);
-                if(other.solid()&&
+                if(other!=null&&other.solid()&&
                   !((xm>-1&&ym>-1)&&(xm<size&&ym<size))
                   ) {
                     Drawf.selected(other.x, other.y, Blocks.router, obstructionColor);
