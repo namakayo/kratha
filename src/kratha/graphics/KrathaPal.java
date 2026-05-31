@@ -14,5 +14,13 @@ public class KrathaPal{
 
     guartzDark = Color.valueOf("78725D"),
     guartz = Color.valueOf("C2B6A9"),
-    guartzLight = Color.valueOf("FFEAE3");
+    guartzLight = Color.valueOf("FFEAE3"),
+
+    terrasandDark = Color.valueOf("78725D"),
+    terrasand = Color.valueOf("C2B6A9"),
+    terrasandLight = Color.valueOf("FFEAE3"),
+
+    spurstoneDark = Color.valueOf("78725D"),
+    spurstone = Color.valueOf("C2B6A9"),
+    spurstoneLight = Color.valueOf("FFEAE3");
 }
