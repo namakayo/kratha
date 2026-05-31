@@ -53,7 +53,7 @@ public class KrathaProduction {
             requirements(Category.production, with(KrathaItems.krathite, 25, KrathaItems.guartz, 20));
             consumePower(5 / 60f);
 
-            drillTime = 170f;
+            drillTime = 160f;
             size = 2;
             attribute = Attribute.sand;
             output = KrathaItems.terrasand;
@@ -66,8 +66,8 @@ public class KrathaProduction {
         spurstoneSmelter = new GenericCrafter("spurstone-smelter"){{
             requirements(Category.crafting, with(KrathaItems.krathite, 75, KrathaItems.guartz, 60));
             craftEffect = Fx.smeltsmoke;
-            outputItem = new ItemStack(KrathaItems.spurstone, 2);
-            craftTime = 150f;
+            outputItem = new ItemStack(KrathaItems.spurstone, 3);
+            craftTime = 120f;
             size = 3;
             hasPower = true;
             hasLiquids = false;
