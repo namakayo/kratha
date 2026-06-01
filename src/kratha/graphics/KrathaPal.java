@@ -7,9 +7,9 @@ public class KrathaPal{
     krathaBaseDark = Color.valueOf("47414A"),
     krathaBase = Color.valueOf("838185"),
     krathaBaseLight = Color.valueOf("BFBEBF"),
-    deearthBaseDark = Color.valueOf("47414A"),
-    deearthBase = Color.valueOf("838185"),
-    deearthBaseLight = Color.valueOf("BFBEBF"),
+    deearthBaseDark = Color.valueOf("4F514B"),
+    deearthBase = Color.valueOf("808480"),
+    deearthBaseLight = Color.valueOf("AFB8B2"),
 
     
     krathaOutline = Color.valueOf("292730"),
