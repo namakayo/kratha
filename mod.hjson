@@ -7,7 +7,7 @@ main: "kratha.KrathaMod"
 description:'''
 A Mod about Terraplasm.
 
-[gray[]]This a preview version of KRATHA, meaning it is a WIP and early version of future version.
+[gray[]]This a preview version of KRATHA, meaning it is a very early version and might not reflect final version.
 '''
 version: 0
 minGameVersion: 154
