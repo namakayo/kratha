@@ -1,4 +1,4 @@
-package arg.world.blocks.terraplasm;
+package kratha.world.blocks.terraplasm;
 
 import arc.Core;
 import arc.graphics.*;
@@ -22,13 +22,13 @@ import mindustry.type.*;
 import mindustry.world.meta.*;
 import mindustry.gen.*;
 import java.util.Random;
-import arg.graphics.*;
-import arg.content.terraplasm.Terraplasm;
+import kratha.graphics.*;
+import kratha.content.terraplasm.Terraplasm;
 
 import static mindustry.Vars.*;
 
-//this is probably the greatest .java file i've written
-//if you're trying to understand it, goodluck! because i dont understand either
+//second greatest .java file i've written
+//if you're looking for how roots spread and the pattern, go to BioBlock.java
 public class Root extends BioBlock {
     public TextureRegion[][] atlasRegion = new TextureRegion[12][4];
     private Seq<Building> heartArray = new Seq<>(Building.class);
