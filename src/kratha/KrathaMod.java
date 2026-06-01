@@ -32,7 +32,7 @@ public class KrathaMod extends Mod{
     }
     @Override
     public void loadContent(){
-        KrathaTeams.load()
+        KrathaTeams.load();
         KrathaItems.load();
         KrathaLiquids.load();
         KrathaUnitTypes.load();
