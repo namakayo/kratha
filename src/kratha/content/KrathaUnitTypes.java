@@ -22,8 +22,30 @@ import static arc.graphics.g2d.Lines.*;
 
 public class KrathaUnitTypes{
     public static UnitType
+    keris,
     settler;
     public static void load(){
+        //region special
+        //peak name
+        keris = new DeearthUnitType("keris"){{
+            constructor = MechUnit::create;
+            speed = 0.7f;
+            hitSize = 9f;
+            health = 180;
+            weapons.add(new Weapon("kratha-keris-weapon"){{
+                reload = 18f;
+                x = 6.5f;
+                y = 0f;
+                top = false;
+                ejectEffect = Fx.casing1;
+                bullet = new BasicBulletType(2.5f, 6){{
+                    width = 7f;
+                    height = 9f;
+                    lifetime = 60f;
+                }};
+            }});
+            
+        }};
         //region core
         settler = new KrathaUnitType("settler"){{
             constructor = UnitEntity::create;
