@@ -58,7 +58,7 @@ public class KrathaUnitTypes{
 
             range = 80f;
             faceTarget = true;
-            mineWalls = false;
+            mineWalls = true;
             mineFloor = true;
             mineHardnessScaling = false;
             mineSpeed = 6f;
