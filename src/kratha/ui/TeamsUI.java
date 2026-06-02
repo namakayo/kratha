@@ -26,7 +26,7 @@ public class TeamsUI{
 
             ((Table)teambuttons).row();
 
-            for (int i = 7; i <= 7; i++) {
+            for (int i = 8; i <= 8; i++) {
                 Team team = Team.get(i);
 
                 ImageButton button = new ImageButton(Tex.whiteui, Styles.clearNoneTogglei);
