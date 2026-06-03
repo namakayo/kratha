@@ -14,7 +14,8 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaPower{
     public static Block
-    relay, windTurbine;
+    relay, windTurbine,
+    candle;
 
     public static void load(){
         relay = new BeamNode("relay"){{
@@ -37,5 +38,15 @@ public class KrathaPower{
             drawer = new DrawMulti(new DrawDefault(), new DrawRegion("-rotator", 2, true));
             researchCost = with(KrathaItems.krathite,25,KrathaItems.guartz,40);
         }};
+
+        //why is this here? Because electricity (i dont know)
+        candle = new LightBlock("candle"){{
+            requirements(Category.effect, BuildVisibility.lightingOnly, with(KrathaItems.krathite, 15, KrathaItems.guartz, 12));
+            brightness = 0.7f;
+            radius = 120f;
+            consumePower(5/60f);
+            researchCost = with(KrathaItems.krathite,100,KrathaItems.guartz,75);
+        }};
+        
     }
 }
