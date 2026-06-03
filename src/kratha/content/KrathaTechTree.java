@@ -40,8 +40,8 @@ public class KrathaTechTree {
             node(KrathaProduction.spurstoneSmelter, () -> {
             });
             
-            node(KrathaPower.relay, () -> {
-                node(KrathaPower.windTurbine, () -> {
+            node(KrathaPower.windTurbine, () -> {
+                node(KrathaPower.relay, () -> {
                     
                 });
             });
