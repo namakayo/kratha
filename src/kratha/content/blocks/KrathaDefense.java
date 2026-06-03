@@ -20,7 +20,8 @@ public class KrathaDefense{
          radar = new Radar("radar"){{
             requirements(Category.effect, BuildVisibility.fogOnly, with(KrathaItems.krathite, 30, KrathaItems.guartz, 50, KrathaItems.spurstone, 15));
             outlineColor = KrathaPal.krathaOutline;
-            fogRadius = 40;
+            fogRadius = 20;
+            glowColor = KrathaPal.krathiteLight;
             researchCost = with(KrathaItems.krathite, 100, KrathaItems.guartz, 150, KrathaItems.spurstone, 50);
             customShadow = true;
             consumePower(30/60f);
