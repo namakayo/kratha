@@ -72,8 +72,8 @@ public class BioEye extends BioBlock {
                 ty = target.y();
                 target.apply(KrathaStatusEffects.seen,30f);
             }else{
-                tx = wanderX;
-                ty = wanderY;
+                tx = x+wanderX;
+                ty = y+wanderY;
             }
             float mag = Mathf.dst(x,y,tx,ty);
             eyeX = Mathf.lerp(eyeX,(tx-x)/mag*3,0.1f);
