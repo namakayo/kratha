@@ -35,7 +35,7 @@ import static mindustry.type.ItemStack.with;
 public class Terraplasm {
     public static Block
             falseCore,
-            heart, root, eye;
+            heart, root, eye, harvester;
     public static void load() {
         {
             {
