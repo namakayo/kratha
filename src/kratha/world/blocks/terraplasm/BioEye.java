@@ -75,6 +75,8 @@ public class BioEye extends BioBlock {
                 tx = x+wanderX;
                 ty = y+wanderY;
             }
+            if(float.IsNaN(eyeX))eyeX=x;
+            if(float.IsNaN(eyeY))eyeY=y;
             float mag = Mathf.dst(x,y,tx,ty);
             eyeX = Mathf.lerp(eyeX,(tx-x)/mag*3,0.1f);
             eyeY = Mathf.lerp(eyeY,(ty-y)/mag*3,0.1f);
