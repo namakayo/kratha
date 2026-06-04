@@ -58,10 +58,15 @@ public class BioEye extends BioBlock {
         public void updateTile(){
             super.updateTile();
             target=Units.closestEnemy(team, x, y, range, u -> true);
+            if(wanderTimer<0){
+                wanderTimer=
             if(target != null){
                 tx = target.x();
                 ty = target.y();
                 target.apply(KrathaStatusEffects.seen,30f);
+            }else{
+                tx = wanderX;
+                ty = wanderY;
             }
             float mag = Mathf.dst(x,y,tx,ty);
             eyeX = Mathf.lerp(eyeX,(tx-x)/mag*3,0.1f);
