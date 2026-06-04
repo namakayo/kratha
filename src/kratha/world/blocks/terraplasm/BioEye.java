@@ -48,7 +48,7 @@ public class BioEye extends BioBlock {
         public float eyeY = 0;
         public float tx = x, ty = y;
         public float wanderTimer=0;
-        public int wanderX = x, wanderY = y;
+        public int wanderX = (int)x, wanderY = (int)y;
         public @Nullable Unit target;
         @Override
         public void updatePulse(){
