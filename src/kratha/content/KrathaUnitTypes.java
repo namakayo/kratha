@@ -37,6 +37,7 @@ public class KrathaUnitTypes{
             alwaysUnlocked = true;
             weapons.add(new Weapon("kratha-keris-weapon"){{
                 reload = 70f;
+                cooldownTime = 60f;
                 x = 6.5f;
                 y = 0f;
                 top = false;
