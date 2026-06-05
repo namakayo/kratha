@@ -25,7 +25,12 @@ public class KrathaTechTree {
             });
             node(KrathaDistribution.itemTube, () -> {
                 node(KrathaDistribution.splitter, () -> {
+                   node(KrathaDistribution.filter, () -> {
                    
+                   });
+                   node(KrathaDistribution.itemGate, () -> {
+                   
+                   });
                 });
                 node(KrathaDistribution.itemOverpass);
             });
@@ -44,6 +49,13 @@ public class KrathaTechTree {
                 node(KrathaPower.relay, () -> {
                     
                 });
+                node(KrathaPower.candle, () -> {
+                    
+                });
+            });
+
+            node(KrathaDefense.radar, () -> {
+                
             });
             
             node(KrathaSectorPresets.theFountain, () -> {
