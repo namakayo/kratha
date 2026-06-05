@@ -15,7 +15,8 @@ import mindustry.graphics.*;
 import mindustry.gen.*;
 import mindustry.type.*;
 import kratha.type.unit.*;
-import kratha.graphics.*;
+import kratha.graphics.KrathaPal;
+import kratha.content.KrathaFx;
 import mindustry.type.weapons.*;
 
 import static arc.graphics.g2d.Draw.*;
