@@ -142,7 +142,8 @@ public class Root extends BioBlock {
             }
 
             if(allowEye)passiveGrow(Terraplasm.eye,b -> b.block instanceof BioEye,eyeSpacing,eyeRate);
-
+            if(allowSkewer)passiveGrow(Terraplasm.skewer,b -> b.block instanceof BioTurret,skewerSpacing,skewerRate);
+            
             //item movement
             
             if(lastItem == null && items.any()){
