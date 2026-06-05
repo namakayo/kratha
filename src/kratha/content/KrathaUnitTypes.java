@@ -41,6 +41,8 @@ public class KrathaUnitTypes{
                 y = 0f;
                 top = false;
                 ejectEffect = Fx.none;
+                shootSound = Sounds.shootFuse;
+                shootSoundVolume = 0.75f;
                 bullet = new ShrapnelBulletType(){{
                     length = 24f;
                     damage = 42f;
