@@ -38,9 +38,9 @@ public class BioBlock extends Block {
     public boolean allowEye=false;
     public float eyeRate=0.01f;
     public int eyeSpacing=10;
-    public boolean allowTurretSpitterRand=false;
-    public float turretSpitterRandRate=0.01f;
-    public int turretSpitterRandSpacing=10;
+    public boolean allowSkewer=false;
+    public float skewerRate=0.01f;
+    public int skewerSpacing=20;
     public boolean allowBulb=false;
     public float bulbRate=0.01f;
     public int bulbSpacing=22;
