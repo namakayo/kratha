@@ -24,8 +24,12 @@ public class KrathaItems{
             cost = 0.2f;
         }};
         spurstone = new Item("spurstone", KrathaPal.spurstone){{
-            hardness = 3;
+            hardness = 4;
             cost = 1.5f;
+        }};
+        cobalt = new Item("cobalt", KrathaPal.cobalt){{
+            hardness = 3;
+            cost = 1.2f;
         }};
         
         krathaItems.addAll(
