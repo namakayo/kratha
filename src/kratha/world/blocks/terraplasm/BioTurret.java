@@ -91,7 +91,10 @@ public class BioTurret extends Turret{
                     pulsed=false;
                     Building heart = getNearestHeart();
                     if(heart!=null&&heart instanceof BioHeart.BioHeartBuild heartbuild){
-                        heartbuild.send(ammoItem,(int)tile.x,(int)tile.y);
+                        if(heartbuild.items.has(ammoItem,1){
+                            heartbuild.send(ammoItem,(int)tile.x,(int)tile.y);
+                            heartbuild.items.remove(ammoItem,1);
+                        }
                     }
                 }
             }
