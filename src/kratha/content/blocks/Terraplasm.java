@@ -102,7 +102,7 @@ public class Terraplasm {
                         trailSinMag = 0.5f;
                         trailEffect = Fx.none;
                         despawnShake = 2f;
-,
+                        
                         shootEffect = KrathaFx.shootSkewer;
                         smokeEffect = KrathaFx.shootSmokeSkewer;
                         trailInterp = v -> Math.max(Mathf.slope(v), 0.8f);
