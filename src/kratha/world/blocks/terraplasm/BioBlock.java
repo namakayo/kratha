@@ -73,6 +73,7 @@ public class BioBlock extends Block {
         public int type = 0;
         
         //traumatic result of the monarch incident
+        //extraFloat1 is item delay
         public float extraFloat1,extraFloat2,extraFloat3,extraFloat4;
         public int extraInt,extraByte;
 
@@ -136,6 +137,10 @@ public class BioBlock extends Block {
                     fullyGrown=true;
                     pulsed=false;
                 }
+            }
+
+            if(extraFloat1>0f){
+                extraFloat1-=delta();
             }
         }
         public void updatePulse() {
