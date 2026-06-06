@@ -162,7 +162,7 @@ public class BioTurret extends Turret{
 
         @Override
         public boolean acceptItem(Building source, Item item){
-            return item==ammoItem&&items.has(ammoItem,maxAmmo);
+            return item==ammoItem&&!items.has(ammoItem,maxAmmo);
         }
         
         @Override
