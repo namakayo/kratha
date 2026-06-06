@@ -33,7 +33,7 @@ public class BioTurret extends Turret{
     public BulletType shootType;
     public boolean isRoot=false;
     public float pulseScale=0.5f;
-    public Item ammoItem=null;
+    public Item ammoItem=null; //only use single type of ammo
     
     public BioTurret(String name){
         super(name);
@@ -154,11 +154,11 @@ public class BioTurret extends Turret{
 
         @Override
         public boolean acceptItem(Building source, Item item){
-            return true;
+            return item==ammoItem;
         }
         @Override
         public void handleItem(Building source, Item item){
-            //no
+            items.add(ammoItem,1)
         }
 
         @Override
