@@ -6,6 +6,8 @@ import arc.graphics.g2d.*;
 import arc.graphics.g2d.TextureRegion;
 import arc.math.*;
 import arc.util.*;
+import arc.util.pooling.Pools;
+import arc.scene.ui.layout.Scl;
 import arc.math.geom.*;
 import mindustry.world.blocks.defense.*;
 import mindustry.gen.Building;
@@ -145,7 +147,7 @@ public class BioHeart extends BioBlock {
             Draw.color(0f, 0f, 0f, 0.2f);
             Fill.rect(x, y - tilesize/2f - l.height/2f - offset, l.width + offset*2f, l.height + offset*2f);
             Draw.color();
-            font.setColor(message.length() == 0 ? Color.lightGray : Color.white);
+            font.setColor(Color.red);
             font.draw(text, x - l.width/2f, y - tilesize/2f - offset, 90f, Align.left, true);
             font.setUseIntegerPositions(ints);
 
