@@ -73,6 +73,20 @@ public class Root extends BioBlock {
         Random rand=new Random(seed);
         return rand.nextFloat();
     }
+
+    //pack or unpack 2 ints into 1 float (i am genius)
+    public static float pack(int x, int y) {
+        int packed = (x<<2)|y;
+        return Float.intBitsToFloat(packed);
+    }
+    public static int[] unpack(float f) {
+        int packed = Float.floatToIntBits(f);
+        int a = (packed>>12)&0xFFF;
+        int b = packed&0xFFF;
+        return new int[]{a, b};
+    }
+    
+    
     public class RootBuild extends BioBuilding {
         public int blending;
         public Item lastItem;
@@ -150,18 +164,25 @@ public class Root extends BioBlock {
                 lastItem = items.first();
             }
             if(itemTargetX == -1 || itemTargetY == -1){
+                if(extraFloat2>=0){
+                    itemTargetX = unpack(extraFloat2)[0];
+                    itemTargetY = unpack(extraFloat2)[1];
+                }
+            }
+            if(itemTargetX == -1 || itemTargetY == -1){
                 if(getNearestHeart()!=null){
                     itemTargetX = getNearestHeart().tile.x;
                     itemTargetY = getNearestHeart().tile.y;
                 }
             }
+            extraFloat2 = pack(itemTargetX,itemTargetY);
             if(lastItem != null && itemTargetX != -1 && itemTargetY != -1 && extraFloat1<=0) {
                 Building target = null;
                 float bestDist = Float.POSITIVE_INFINITY; //FEAR THE INFINITE POWER
                 for(int i=0;i<4;i++){
                     Building adj;
                     adj = tile.nearby(Geometry.d4(i).x,Geometry.d4(i).y).build;
-                    if(adj != null && (adj.block instanceof Root || adj.block instanceof BioHeart)){
+                    if(adj != null && (adj.block instanceof Root || adj.block instanceof BioHeart || adj.block instanceof BioTurret)){
                         float dist = Mathf.dst(itemTargetX, itemTargetY, adj.tile.x, adj.tile.y);
                         if(dist<bestDist&&adj.acceptItem(this, lastItem)){
                             target = adj;
@@ -238,4 +259,4 @@ public class Root extends BioBlock {
             return result;
         }
     }
-      }
+}
