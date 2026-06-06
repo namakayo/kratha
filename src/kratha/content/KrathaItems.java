@@ -7,7 +7,7 @@ import kratha.graphics.KrathaPal;
 
 public class KrathaItems{
     public static Item
-    krathite,guartz,terrasand,spurstone;
+    krathite,guartz,terrasand,spurstone,cobalt;
     public static final Seq<Item> krathaItems = new Seq<>();
 
     public static void load(){
