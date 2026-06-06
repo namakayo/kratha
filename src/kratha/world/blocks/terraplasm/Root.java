@@ -155,7 +155,7 @@ public class Root extends BioBlock {
                     itemTargetY = getNearestHeart().tile.y;
                 }
             }
-            if(lastItem != null && itemTargetX != -1 && itemTargetY != -1) {
+            if(lastItem != null && itemTargetX != -1 && itemTargetY != -1 && extraFloat1<=0) {
                 Building target = null;
                 float bestDist = Float.POSITIVE_INFINITY; //FEAR THE INFINITE POWER
                 for(int i=0;i<4;i++){
@@ -219,6 +219,7 @@ public class Root extends BioBlock {
         public void handleItem(Building source, Item item){
             items.add(item, 1);
             lastItem = item;
+            extraFloat1 = 5f;
         }
 
         @Override
