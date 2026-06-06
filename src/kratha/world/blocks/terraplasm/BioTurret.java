@@ -155,8 +155,8 @@ public class BioTurret extends Turret{
             return true;
         }
         @Override
-        public boolean handleItem(Building source, Item item){
-            return true;
+        public void handleItem(Building source, Item item){
+            //no
         }
 
         @Override
