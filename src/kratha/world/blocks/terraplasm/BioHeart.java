@@ -97,7 +97,7 @@ public class BioHeart extends BioBlock {
             }
         }
         public void send(Item item, int targetX, int targetY){
-            float bestDist = 99999999;
+            float bestDist = Float.POSITIVE_INFINITE;
             Building outputTo=null;
             for(int i=0;i<4;i++){
                 for(int j=-1;j<=1;j++){
@@ -108,7 +108,7 @@ public class BioHeart extends BioBlock {
                         adj = tile.nearby(Geometry.d4(i).x*2+j,Geometry.d4(i).y*2);
                     }
                     if(adj!=null&&adj.block()!=null&&adj.build!=null&&adj.build instanceof Root.RootBuild r){
-                        float dist = Mathf.dst(tile.x,tile.y,adj.x,adj.y);
+                        float dist = Mathf.dst(targetX,targetY,adj.x,adj.y);
                         if(dist<bestDist){
                             bestDist=dist;
                             outputTo = r;
