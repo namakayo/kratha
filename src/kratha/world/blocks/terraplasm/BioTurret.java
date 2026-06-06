@@ -157,7 +157,7 @@ public class BioTurret extends Turret{
         
         @Override
         public boolean hasAmmo(){
-            return items.has(ammoItem,1);
+            return items.has(ammoItem,ammoPerShot);
         }
 
         @Override
@@ -165,9 +165,9 @@ public class BioTurret extends Turret{
             ammoToUse--;
             if(ammoToUse<=0){
                 items.remove(ammoItem,ammoPerShot);
+                expectedAmmo-=ammoPerShot;
                 ammoToUse=ammoItemMultiplier;
             }
-            expectedAmmo--;
             return shootType;
         }
 
