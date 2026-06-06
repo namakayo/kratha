@@ -24,9 +24,9 @@ import kratha.content.terraplasm.Terraplasm;
 import static mindustry.Vars.*;
 
 public class BioHeart extends BioBlock {
-    //modify with data patch for seizure
     public float heartBpm=80;
     public int heartPower=32;
+    public boolean hideDatapatchWarning=false;
     public BioHeart(String name){
         super(name);
         priority = TargetPriority.core;
@@ -129,6 +129,29 @@ public class BioHeart extends BioBlock {
         public void draw(){
             Draw.z(Layer.block+0.01f); //the heart must be above even if its just slightly
             drawPulse(block.region,drawPulseScale);
+
+            if(!allowRoot||hideDatapatchWarning)return;
+            Font font = Fonts.outline;
+            GlyphLayout l = Pools.obtain(GlyphLayout.class, GlyphLayout::new);
+            boolean ints = font.usesIntegerPositions();
+            font.getData().setScale(1 / 4f / Scl.scl(1f));
+            font.setUseIntegerPositions(false);
+
+            String text = "Datapatch required";
+                
+            l.setText(font, text, Color.white, 90f, Align.left, true);
+            float offset = 1f;
+
+            Draw.color(0f, 0f, 0f, 0.2f);
+            Fill.rect(x, y - tilesize/2f - l.height/2f - offset, l.width + offset*2f, l.height + offset*2f);
+            Draw.color();
+            font.setColor(message.length() == 0 ? Color.lightGray : Color.white);
+            font.draw(text, x - l.width/2f, y - tilesize/2f - offset, 90f, Align.left, true);
+            font.setUseIntegerPositions(ints);
+
+            font.getData().setScale(1f);
+
+            Pools.free(l);
         }
         @Override
         public int acceptStack(Item item, int amount, Teamc source){
