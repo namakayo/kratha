@@ -87,6 +87,10 @@ public class BioTurret extends Turret{
                 } else {
                     resetPulseTimer=0;
                     pulsed=false;
+                    Building heart = getNearestHeart();
+                    if(heart!=null){
+                        heart.send(x,y)
+                    }
                 }
             }
             if (biopulse>=0&&deathTimer<deathTimerLimit){
@@ -127,6 +131,9 @@ public class BioTurret extends Turret{
 
         public void onDestroyed(){
             splashLiquid(KrathaLiquids.biomass,40*size);
+        }
+        public Building getNearestHeart() {
+            return Units.findAllyTile(team, x, y, 1000, b -> b.block instanceof BioHeart);
         }
         @Override
         public double sense(LAccess sensor){
