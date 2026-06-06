@@ -17,6 +17,7 @@ import mindustry.world.*;
 import mindustry.world.Tile;
 import mindustry.graphics.*;
 import mindustry.content.*;
+import mindustry.entities.Units;
 import mindustry.entities.effect.*;
 import mindustry.gen.*;
 import mindustry.world.meta.*;
