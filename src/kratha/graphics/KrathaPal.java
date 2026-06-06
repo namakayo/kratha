@@ -36,5 +36,9 @@ public class KrathaPal{
 
     spurstoneDark = Color.valueOf("47414A"),
     spurstone = Color.valueOf("838185"),
-    spurstoneLight = Color.valueOf("BFBEBF");
+    spurstoneLight = Color.valueOf("BFBEBF"),
+
+    cobaltDark = Color.valueOf("5A3C88"),
+    cobalt = Color.valueOf("7B73AE"),
+    cobaltLight = Color.valueOf("ACB0D8");
 }
