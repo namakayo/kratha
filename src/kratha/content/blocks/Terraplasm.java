@@ -81,6 +81,8 @@ public class Terraplasm {
 
                     ammoItem = KrathaItems.guartz;
                     maxAmmo = 5;
+                    ammoItemMultiplier = 3;
+                    
                     shootType = new ArtilleryBulletType(4.3f, 50f, "shell"){{
                         hitEffect = KrathaFx.skewerSmoke;
                         despawnEffect = Fx.none;
