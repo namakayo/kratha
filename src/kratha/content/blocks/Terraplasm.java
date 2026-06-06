@@ -78,6 +78,7 @@ public class Terraplasm {
                     shootY = 2;
 
                     ammoItem = KrathaItems.guartz;
+                    maxAmmo = 5
                     shootType = new BulletType(4.89f, 24f){{
                         ammoMultiplier = 3f;
                         hitSize = 7f;
