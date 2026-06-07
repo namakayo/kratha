@@ -76,7 +76,7 @@ public class Root extends BioBlock {
 
     //pack or unpack 2 ints into 1 float (i am genius)
     public static float pack(int x, int y) {
-        int packed = (x<<2)|y;
+        int packed = (x<<12)|y;
         return Float.intBitsToFloat(packed);
     }
     public static int[] unpack(float f) {
@@ -85,7 +85,6 @@ public class Root extends BioBlock {
         int b = packed&0xFFF;
         return new int[]{a, b};
     }
-    
     
     public class RootBuild extends BioBuilding {
         public int blending;
@@ -213,6 +212,7 @@ public class Root extends BioBlock {
                         targetbuild.itemTargetX = itemTargetX;
                         targetbuild.itemTargetY = itemTargetY;
                     }
+                    extraFloat2 = 0;
                     itemTargetX = -1;
                     itemTargetY = -1;
                     items.remove(lastItem, 1);
