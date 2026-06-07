@@ -17,6 +17,7 @@ public class KrathaPal{
     krathaOutline = Color.valueOf("292730"),
     deearthOutline = Color.valueOf("30312E"),
     terraOutline = Color.valueOf("352317"),
+    krathianOutline = Color.valueOf("34253E"),
 
     krathagenDark = Color.valueOf("381932"),
     krathagen = Color.valueOf("622C55"),
