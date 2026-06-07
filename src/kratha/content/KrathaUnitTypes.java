@@ -83,7 +83,7 @@ public class KrathaUnitTypes{
                 rotate = true;
                 shootSound = Sounds.shootSap;
                 mirror = false;
-                bullet = new BulletType(){{
+                bullet = new BasicBulletType(){{
                     damage = 40;
                     shootEffect = Fx.shootSmall;
                     hitColor = color = Color.valueOf("bf92f9");
