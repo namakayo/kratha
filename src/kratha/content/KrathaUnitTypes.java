@@ -57,6 +57,7 @@ public class KrathaUnitTypes{
         }};
         //region krathian
         rocky = new KrathianUnitType("rocky"){{
+            constructor = LegsUnit::create;
             speed = 0.85f;
             drag = 0.3f;
             hitSize = 12f;
