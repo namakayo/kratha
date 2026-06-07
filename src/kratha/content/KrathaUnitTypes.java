@@ -86,7 +86,6 @@ public class KrathaUnitTypes{
                 bullet = new BasicBulletType(){{
                     damage = 40;
                     shootEffect = Fx.shootSmall;
-                    hitColor = color = Color.valueOf("bf92f9");
                     despawnEffect = Fx.none;
                     width = 0;
                     height = 0;
