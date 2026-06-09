@@ -14,17 +14,25 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaDefense{
     public static Block
-    radar;
+    radar,cutsceneRadar;
   
     public static void load(){
          radar = new Radar("radar"){{
             requirements(Category.effect, BuildVisibility.fogOnly, with(KrathaItems.krathite, 30, KrathaItems.guartz, 50, KrathaItems.spurstone, 15));
             outlineColor = KrathaPal.krathaOutline;
-            fogRadius = 20;
+            fogRadius = 35;
             glowColor = KrathaPal.krathiteLight;
             researchCost = with(KrathaItems.krathite, 100, KrathaItems.guartz, 150, KrathaItems.spurstone, 50);
             customShadow = true;
             consumePower(30/60f);
+        }};
+        cutsceneRadar = new Radar("cutsceneRadar"){{
+            requirements(Category.effect, BuildVisibility.sandboxOnly, with());
+            outlineColor = KrathaPal.krathaOutline;
+            fogRadius = 40;
+            discoveryTime = 30f;
+            glowColor = KrathaPal.krathiteLight;
+            customShadow = true;
         }};
     }
 }
