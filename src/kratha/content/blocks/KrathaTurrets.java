@@ -32,7 +32,7 @@ import mindustry.entities.effect.*;
 import static mindustry.type.ItemStack.with;
 import static mindustry.Vars.*;
 
-public class DeterraTurrets {
+public class KrathaTurrets {
     public static Block
             impede;
     public static void load() {
