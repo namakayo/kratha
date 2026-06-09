@@ -32,7 +32,7 @@ public class KrathaEnv {
             {
                 //darkness
                 darkness = new Block("darkness"){{
-                    requirements(Category.distribution, with());
+                    requirements(Category.effect, with());
                     forceDark = true;
                     targetable = false;
                     solid = false;
@@ -41,6 +41,7 @@ public class KrathaEnv {
                     breakable = false;
                     drawTeamOverlay = false;
                     destructible = false;
+                    drawShadow = false;
                     buildVisibility = BuildVisibility.sandboxOnly;
                 }};
                 //terraspore
