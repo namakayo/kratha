@@ -114,11 +114,24 @@ public class Root extends BioBlock {
                 }
             }
         }
-        public void passiveGrow(Block growBlock, Boolf<Building> pred, float maxDist, float rate){
+        public void passiveGrow(Block growBlock, float maxDist, float rate){
             //try to grow a block if the same block isn't nearby
-            Building sameNear = Units.findAllyTile(team, x, y, 1000, pred);
+            boolean sameNear = false;
+            float maxDistSquared=maxDist*maxDist;
+            for(int i=-maxDist;i<maxDist;i++){
+                for(int j=-maxDist;j<maxDist;j++){
+                    Tile adj;
+                    adj = tile.nearby(i,j);
+                    float dx=i-tile.x;
+                    float dy=j-tile.y;
+                    float dist=dx*dx+dy*dy;
+                    if (dist<maxDistSquared&&adj != null && adj.build!=null && (adj.build.block==growBlock)) {                        
+                        sameNear = true;
+                    }
+                }
+            }
             Random random = new Random();
-            if(sameNear==null||(sameNear!=null&&Mathf.dst(x,y,sameNear.x,sameNear.y)>maxDist*Vars.tilesize)&&random.nextFloat()<rate){
+            if(!sameNear&&random.nextFloat()<rate){
                 grow(growBlock);
             }
         }
@@ -155,8 +168,8 @@ public class Root extends BioBlock {
                 tile.setBlock(Terraplasm.harvester,team);
             }
 
-            if(allowEye)passiveGrow(Terraplasm.eye,b -> b.block instanceof BioEye,eyeSpacing,eyeRate);
-            if(allowSkewer&&clear3)passiveGrow(Terraplasm.skewer,b -> b.block instanceof BioTurret,skewerSpacing,skewerRate);
+            if(allowEye)passiveGrow(Terraplasm.eye,eyeSpacing,eyeRate);
+            if(allowSkewer&&clear3)passiveGrow(Terraplasm.skewer,skewerSpacing,skewerRate);
             
             //item movement
             
