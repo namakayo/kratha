@@ -33,6 +33,7 @@ public class KrathaDefense{
             discoveryTime = 30f;
             glowColor = KrathaPal.krathiteLight;
             customShadow = true;
+            rebuildable = false;
         }};
     }
 }
