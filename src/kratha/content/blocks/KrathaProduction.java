@@ -32,7 +32,7 @@ public class KrathaProduction {
             drillTime = 400;
             drawRim = true;
             hasPower = true;
-            tier = 2;
+            tier = 3;
             size = 2;
             fogRadius = 0;
             squareSprite = false;
