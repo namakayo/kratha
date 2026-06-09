@@ -41,7 +41,7 @@ public class KrathaEnv {
                     breakable = false;
                     drawTeamOverlay = false;
                     destructible = false;
-                    drawShadow = false;
+                    hasShadow = false;
                     buildVisibility = BuildVisibility.sandboxOnly;
                 }};
                 //terraspore
