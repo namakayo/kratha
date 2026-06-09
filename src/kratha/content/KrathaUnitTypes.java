@@ -62,7 +62,7 @@ public class KrathaUnitTypes{
             drag = 0.3f;
             hitSize = 12f;
             rotateSpeed = 4f;
-            health = 280;
+            health = 320;
             legCount = 5;
             legLength = 25f;
             legForwardScl = 0.8f;
@@ -88,8 +88,7 @@ public class KrathaUnitTypes{
                 mirror = false;
                 bullet = new BasicBulletType(){{
                     damage = 40;
-                    shootEffect = Fx.none;
-                    despawnEffect = Fx.none;
+                    shootEffect = despawnEffect = smokeEffect = Fx.none;
                     width = 0;
                     height = 0;
                     lifetime = 2f;
