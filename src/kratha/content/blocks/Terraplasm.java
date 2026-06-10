@@ -45,6 +45,7 @@ public class Terraplasm {
                     targetable = false;
                     forceDark = true;
                     privileged = true;
+                    lightRadius = 0;
                     size = 1;
                 }};
                 heart = new BioHeart("heart"){{
