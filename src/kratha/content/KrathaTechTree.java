@@ -66,6 +66,9 @@ public class KrathaTechTree {
             });
             
             node(KrathaSectorPresets.theFountain, () -> {
+                node(KrathaSectorPresets.oasis, Seq.with(Objectives.SectorComplete(theFountain)),() -> {
+                
+                });
                 
             });
 
