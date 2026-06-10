@@ -67,11 +67,9 @@ public class KrathaTechTree {
             });
             
             node(KrathaSectorPresets.theFountain, () -> {
-                /*
                 node(KrathaSectorPresets.oasis, Seq.with(new Objectives.SectorComplete(theFountain)),() -> {
                 
                 });
-                */
             });
 
             node(KrathaUnits.nauticAssembler, Seq.with(new Objectives.OnSector(oasis)),() -> {
