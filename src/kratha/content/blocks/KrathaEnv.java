@@ -116,7 +116,7 @@ public class KrathaEnv {
                 terrastoneWatra = new Floor("terrastone-watra"){{
                     speedMultiplier = 0.9f;
                     variants = 4;
-                    liquidDrop = KrathaLiquids.watra;
+                    liquidDrop = KrathaLiquids.muddyWatra;
                     isLiquid = true;
                     cacheLayer = CacheLayer.water;
                     albedo = 0.8f;
