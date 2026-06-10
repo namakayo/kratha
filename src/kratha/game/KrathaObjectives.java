@@ -4,6 +4,7 @@ import arc.*;
 import arc.scene.ui.layout.*;
 import mindustry.ctype.*;
 import mindustry.type.*;
+import kratha.type.*;
 
 /** Holds objective classes. */
 //made this only so that i could use OnSector and SectorComplete with KrathaSectorPreset
