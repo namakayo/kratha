@@ -18,10 +18,16 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaUnits {
     public static Block
-            rockboredFactory;
+            nauticAssembler,rockboredFactory;
     public static void load() {
         {
             {
+                nauticAssembler = new UnitFactory("nautic-assembler"){{
+                    requirements(Category.units, with(KrathaItems.krathite,75,KrathaItems.guartz,60,KrathaItems.spurstone,30,KrathaItems.cobalt,30));
+                    plans.add(new UnitPlan(KrathaUnitTypes.keris, 15 * 60f, with(KrathaItems.krathite, 15,KrathaItems.cobalt, 10)));
+                    consumePower(90/60f);
+                    size = 3;
+                }};
                 rockboredFactory = new UnitFactory("rockbored-factory"){{
                     requirements(Category.units, with());
                     plans.add(new UnitPlan(KrathaUnitTypes.keris, 14 * 60f, with(KrathaItems.guartz, 15,KrathaItems.spurstone, 10)));
