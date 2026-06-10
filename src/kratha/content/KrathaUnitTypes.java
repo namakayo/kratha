@@ -55,12 +55,15 @@ public class KrathaUnitTypes{
                 mirror = false;
                 rotate = true;
                 rotationLimit = 50f;
-                bullet = new BasicBulletType(4f, 28){{
+                bullet = new BasicBulletType(4f, 26){{
                     homingPower = 0.3f;
                     homingDelay = 4f;
                     width = 7f;
                     height = 10f;
                     lifetime = 32f;
+                    hitEffect = despawnEffect = Fx.hitBulletColor;
+                    hitColor = backColor = trailColor = KrathaPal.cobaltDark;
+                    frontColor = KrathaPal.cobaltLight;
                 }};
             }});
         }};
