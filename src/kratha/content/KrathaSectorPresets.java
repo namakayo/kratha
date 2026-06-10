@@ -13,9 +13,11 @@ public class KrathaSectorPresets {
            difficulty = 1;
            overrideLaunchDefaults = true;
         }};
+        /*
         oasis = new KrathaSectorPreset("oasis", KrathaPlanets.kratha, 111){{
            difficulty = 1;
            overrideLaunchDefaults = true;
         }};
+        */
     }
 }
