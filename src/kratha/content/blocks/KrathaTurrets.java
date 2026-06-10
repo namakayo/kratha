@@ -39,8 +39,8 @@ public class KrathaTurrets {
         {
             {
                 impede = new ItemTurret("impede"){{
-                    requirements(Category.turret, with(KrathaItems.krathite, 25, KrathaItems.guartz, 20));
-                    researchCost = with(KrathaItems.krathite, 25, KrathaItems.guartz, 20);
+                    requirements(Category.turret, with(KrathaItems.krathite, 50, KrathaItems.guartz, 40, KrathaItems.spurstone, 20));
+                    researchCost = with(KrathaItems.krathite, 100, KrathaItems.guartz, 80, KrathaItems.spurstone,40);
   
                     health = 180;
                     fogRadiusMultiplier = 0f;
