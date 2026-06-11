@@ -2,6 +2,8 @@ package kratha.annotations;
 
 import java.lang.annotation.*;
 
+//Nothing but direct copy if mindustry's Annotations.java
+//(so that i could use annotations)
 public class KrathaAnnotations{
     //region entity interfaces
 
