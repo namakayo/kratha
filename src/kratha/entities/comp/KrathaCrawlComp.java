@@ -15,6 +15,7 @@ import mindustry.world.blocks.environment.*;
 
 import static mindustry.Vars.*;
 
+//NEVER USED, but i just don't want to delete this
 @KrathaAnnotations.Component
 abstract class CrawlComp implements Posc, Rotc, Hitboxc, Unitc{
     @KrathaAnnotations.Import float x, y, speedMultiplier, rotation, hitSize;
