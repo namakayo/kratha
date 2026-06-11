@@ -1,0 +1,7 @@
+Please be warned that the terraplasm code is not written to be understood.
+
+it is an absolute mess of java i never intended to be read.
+Plus, some part of the code is very unoptimal due to my lack of coding skill which probably
+just make it even harder to understand
+
+i am not responsible of any confusion caused by these code
