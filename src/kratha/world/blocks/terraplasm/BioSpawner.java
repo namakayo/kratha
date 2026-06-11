@@ -33,7 +33,9 @@ public class BioSpawner extends BioBlock {
     public TextureRegion topRegion;
     public Effect spawnEffect=KrathaFx.bulbPop;
     public Item inputItem1;
+    public int requiredItem1;
     public Item inputItem2;
+    public int requiredItem2;
     
     public float wscl = 10f, wmag = 1.2f, wtscl = 1f, wmag2 = 1.5f;
     
@@ -43,6 +45,7 @@ public class BioSpawner extends BioBlock {
         update=true;
         isRoot=false;
         hasItems=true;
+        itemCapacity=Math.max(requiredItem1,requiredItem2)*2;
     }
     
     @Override
@@ -68,6 +71,14 @@ public class BioSpawner extends BioBlock {
                     unit.rotation = 90f;
                     unit.add();
                     spawnEffect.at(x,y);
+                }
+            }
+            Building heart = getNearestHeart();
+            if(expectedItem1<requiredItem1&&heart!=null&&heart instanceof BioHeart.BioHeartBuild heartbuild){
+                boolean success = heartbuild.send(inputItem1,(int)tile.x,(int)tile.y);
+                if(success){
+                    heartbuild.items.remove(inputItem1,1);
+                    expectedItem1++;
                 }
             }
         }
