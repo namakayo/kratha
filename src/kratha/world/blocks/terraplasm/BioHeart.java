@@ -99,6 +99,7 @@ public class BioHeart extends BioBlock {
             }
         }
         public boolean send(Item item, int targetX, int targetY){
+            if(!this.items.has(item,1))return false;
             float bestDist = Float.POSITIVE_INFINITY;
             Building outputTo=null;
             for(int i=0;i<4;i++){
