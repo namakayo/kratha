@@ -65,6 +65,15 @@ public class Terraplasm {
                     health = 140;
                     size = 2;
                 }};
+                cradle = new BioSpawner("cradle"){{
+                    requirements(Category.distribution, with(KrathaItems.guartz, 5,KrathaItems.cobalt,5));
+                    health = 350;
+                    size = 3;
+                    inputItem1 = KrathaItems.guartz;
+                    requiredItem1 = 3;
+                    inputItem2 = KrathaItems.cobalt;
+                    requiredItem2 = 2;
+                }};
                 skewer = new BioTurret("skewer"){{
                     requirements(Category.turret, with(KrathaItems.guartz, 5));
                     reload = 85f;
