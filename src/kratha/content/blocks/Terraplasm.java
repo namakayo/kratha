@@ -69,6 +69,7 @@ public class Terraplasm {
                     requirements(Category.distribution, with(KrathaItems.guartz, 5,KrathaItems.cobalt,5));
                     health = 350;
                     size = 3;
+                    unitType = KrathaUnitTypes.terrapillar;
                     inputItem1 = KrathaItems.guartz;
                     requiredItem1 = 3;
                     inputItem2 = KrathaItems.cobalt;
