@@ -14,6 +14,7 @@ import mindustry.graphics.Pal;
 import mindustry.graphics.*;
 import mindustry.gen.*;
 import mindustry.type.*;
+import mindustry.ai.types.*;
 import kratha.type.unit.*;
 import kratha.graphics.KrathaPal;
 import kratha.content.KrathaFx;
