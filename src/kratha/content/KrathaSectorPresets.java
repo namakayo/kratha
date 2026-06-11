@@ -8,12 +8,12 @@ public class KrathaSectorPresets {
     public static KrathaSectorPreset theFountain,oasis;
 
     public static void load(){
-        theFountain = new KrathaSectorPreset("the-fountain", KrathaPlanets.kratha, 569){{
+        theFountain = new KrathaSectorPreset("the-fountain", KrathaPlanets.kratha, 452){{
            alwaysUnlocked = true;
            difficulty = 1;
            overrideLaunchDefaults = true;
         }};
-        oasis = new KrathaSectorPreset("oasis", KrathaPlanets.kratha, 111){{
+        oasis = new KrathaSectorPreset("oasis", KrathaPlanets.kratha, 32){{
            difficulty = 1;
            overrideLaunchDefaults = true;
         }};
