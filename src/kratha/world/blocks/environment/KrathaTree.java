@@ -59,8 +59,8 @@ public class KrathaTree extends TallBlock{
         for(int i=0;i<woodLayers;i++){
             Draw.z(layer);
             Draw.color(1f,1f,1f,tAlpha);
-            float camoffX=(tile.worldx()-Core.camera.position.x)*(parallaxAmount/Core.camera.width)*(i/woodLayers-1);
-            float camoffY=(tile.worldy()-Core.camera.position.y)*(parallaxAmount/Core.camera.width)*(i/woodLayers-1);
+            float camoffX=(tile.worldx()-Core.camera.position.x)*(parallaxAmount/Core.camera.width)*((float)i/(woodLayers-1));
+            float camoffY=(tile.worldy()-Core.camera.position.y)*(parallaxAmount/Core.camera.width)*((float)i/(woodLayers-1));
             Draw.rect(woodRegion,tile.worldx()+camoffX, tile.worldy()+camoffY, rot);
         }
     
