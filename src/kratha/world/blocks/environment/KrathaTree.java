@@ -26,7 +26,7 @@ public class KrathaTree extends TallBlock{
     public float parallaxAmount = 100f;
     public float branchParallaxAmount = parallaxAmount/2f;
     static Rand rand = new Rand();
-    static Rand irand = new Rans();
+    static Rand irand = new Rand();
     public float heightRange = 25;
 
     public KrathaTree(String name){
