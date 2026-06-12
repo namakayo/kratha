@@ -8,9 +8,8 @@ import mindustry.world.*;
 import mindustry.world.blocks.environment.TallBlock;
 import mindustry.Vars;
 
-//BranchedTree probably would be better
 public class KrathaTree extends TallBlock{
-    //why
+    //dont ask why
     public TextureRegion branchRegion1;
     public TextureRegion branchRegion2;
     public TextureRegion branchRegion1bot;
@@ -98,8 +97,8 @@ public class KrathaTree extends TallBlock{
         Draw.color(1f,1f,1f,tAlpha);
 
         Draw.z(layer);
-        float camoffX=tile.worldx()-Core.camera.position.x*parallaxAmount;
-        float camoffY=tile.worldy()-Core.camera.position.y*parallaxAmount;
+        float camoffX=(tile.worldx()-Core.camera.position.x)*parallaxAmount;
+        float camoffY=(tile.worldy()-Core.camera.position.y)*parallaxAmount;
         Draw.rect(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region,
             tile.worldx()+camoffX, tile.worldy()+camoffY, rot);
     }
