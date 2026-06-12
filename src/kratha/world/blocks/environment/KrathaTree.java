@@ -67,7 +67,7 @@ public class KrathaTree extends TallBlock{
             float w = bReg.width * bReg.scl(), h = bReg.height * bReg.scl();
             var region = Angles.angleDist(ba, 225f) <= botAngle ? (variant>1?branchRegion1bot:branchRegion2bot) : (variant>1?branchRegion1:branchRegion2);
             var sRegion = (variant>1?branchRegion1s:branchRegion2s);
-            rand.setSeed(tile.pos()+i);
+            irand.setSeed(tile.pos()+i);
             float thisBranchParallaxAmount = (float)irand.random(branchParallaxAmount/2, branchParallaxAmount*3/4);
                 
             Draw.color(0f, 0f, 0f, shadowAlpha);
