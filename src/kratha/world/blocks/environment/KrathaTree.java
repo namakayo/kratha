@@ -24,6 +24,7 @@ public class KrathaTree extends TallBlock{
     public float fadeDist = 70f, fadeDistTo = 50f, fadeAmount=0.75f; //fade amount 1 means 100% 0 means no fade
     public float parallaxAmount = 100f;
     public float branchParallaxAmount = parallaxAmount/2f;
+    public int woodLayers = 1; //overriden later
     static Rand rand = new Rand();
 
     public KrathaTree(String name){
@@ -41,6 +42,7 @@ public class KrathaTree extends TallBlock{
       branchRegion1s=Core.atlas.find(name+"-branch1-shadow");
       branchRegion2s=Core.atlas.find(name+"-branch2-shadow");
       woodRegion=Core.atlas.find(name+"-wood");
+      woodLayers=(int)Math.ceil(parallaxAmount/20f);
     }
 
     @Override
@@ -49,6 +51,20 @@ public class KrathaTree extends TallBlock{
         rand.setSeed(tile.pos());
         float offset = rand.random(180f);
         int lobes = rand.random(lobesMin, lobesMax);
+        float rot = Mathf.randomSeedRange(tile.pos() + 1, rotationRand);
+
+        float tAlpha=1f;
+        if(Vars.player.unit()!=null&&!Vars.player.unit().dead()){
+            tAlpha=Math.max(0,Math.min(fadeDist-fadeDistTo,Mathf.dst(tile.worldx(),tile.worldy(),Vars.player.unit().x,Vars.player.unit().y)-fadeDistTo))/(fadeDist-fadeDistTo)*fadeAmount+(1-fadeAmount);
+        }
+        Draw.z(layer);
+        for(int i=0;i<woodLayers;i++){
+            Draw.color(1f,1f,1f,tAlpha*((woodLayers-i)/woodLayers));
+            float camoffX=(tile.worldx()-Core.camera.position.x)*(parallaxAmount/Core.camera.width);
+            float camoffY=(tile.worldy()-Core.camera.position.y)*(parallaxAmount/Core.camera.width);
+            Draw.rect(woodRegion,tile.worldx()+camoffX*(i/woodLayers), tile.worldy()+camoffY*(i/woodLayers), rot);
+        }
+    
         for(int i = 0; i < lobes; i++){
             float ba =  i / (float)lobes * 360f + offset + rand.range(spread), angle = ba + Mathf.sin(Time.time + rand.random(0, timeRange), rand.random(sclMin, sclMax), rand.random(magMin, magMax));
             //variant 2 of branch will be choosen 2/3 of the time instead of 1/2, intended.
@@ -83,20 +99,12 @@ public class KrathaTree extends TallBlock{
                 angle
             );
         }
-        float rot = Mathf.randomSeedRange(tile.pos() + 1, rotationRand);
-
+        
         Draw.z(shadowLayer);
         Draw.color(0f, 0f, 0f, shadowAlpha);
         Draw.rect(variants > 0 ? variantShadowRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantShadowRegions.length - 1))] : customShadowRegion,
             tile.worldx() + shadowOffset, tile.worldy() + shadowOffset, rot);
-        float tAlpha=1f;
-        if(Vars.player.unit()!=null&&!Vars.player.unit().dead()){
-            tAlpha=Math.max(0,Math.min(fadeDist-fadeDistTo,Mathf.dst(tile.worldx(),tile.worldy(),Vars.player.unit().x,Vars.player.unit().y)-fadeDistTo))/(fadeDist-fadeDistTo)*fadeAmount+(1-fadeAmount);
-        }
-        Draw.color();
-
-        Draw.z(layer);
-        Draw.rect(woodRegion,tile.worldx(), tile.worldy());
+        
         Draw.color(1f,1f,1f,tAlpha);
 
         Draw.z(layer);
