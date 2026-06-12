@@ -26,6 +26,8 @@ public class KrathaTree extends TallBlock{
     public float parallaxAmount = 100f;
     public float branchParallaxAmount = parallaxAmount/2f;
     static Rand rand = new Rand();
+    static Rand irand = new Rans();
+    public float heightRange = 25;
 
     public KrathaTree(String name){
         super(name);
@@ -65,7 +67,8 @@ public class KrathaTree extends TallBlock{
             float w = bReg.width * bReg.scl(), h = bReg.height * bReg.scl();
             var region = Angles.angleDist(ba, 225f) <= botAngle ? (variant>1?branchRegion1bot:branchRegion2bot) : (variant>1?branchRegion1:branchRegion2);
             var sRegion = (variant>1?branchRegion1s:branchRegion2s);
-            float thisBranchParallaxAmount = (float)rand.random(branchParallaxAmount/2, branchParallaxAmount*3/4);
+            rand.setSeed(tile.pos()+i);
+            float thisBranchParallaxAmount = (float)irand.random(branchParallaxAmount/2, branchParallaxAmount*3/4);
                 
             Draw.color(0f, 0f, 0f, shadowAlpha);
             if(sRegion!=null){
@@ -102,9 +105,11 @@ public class KrathaTree extends TallBlock{
         Draw.rect(woodRegion,tile.worldx(), tile.worldy(), rot);
         Draw.color(1f,1f,1f,tAlpha);
 
+        float hoff = Mathf.randomSeedRange(tile.pos() + 1, heightRange);
+        
         Draw.z(layer);
-        float camoffX=(tile.worldx()-Core.camera.position.x)*(parallaxAmount/Core.camera.width);
-        float camoffY=(tile.worldy()-Core.camera.position.y)*(parallaxAmount/Core.camera.width);
+        float camoffX=(tile.worldx()-Core.camera.position.x)*((hoff+parallaxAmount)/Core.camera.width);
+        float camoffY=(tile.worldy()-Core.camera.position.y)*((hoff+parallaxAmount)/Core.camera.width);
         Draw.rect(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region,
             tile.worldx()+camoffX, tile.worldy()+camoffY, rot);
     }
