@@ -22,7 +22,7 @@ public class KrathaTree extends TallBlock{
     public float botAngle = 50f, origin = 0.1f;
     public float sclMin = 300f, sclMax = 360f, magMin = 5f, magMax = 15f, timeRange = 40f, spread = 0f;
     public float fadeDist = 70f, fadeDistTo = 50f, fadeAmount=0.75f; //fade amount 1 means 100% 0 means no fade
-    public float parallaxAmount = 150f;
+    public float parallaxAmount = 100f;
     public float branchParallaxAmount = parallaxAmount/2f;
     static Rand rand = new Rand();
 
@@ -78,6 +78,7 @@ public class KrathaTree extends TallBlock{
             float camoffY=(tile.worldy()-Core.camera.position.y)*(branchParallaxAmount/Core.camera.width);
             Draw.rect(region,
                 (tile.worldx()+camoffX) - Angles.trnsx(angle, origin) + w*0.5f, (tile.worldy()+camoffY) - Angles.trnsy(angle, origin),
+                w, h,
                 origin*4f, h/2f,
                 angle
             );
