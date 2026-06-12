@@ -25,8 +25,6 @@ public class KrathaTree extends TallBlock{
     public float fadeDist = 70f, fadeDistTo = 50f, fadeAmount=0.75f; //fade amount 1 means 100% 0 means no fade
     public float parallaxAmount = 100f;
     public float branchParallaxAmount = parallaxAmount/2f;
-    public int woodLayers = 15;
-    public float maxDist=5;
     static Rand rand = new Rand();
 
     public KrathaTree(String name){
@@ -57,24 +55,6 @@ public class KrathaTree extends TallBlock{
         float tAlpha=1f;
         if(Vars.player.unit()!=null&&!Vars.player.unit().dead()){
             tAlpha=Math.max(0,Math.min(fadeDist-fadeDistTo,Mathf.dst(tile.worldx(),tile.worldy(),Vars.player.unit().x,Vars.player.unit().y)-fadeDistTo))/(fadeDist-fadeDistTo)*fadeAmount+(1-fadeAmount);
-        }
-        float maxDistSquared=maxDist*maxDist;
-        int ceilDist = (int)Math.ceil(maxDist);
-        for(int i=-ceilDist;i<=ceilDist;i++){
-            for(int j=-ceilDist;j<=ceilDist;j++){
-                Tile adj;
-                adj = tile.nearby(i,j);
-                float dist=i*i+j*j;
-                if ((i==0&&j==0)||dist<maxDistSquared&&adj != null && adj.block()!=null && adj.block() == KrathaEnv.woodWall) {                        
-                    for(int k=0;k<woodLayers;k++){
-                        Draw.z(layer);
-                        Draw.color(1f,1f,1f,tAlpha*(((float)(woodLayers-1-k))/(woodLayers-1)));
-                        float camoffX=((tile.worldx()+i*8)-Core.camera.position.x)*(parallaxAmount/Core.camera.width)*((float)k/(woodLayers-1));
-                        float camoffY=((tile.worldy()+j*8)-Core.camera.position.y)*(parallaxAmount/Core.camera.width)*((float)k/(woodLayers-1));
-                        Draw.rect(woodRegion,(tile.worldx()+i*8)+camoffX, (tile.worldy()+j*8)+camoffY);
-                    }
-                }
-            }
         }
     
         for(int i = 0; i < lobes; i++){
@@ -117,7 +97,9 @@ public class KrathaTree extends TallBlock{
         Draw.color(0f, 0f, 0f, shadowAlpha);
         Draw.rect(variants > 0 ? variantShadowRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantShadowRegions.length - 1))] : customShadowRegion,
             tile.worldx() + shadowOffset, tile.worldy() + shadowOffset, rot);
-        
+
+        Draw.color(1f,1f,1f,1f);
+        Draw.rect(woodRegion,tile.worldx(), tile.worldy(), rot);
         Draw.color(1f,1f,1f,tAlpha);
 
         Draw.z(layer);
