@@ -55,5 +55,10 @@ public class KrathaPal{
 
     cobaltDark = Color.valueOf("5A3C88"),
     cobalt = Color.valueOf("7B73AE"),
-    cobaltLight = Color.valueOf("ACB0D8");
+    cobaltLight = Color.valueOf("ACB0D8"),
+
+    //please dont confuse whatever this is with animete
+    anemiteDark = Color.valueOf("343F1D"),
+    anemite = Color.valueOf("5D6A34"),
+    anemiteLight = Color.valueOf("9CA679");
 }
