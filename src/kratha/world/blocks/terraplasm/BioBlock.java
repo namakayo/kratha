@@ -76,7 +76,7 @@ public class BioBlock extends Block {
         //traumatic result of the monarch incident
         //extraFloat1 is both item delay and immunity timer
         public float extraFloat1 = 300f;
-        public float ,xtraFloat2,extraFloat3,extraFloat4;
+        public float extraFloat2,extraFloat3,extraFloat4;
         public int extraInt,extraByte;
 
         public ArrayList<Integer> possibleGrowDir = new ArrayList<>();
@@ -143,6 +143,10 @@ public class BioBlock extends Block {
 
             if(extraFloat1>0f){
                 extraFloat1-=delta();
+            }
+
+            if(health<maxHealth){
+                health+=(2f*size*size)/60;
             }
         }
         public void updatePulse() {
