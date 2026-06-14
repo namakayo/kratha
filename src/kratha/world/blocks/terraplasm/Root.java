@@ -282,7 +282,8 @@ public class Root extends BioBlock {
                         items.remove(lastItem, 1);
                         lastItem = null;
                     }else{
-                        //swap item
+                        //swap item (removed)
+                        /*
                         Item ti=targetr.lastItem;
                         target.items.remove(lastItem, 1);
                         target.handleItem(this, lastItem);
@@ -295,15 +296,12 @@ public class Root extends BioBlock {
                         items.remove(lastItem, 1);
                         handleItem(target,ti);
                         lastItem = ti;
+                        */
                     }
                 }
                 //for biobuilding that is not root
                 if(target != null && !(target instanceof RootBuild) && target instanceof BioBuilding && target.acceptItem(this, lastItem)){
                     target.handleItem(this, lastItem);
-                    if(target instanceof RootBuild targetbuild){
-                        targetbuild.itemTargetX = itemTargetX;
-                        targetbuild.itemTargetY = itemTargetY;
-                    }
                     extraFloat2 = 0;
                     itemTargetX = -1;
                     itemTargetY = -1;
@@ -313,6 +311,9 @@ public class Root extends BioBlock {
                 //for bioturret (it doesnt extend biobuilding)
                 if(target != null && target instanceof BioTurret.BioTurretBuild && target.acceptItem(this, lastItem)){
                     target.handleItem(this, lastItem);
+                    extraFloat2 = 0;
+                    itemTargetX = -1;
+                    itemTargetY = -1;
                     items.remove(lastItem, 1);
                     lastItem = null;
                 }
