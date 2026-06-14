@@ -294,7 +294,7 @@ public class Root extends BioBlock {
                         itemTargetX = tx;
                         itemTargetY = ty;
                         items.remove(lastItem, 1);
-                        handleItem(target,ti)
+                        handleItem(target,ti);
                         lastItem = ti;
                     }
                 }
