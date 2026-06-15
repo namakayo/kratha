@@ -105,8 +105,8 @@ public class BioSpawner extends BioBlock {
                     adj = tile.nearby(i,j);
                     if (adj != null && adj.build!=null && (adj.build instanceof Root.RootBuild adjr)) {                        
                         Item adjitem = adjr.lastItem;
-                        if(world.tile(ajdr.itemTargetX,ajdr.itemTargetY).build==null)continue;
-                        if(world.tile(ajdr.itemTargetX,ajdr.itemTargetY).build!=this)continue;
+                        if(world.tile(adjr.itemTargetX,adjr.itemTargetY).build==null)continue;
+                        if(world.tile(adjr.itemTargetX,adjr.itemTargetY).build!=this)continue;
                         if(adjitem==inputItem1)expectedItem1++;
                         if(adjitem==inputItem2)expectedItem1++;
                     }
