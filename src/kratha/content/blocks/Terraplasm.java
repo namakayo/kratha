@@ -90,6 +90,7 @@ public class Terraplasm {
                     shake = 2f;
                     newTargetInterval = 40f;
                     targetAir = false;
+                    shootSound = Sounds.shootArtillery;
 
                     ammoItem = KrathaItems.guartz;
                     maxAmmo = 5;
