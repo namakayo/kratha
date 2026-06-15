@@ -105,7 +105,7 @@ public class KrathaTurrets {
                     shootY = 1f;
 
                     ammo(
-                        KrathaItems.guartz, new BasicBulletType(3.8f, 40) {{
+                        KrathaItems.guartz, new ArtilleryBulletType(3.1f, 40) {{
                             lifetime = 50f;
                             width = 8f;
                             height = 14f;
@@ -115,8 +115,17 @@ public class KrathaTurrets {
                             frontColor = KrathaPal.guartzLight;
                             trailWidth = 2.1f;
                             trailLength = 7;
-                            shootEffect = new MultiEffect(Fx.shootBigColor, Fx.colorSparkBig);
-                            smokeEffect = Fx.shootBigSmoke;
+                            trailLength = 20;
+                            trailWidth = 3.35f;
+                            trailSinScl = 2.5f;
+                            trailSinMag = 0.5f;
+                            trailEffect = Fx.none;
+                            despawnShake = 0.5f;
+                            splashDamageRadius = 8f;
+                            splashDamage = 45f;
+                            scaledSplashDamage = true;
+                            shootEffect = KrathaFx.shootSkewer;
+                            smokeEffect = KrathaFx.shootSmokeSkewer;
                         }}
                     );
                     drawer = new DrawTurret(){{
