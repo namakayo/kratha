@@ -182,7 +182,6 @@ public class BioTurret extends Turret{
             ammoToUse--;
             if(ammoToUse<=0){
                 items.remove(ammoItem,ammoPerShot);
-                expectedAmmo-=ammoPerShot;
                 ammoToUse=ammoItemMultiplier;
             }
             return shootType;
