@@ -53,7 +53,7 @@ public class KrathaTurrets {
                     range = 14 * Vars.tilesize;
                     rotateSpeed = 2.7f;
                     squareSprite = true;
-                    shootSound = Sounds.shootTank;
+                    shootSound = Sounds.shootArtillery;
                     minWarmup = 0.8f;
                     shootWarmupSpeed = 0.07f;
                     shootY = 1f;
@@ -89,6 +89,7 @@ public class KrathaTurrets {
                     researchCost = with(KrathaItems.krathite, 250, KrathaItems.guartz, 300, KrathaItems.spurstone,100);
   
                     health = 150;
+                    cooldownTime = 60;
                     fogRadiusMultiplier = 0f;
                     maxAmmo = 5;
                     outlineColor = KrathaPal.krathaOutline;
@@ -110,7 +111,7 @@ public class KrathaTurrets {
                             width = 8f;
                             height = 14f;
                             weaveMag = 2;
-                            hitEffect = despawnEffect = Fx.hitBulletColor;
+                            hitEffect = despawnEffect = KrathaFx.skewerSmoke;
                             hitColor = backColor = trailColor = KrathaPal.guartzDark;
                             frontColor = KrathaPal.guartzLight;
                             trailWidth = 2.1f;
@@ -130,16 +131,16 @@ public class KrathaTurrets {
                     );
                     drawer = new DrawTurret(){{
                         parts.add(
-                            new RegionPart("-side"){{
-                                progress = PartProgress.warmup;
-                                mirror = true;
-                                under = true;
-                                moveX = 1f;
-                            }},
                             new RegionPart("-outer"){{
                                 progress = PartProgress.warmup;
                                 mirror = true;
-                                under = true;
+                                under = false;
+                                moveX = 3f;
+                            }},
+                            new RegionPart("-side"){{
+                                progress = PartProgress.warmup;
+                                mirror = true;
+                                under = false;
                                 moveX = 2f;
                             }}
                         );
