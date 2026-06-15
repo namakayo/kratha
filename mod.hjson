@@ -5,11 +5,11 @@ name: "kratha"
 author: "namaka"
 main: "kratha.KrathaMod"
 description:'''
-A Mod that adds new campaign about Terraplasm.
+A Mod that adds a new campaign about Terraplasm.
 
 The Terraplasm is my very own version of Anuke's unfinished Neoplasm, a rapidly growing plant faction that you will fight.
 
-Note: Lower end device might encounter lag.
+(Lower end device might encounter lag)
 
 [gray[]]This an early version of KRATHA which is under heavy development, it may not display the final version. There are currently 3 playable sectors.
 '''
