@@ -135,7 +135,7 @@ public class KrathaTurrets {
                                 mirror = true;
                                 under = true;
                                 moveX = 1f;
-                            }}
+                            }},
                             new RegionPart("-outer"){{
                                 progress = PartProgress.warmup;
                                 mirror = true;
