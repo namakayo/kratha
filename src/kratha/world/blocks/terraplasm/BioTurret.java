@@ -101,25 +101,26 @@ public class BioTurret extends Turret{
                             }
                         }
                     }
-                if(heart==null)return;
-                expectedAmmo=0;
-                int cx = (int)((tile.x+heart.tile.x)/2f);
-                int cy = (int)((tile.y+heart.tile.y)/2f);
-                int ceilDist = (int)Math.ceil(Mathf.dst(tile.x,tile.y,heart.tile.x,heart.tile.y)/2f)+8;
-                for(int i=-ceilDist;i<=ceilDist;i++){
-                    for(int j=-ceilDist;j<=ceilDist;j++){
-                        Tile adj;
-                        adj = tile.nearby(i,j);
-                        if (adj != null && adj.build!=null && (adj.build instanceof Root.RootBuild adjr)) {                        
-                            Item adjitem = adjr.lastItem;
-                            if(world.tile(adjr.itemTargetX,adjr.itemTargetY)==null)continue;
-                            if(world.tile(adjr.itemTargetX,adjr.itemTargetY).build==null)continue;
-                            if(world.tile(adjr.itemTargetX,adjr.itemTargetY).build!=this)continue;
-                            if(adjitem==ammoItem)expectedAmmo++;
+                    if(heart==null)return;
+                    expectedAmmo=0;
+                    int cx = (int)((tile.x+heart.tile.x)/2f);
+                    int cy = (int)((tile.y+heart.tile.y)/2f);
+                    int ceilDist = (int)Math.ceil(Mathf.dst(tile.x,tile.y,heart.tile.x,heart.tile.y)/2f)+8;
+                    for(int i=-ceilDist;i<=ceilDist;i++){
+                        for(int j=-ceilDist;j<=ceilDist;j++){
+                            Tile adj;
+                            adj = tile.nearby(i,j);
+                            if (adj != null && adj.build!=null && (adj.build instanceof Root.RootBuild adjr)) {                        
+                                Item adjitem = adjr.lastItem;
+                                if(world.tile(adjr.itemTargetX,adjr.itemTargetY)==null)continue;
+                                if(world.tile(adjr.itemTargetX,adjr.itemTargetY).build==null)continue;
+                                if(world.tile(adjr.itemTargetX,adjr.itemTargetY).build!=this)continue;
+                                if(adjitem==ammoItem)expectedAmmo++;
+                            }
                         }
                     }
-                }
                 expectedAmmo+=items.get(ammoItem);
+                }
             }
             if (biopulse>=0&&deathTimer<deathTimerLimit){
                 deathTimer+=delta();
