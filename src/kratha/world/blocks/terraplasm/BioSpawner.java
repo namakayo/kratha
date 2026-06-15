@@ -100,7 +100,7 @@ public class BioSpawner extends BioBlock {
                 }
             }
             expectedItem1+=items.get(inputItem1);
-            expectedItem1+=items.get(inputItem2);
+            expectedItem2+=items.get(inputItem2);
 
             if(expectedItem1<requiredItem1*excessMultiplier&&heart!=null&&heart instanceof BioHeart.BioHeartBuild heartbuild){
                 boolean success = heartbuild.send(inputItem1,(int)tile.x,(int)tile.y);
