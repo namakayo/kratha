@@ -14,7 +14,7 @@ import mindustry.content.*;
 import mindustry.entities.effect.MultiEffect.*;
 import mindustry.entities.part.DrawPart.*;
 import mindustry.entities.part.RegionPart.*;
-import mindustry.entities.bullet.BasicBulletType;
+import mindustry.entities.bullet.*;
 import mindustry.entities.pattern.*;
 import mindustry.content.Fx.*;
 import mindustry.Vars;
@@ -105,7 +105,7 @@ public class KrathaTurrets {
                     shootY = 1f;
 
                     ammo(
-                        KrathaItems.guartz, new ArtilleryBulletType(3.1f, 40) {{
+                        KrathaItems.guartz, new ArtilleryBulletType(3.1f, 40, "shell") {{
                             lifetime = 50f;
                             width = 8f;
                             height = 14f;
