@@ -220,13 +220,15 @@ public class Root extends BioBlock {
                 Building target = null;
                 Building randomTarget = null;
                 int randomDirI=(int)Math.floor(random.nextFloat()*4);
+                
                 float bestDist = Float.POSITIVE_INFINITY; //FEAR THE INFINITE POWER
                 for(int i=0;i<4;i++){
                     Building adj;
                     Tile itemTargetTile = world.tile(itemTargetX,itemTargetY);
                     Block itemTargetBlock = null;
+                    boolean doJump = random.nextFloat()<0.5f
                     if(itemTargetTile!=null&&itemTargetTile.build!=null&&itemTargetTile.build.block!=null)itemTargetBlock = itemTargetTile.build.block;
-                    adj = tile.nearby(Geometry.d4(i).x,Geometry.d4(i).y).build;
+                    adj = tile.nearby(Geometry.d4(i).x*doJump?2:1,Geometry.d4(i).y*doJump?*2:1).build;
                     
                     if(i==randomDirI)randomTarget=adj;
                     if(itemTargetBlock!=null&&itemTargetBlock instanceof BioHeart){
