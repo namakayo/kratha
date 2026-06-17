@@ -109,6 +109,7 @@ public class LiquidTube extends Conduit {
                         :blendbits==2?(xscl!=-1?rotation:rotation-2)
                         :blendbits==4?rotation-2:rotation);
                 if(drawbits==2&&yscl==-1)drawrot+=2;
+                if(drawbits==4)drawrot--;
                 drawrot%=4;
                 if (drawrot<0) drawrot+=4;
                 int drawbits = blendbits==4?2:blendbits;
