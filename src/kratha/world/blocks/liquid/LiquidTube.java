@@ -56,26 +56,29 @@ public class LiquidTube extends Conduit {
     public class LiquidTubeBuild extends ConduitBuild {
         @Override
         public void draw(){
-            super.draw();
-            //if it work it works
-            int drawrot = (blendbits==1?(blendscly!=-1?rotation:rotation-1)
-                        :blendbits==2?(blendscly!=-1?rotation:rotation-2)
-                        :blendbits==4?rotation-2:rotation);
-            if (blendbits==4) drawrot-=1;
-            drawrot%=4;
-            if (drawrot<0) drawrot+=4;
-            int drawbits = blendbits==4?2:blendbits;
-            //draw extra conveyors facing this one for non-square tiling purposes
+            int r = this.rotation;
+
+            if(under) Draw.color(botColor);
+
+            //draw extra conduits facing this one for tiling purposes
             Draw.z(Layer.blockUnder);
             for(int i = 0; i < 4; i++){
                 if((blending & (1 << i)) != 0){
-                    int dir = rotation-i;
-                    int rot = -90*(rotation%2);
-                    Draw.rect(sliced(shadedTopRegions[drawbits][drawrot], i != 0 ? SliceMode.bottom : SliceMode.top), x + Geometry.d4x(dir) * tilesize*0.75f, y + Geometry.d4y(dir) * tilesize*0.75f,rot);
+                    int dir = r - i;
+                    drawAt(x + Geometry.d4x(dir) * tilesize*0.75f, y + Geometry.d4y(dir) * tilesize*0.75f, 0, i == 0 ? r : dir, i != 0 ? SliceMode.bottom : SliceMode.top, under);
                 }
             }
+
             Draw.z(Layer.block);
-            Draw.rect(shadedTopRegions[drawbits][drawrot], x, y, 0);
-        }
+
+            Draw.scl(xscl, yscl);
+            drawAt(x, y, blendbits, r, SliceMode.none, under);
+            Draw.reset();
+
+            if(!under) return;
+
+            if(capped && capRegion.found()) Draw.rect(capRegion, x, y, rotdeg());
+            if(backCapped && capRegion.found()) Draw.rect(capRegion, x, y, rotdeg() + 180)
+                }
     }
-        }
+}
