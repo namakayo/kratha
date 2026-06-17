@@ -7,7 +7,7 @@ import kratha.graphics.KrathaPal;
 
 public class KrathaItems{
     public static Item
-    krathite,guartz,terrasand,spurstone,cobalt,anemite;
+    krathite,guartz,terrasand,spurstone,cobalt,kitegite,anemite;
     public static final Seq<Item> krathaItems = new Seq<>();
 
     public static void load(){
@@ -29,6 +29,10 @@ public class KrathaItems{
         }};
         cobalt = new Item("cobalt", KrathaPal.cobalt){{
             hardness = 3;
+            cost = 1.4f;
+        }};
+        kitegite = new Item("kitegite", KrathaPal.kitegite){{
+            hardness = 3;
             cost = 1.2f;
         }};
         anemite = new Item("anemite", KrathaPal.anemite){{
@@ -39,7 +43,7 @@ public class KrathaItems{
         }};
         
         krathaItems.addAll(
-        krathite,guartz,terrasand,spurstone,cobalt,anemite
+        krathite,guartz,terrasand,spurstone,cobalt,kitegite,anemite
         );
     }
 }
