@@ -80,5 +80,32 @@ public class LiquidTube extends Conduit {
             if(capped && capRegion.found()) Draw.rect(capRegion, x, y, rotdeg());
             if(backCapped && capRegion.found()) Draw.rect(capRegion, x, y, rotdeg() + 180)
                 }
+        protected void drawAt(float x, float y, int bits, int rotation, SliceMode slice, boolean under){
+            float angle = rotation * 90f;
+            if(under){
+                Draw.rect(sliced(botRegions[bits], slice), x, y, angle);
+            }else{
+                int offset = yscl == -1 ? 3 : 0;
+
+                int frame = liquids.current().getAnimationFrame();
+                int gas = liquids.current().gas ? 1 : 0;
+                float ox = 0f, oy = 0f;
+                int wrapRot = (rotation + offset) % 4;
+                TextureRegion liquidr = bits == 1 && padCorners ? rotateRegions[wrapRot][gas][frame] : renderer.fluidFrames[gas][frame];
+
+                if(bits == 1 && padCorners){
+                    ox = rotateOffsets[wrapRot][0];
+                    oy = rotateOffsets[wrapRot][1];
+                }
+
+                //the drawing state machine sure was a great design choice with no downsides or hidden behavior!!!
+                float xscl = Draw.xscl, yscl = Draw.yscl;
+                Draw.scl(1f, 1f);
+                Drawf.liquid(sliced(liquidr, slice), x + ox, y + oy, smoothLiquid, liquids.current().color.write(Tmp.c1).a(1f));
+                Draw.scl(xscl, yscl);
+
+                Draw.rect(sliced(topRegions[bits], slice), x, y, angle);
+            }
+        }
     }
 }
