@@ -42,7 +42,7 @@ public class LiquidOverpass extends DirectionLiquidBridge {
     }
     @Override
     public TextureRegion[] icons(){
-        return new TextureRegion[]{region, dir1, side};
+        return new TextureRegion[]{bottomRegion, region, dir1, side};
     }
     @Override
     public void drawBridge(int rotation, float x1, float y1, float x2, float y2, @Nullable Color liquidColor){
