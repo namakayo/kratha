@@ -24,6 +24,7 @@ public class KrathaEnv {
             terrasporeTree,terrasporeTreeLarge,woodWall,woodFloor,terrasporeFern,terrasporeFernLarge,
             container,
             krathiteStaticwall,krathiteRough,krathiteFloor,krathitePlated,krathiteKrathagen,krathiteBoulder,krathiteBoulderLarge,
+            akrockWall,akrock,akrockPlated,akrockBoulder,
             terrastoneWall,terrastoneErodedWall,terrastoneGrassy,terrastoneFloor,terrastoneEroded,terrastoneWatra,terrastoneBoulder,terrastoneErodedBoulder,terrastoneErodedVent,
             krathagenFloor,krathagenDeep,krathagenWall,
             watraShallow,watraDeep,
@@ -102,6 +103,15 @@ public class KrathaEnv {
                 }};
                 krathiteBoulderLarge = new TallBlock("krathite-boulder-large"){{
                     variants = 2;
+                }};
+                //赤rock
+                akrockWall = new StaticWall("akrock-wall");
+                akrock = new Floor("akrock", 4);
+                akrockPlated = new Floor("akrock-plated", 4);
+                akrockBoulder = new Prop("akrock-boulder"){{
+                    variants = 2;
+                    akrock.asFloor().decoration = this;
+                    akrockPlated.asFloor().decoration = this;
                 }};
                 //terrastone
                 terrastoneWall = new StaticTree("terrastone-wall"){{variants=5;}};
