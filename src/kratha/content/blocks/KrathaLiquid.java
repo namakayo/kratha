@@ -17,14 +17,19 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaLiquid {
     public static Block
-            liquidTube;
+            liquidTube,liquidOverpass,liquidCell
     public static void load() {
         {
             {
                 liquidTube = new LiquidTube("liquid-tube"){{
-                    requirements(Category.liquid, with(KrathaItems.krathite, 2));
+                    requirements(Category.liquid, with(KrathaItems.kitegite, 1));
                     botColor = KrathaPal.krathaBaseDarker;
-                    researchCost = with(KrathaItems.krathite, 100);
+                }};
+                liquidOverpass = new LiquidTube("liquid-overpass"){{
+                    requirements(Category.liquid, with(KrathaItems.kitegite, 8, KrathaItems.spurstone,4));
+                }};
+                liquidCell = new LiquidBlock("liquid-cell"){{
+                    requirements(Category.liquid, with(KrathaItems.kitegite, 5));
                 }};
             }
         }
