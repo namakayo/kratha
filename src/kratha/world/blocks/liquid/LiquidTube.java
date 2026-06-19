@@ -127,7 +127,6 @@ public class LiquidTube extends Conduit {
                 Draw.rect(sliced(arrowRegions[arrowbits],slice),x,y,angle);
                 Draw.scl(1, 1);
                 
-                Draw.z(Layer.block);
                 Draw.rect(sliced(shadedTopRegions[drawbits][drawrot],slice), x, y, 0);
             }
         }
