@@ -36,6 +36,10 @@ public class KrathaPal{
     muddyWatraDark = Color.valueOf("362E00"),
     muddyWatra = Color.valueOf("5E5628"),
     muddyWatraLight = Color.valueOf("9D9567"),
+
+    akacyteDark = Color.valueOf("621D23"),
+    akacyte = Color.valueOf("A12A35"),
+    akacyteLight = Color.valueOf("CB695E"),
     
     //items
     krathiteDark = Color.valueOf("51436B"),
