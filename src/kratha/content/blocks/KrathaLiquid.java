@@ -17,10 +17,23 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaLiquid {
     public static Block
-            liquidTube,liquidOverpass,liquidCell;
+            gyralPump,liquidTube,liquidOverpass,liquidCell;
     public static void load() {
         {
             {
+                gyralPump = new Pump("gyral-pump"){{
+                    requirements(Category.liquid, with(KrathaItems.guartz, 25, KrathaItems.spurstone, 20));
+                    
+                    drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawPumpLiquid(), new DrawPistons(){{
+                    
+                    }}, new DrawDefault());
+                    size = 2;
+                    
+                    consumePower(15/60f);
+                    hasPower = true;
+                    liquidCapacity = 20f;
+                    pumpAmount = 12/60f;
+                }};
                 liquidTube = new LiquidTube("liquid-tube"){{
                     requirements(Category.liquid, with(KrathaItems.kitegite, 1));
                     botColor = KrathaPal.kitegiteDarker;
