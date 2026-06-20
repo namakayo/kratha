@@ -98,9 +98,10 @@ public class KrathaProduction {
         crystallizationBasin = new GenericCrafter("crystallization-basin"){{
             requirements(Category.crafting, with(KrathaItems.krathite, 100, KrathaItems.guartz, 40, KrathaItems.spurstone, 40));
             craftEffect = Fx.none;
-            outputItem = new ItemStack(KrathaItems.kitegite, 8);
-            craftTime = 400f;
+            outputItem = new ItemStack(KrathaItems.kitegite, 6);
+            craftTime = 300f;
             itemCapacity = 20;
+            liquidCapacity = 90;
             size = 3;
             hasLiquids = true;
             drawer = new DrawMulti(new DrawRegion("-bottom"),new DrawLiquidTile(){{drawLiquid=KrathaLiquids.akacyte;padding=1;}},new DrawCultivator(){{
@@ -109,7 +110,7 @@ public class KrathaProduction {
                 bottomColor=KrathaPal.akacyteDark;
                 spread=10.5f;
             }},new DrawDefault());
-            consumeItem(KrathaItems.guartz, 8);
+            consumeItem(KrathaItems.guartz, 6);
             consumeLiquid(KrathaLiquids.akacyte, 18f / 60f);
             ambientSound = Sounds.loopCultivator;
             ambientSoundVolume = 0.075f;
