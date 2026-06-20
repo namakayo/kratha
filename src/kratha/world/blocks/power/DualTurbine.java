@@ -26,7 +26,7 @@ public class DualTurbine extends ConsumeGenerator{
     public void drawPlace(int x, int y, int rotation, boolean valid){
         super.drawPlace(x, y, rotation, valid);
 
-        Drawf.dashSquare(Pal.accent, x, y, size * tilesize);
+        if(sumAttribute(attribute, tile.x, tile.y)>0.99f)Drawf.selected(x, y, this, Pal.accent);
     }
   
     public class DualTurbineBuild extends ConsumeGeneratorBuild{
