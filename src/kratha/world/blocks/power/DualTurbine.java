@@ -28,7 +28,7 @@ public class DualTurbine extends ConsumeGenerator{
     public void drawPlace(int x, int y, int rotation, boolean valid){
         super.drawPlace(x, y, rotation, valid);
 
-        if(sumAttribute(attribute, x, y)>(9f-0.001f))Drawf.selected(x*tilesize, y*tilesize, this, Pal.accent);
+        if(sumAttribute(attribute, x, y)>(9f-0.001f))drawPlaceText("Vent Available", x, y, valid);
     }
   
     public class DualTurbineBuild extends ConsumeGeneratorBuild{
