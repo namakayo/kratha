@@ -16,6 +16,7 @@ import mindustry.world.blocks.power.ConsumeGenerator
 //very weird naming...
 public class DualTurbine extends ConsumeGenerator{
     public Attribute attribute = Attribute.steam;
+    public LiquidStack ventLiquid;
 
     public DualTurbine(String name){
         super(name);
