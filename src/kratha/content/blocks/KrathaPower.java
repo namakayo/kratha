@@ -41,7 +41,7 @@ public class KrathaPower{
             researchCost = with(KrathaItems.krathite,25,KrathaItems.guartz,40);
         }};
         turbine = new DualTurbine("turbine"){{
-            requirements(Category.power, with(KrathaItems.krathite, 25, KrathaItems.guartz, 40));
+            requirements(Category.power, with(KrathaItems.guartz, 80, KrathaItems.spurstone, 20, KrathaItems.cobalt, 20));
             size = 3;
             squareSprite = false;
             powerProduction = 180f/60f;
