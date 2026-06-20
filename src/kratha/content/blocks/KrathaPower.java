@@ -51,7 +51,7 @@ public class KrathaPower{
             generateEffect = KrathaFx.turbinegenerateSteam;
             liquidCapacity = 36;
             consumeLiquid(KrathaLiquids.steam,12f/60);
-            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawBlurSpin("-rotator", 5), new DrawDefault());
+            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidRegion(){{drawLiquid=KrathaLiquids.watra;}}, new DrawBlurSpin("-rotator", 5), new DrawDefault(), new DrawGlowRegion());
         }};
         
 
