@@ -23,7 +23,7 @@ public class KrathaProduction {
     public static Block
     thermicDrill,plasmaDrill,laserBore,cliffBore,
 
-    spurstoneSmelter;
+    spurstoneSmelter,crystallizationBasin;
     public static void load() {
         thermicDrill = new Drill("thermic-drill"){{
             requirements(Category.production, with(KrathaItems.krathite, 10, KrathaItems.guartz, 5));
@@ -94,6 +94,17 @@ public class KrathaProduction {
             consumeItems(with(KrathaItems.krathite, 3, KrathaItems.terrasand, 5));
             consumePower(60/60f);
             researchCost = with(KrathaItems.krathite, 100, KrathaItems.guartz, 80);
+        }};
+        crystallizationBasin = new GenericCrafter("crystallization-basin"){{
+            requirements(Category.crafting, with(KrathaItems.krathite, 100, KrathaItems.guartz, 40, KrathaItems.spurstone, 40));
+            craftEffect = Fx.smeltsmoke;
+            outputItem = new ItemStack(KrathaItems.kitegite, 8);
+            craftTime = 220f;
+            size = 3;
+            hasLiquids = true;
+            drawer = new DrawMulti(new DrawRegion("-bottom"),new DrawLiquidTile(){{drawLiquid=KrathaLiquids.akacyte;padding=1}},new DrawDefault());
+            
+            consumeItems(with(KrathaItems.krathite, 3, KrathaItems.terrasand, 5));
         }};
     }
 }
