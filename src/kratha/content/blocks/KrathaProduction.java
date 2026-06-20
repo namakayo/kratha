@@ -99,7 +99,7 @@ public class KrathaProduction {
             requirements(Category.crafting, with(KrathaItems.krathite, 100, KrathaItems.guartz, 40, KrathaItems.spurstone, 40));
             craftEffect = Fx.none;
             outputItem = new ItemStack(KrathaItems.kitegite, 8);
-            craftTime = 340f;
+            craftTime = 400f;
             itemCapacity = 20;
             size = 3;
             hasLiquids = true;
