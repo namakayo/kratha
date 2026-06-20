@@ -6,7 +6,7 @@ import mindustry.content.*;
 import kratha.graphics.KrathaPal;
 
 public class KrathaLiquids{
-    public static Liquid krathagen, terraplasm, watra, muddyWatra, akacyte;
+    public static Liquid krathagen, watra, muddyWatra, terraplasm, akacyte, steam;
     public static void load(){
 
         krathagen = new Liquid("krathagen", KrathaPal.krathagenLight){{
@@ -15,22 +15,6 @@ public class KrathaLiquids{
             boilPoint = 1f;
             gasColor = Color.grays(0.9f);
             alwaysUnlocked = true;
-        }};
-
-        terraplasm = new CellLiquid("terraplasm", KrathaPal.terraplasmLight){{
-            heatCapacity = 0.3f;
-            temperature = 0.7f;
-            viscosity = 0.4f;
-            flammability = 0f;
-            capPuddles = false;
-            spreadTarget = watra;
-            moveThroughBlocks = true;
-            incinerable = false;
-            blockReactive = false;
-            canStayOn.addAll(Liquids.water,muddyWatra,watra, Liquids.oil, Liquids.cryofluid);
-
-            colorFrom = KrathaPal.terraplasmDark;
-            colorTo = KrathaPal.terraplasmLight;
         }};
 
         watra = new Liquid("watra", KrathaPal.watraLight){{
@@ -51,12 +35,32 @@ public class KrathaLiquids{
             viscosity = 0.3f;
         }};
 
+        terraplasm = new CellLiquid("terraplasm", KrathaPal.terraplasmLight){{
+            heatCapacity = 0.3f;
+            temperature = 0.7f;
+            viscosity = 0.4f;
+            flammability = 0f;
+            capPuddles = false;
+            spreadTarget = watra;
+            moveThroughBlocks = true;
+            incinerable = false;
+            blockReactive = false;
+            canStayOn.addAll(Liquids.water,muddyWatra,watra, Liquids.oil, Liquids.cryofluid);
+
+            colorFrom = KrathaPal.terraplasmDark;
+            colorTo = KrathaPal.terraplasmLight;
+        }};
+
         akacyte = new Liquid("akacyte", KrathaPal.akacyteLight){{
             heatCapacity = 0.2f;
             boilPoint = 0.5f;
             gasColor = Color.grays(0.8f);
             alwaysUnlocked = true;
             viscosity = 0.7f;
+        }};
+
+        steam = new Liquid("steam", KrathaPal.steamLight){{
+            gas = true;
         }};
     }
 }
