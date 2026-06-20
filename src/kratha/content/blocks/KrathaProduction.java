@@ -27,7 +27,7 @@ public class KrathaProduction {
     public static void load() {
         thermicDrill = new Drill("thermic-drill"){{
             requirements(Category.production, with(KrathaItems.krathite, 10, KrathaItems.guartz, 5));
-            consumePower(10/60f);
+            consumePower(2/60f);
             consumeLiquid(Liquids.hydrogen, 0.05f).boost();
             
             drillTime = 400;
@@ -41,7 +41,7 @@ public class KrathaProduction {
         }};
         plasmaDrill = new Drill("plasma-drill"){{
             requirements(Category.production, with(KrathaItems.krathite, 80, KrathaItems.guartz, 75, KrathaItems.spurstone, 40, KrathaItems.cobalt, 40));
-            consumePower(60/60f);
+            consumePower(20/60f);
             consumeLiquid(KrathaLiquids.watra, 4f/60);
             consumeLiquid(Liquids.hydrogen, 0.05f).boost();
             
@@ -55,7 +55,7 @@ public class KrathaProduction {
         }};
         laserBore = new CliffDrill("laser-bore"){{
             requirements(Category.production, with(KrathaItems.krathite, 5, KrathaItems.guartz, 10));
-            consumePower(10/60f);
+            consumePower(2/60f);
             consumeLiquid(Liquids.hydrogen, 0.05f).boost();
 
             drillTime = 350;
@@ -66,7 +66,7 @@ public class KrathaProduction {
         }};
         cliffBore = new WallCrafter("cliff-bore"){{
             requirements(Category.production, with(KrathaItems.krathite, 25, KrathaItems.guartz, 20));
-            consumePower(5 / 60f);
+            consumePower(1 / 60f);
 
             drillTime = 160f;
             size = 2;
@@ -92,7 +92,7 @@ public class KrathaProduction {
             ambientSoundVolume = 0.07f;
 
             consumeItems(with(KrathaItems.krathite, 3, KrathaItems.terrasand, 5));
-            consumePower(60/60f);
+            consumePower(20/60f);
             researchCost = with(KrathaItems.krathite, 100, KrathaItems.guartz, 80);
         }};
         crystallizationBasin = new GenericCrafter("crystallization-basin"){{
