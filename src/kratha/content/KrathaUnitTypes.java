@@ -17,7 +17,7 @@ import mindustry.type.*;
 import mindustry.ai.types.*;
 import kratha.type.unit.*;
 import kratha.graphics.KrathaPal;
-import kratha.content.KrathaFx;
+import kratha.content.*;
 import mindustry.type.weapons.*;
 
 import static arc.graphics.g2d.Draw.*;
@@ -118,12 +118,14 @@ public class KrathaUnitTypes{
                 shootSound = Sounds.shootSap;
                 mirror = false;
                 layerOffset = 0.001f;
-                bullet = new BasicBulletType(){{
-                    damage = 30;
-                    shootEffect = despawnEffect = Fx.none;
+                shootY = 3
+                bullet = new LiquidBulletType(KrathaLiquids.terraplasm){{
+                    damage = 40;
+                    speed = 6f;
+                    shootEffect = hitEffect = Fx.none;
                     smokeEffect = KrathaFx.shootTerraSmoke;
-                    lifetime = 30f;
-                    speed = 5;
+                    lifetime = 20f;
+                    collidesAir = false;
                 }};
             }});
         }};
