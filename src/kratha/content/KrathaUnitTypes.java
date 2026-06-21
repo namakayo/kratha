@@ -166,7 +166,7 @@ public class KrathaUnitTypes{
                 }};
             }});
         }};
-        renamo = new KrathaUnitType("renamo"){{
+        renamo = new TerraUnitType("renamo"){{
             constructor = UnitWaterMove::create;
             health = 80;
             hitSize = 11f;
