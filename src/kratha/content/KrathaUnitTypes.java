@@ -145,16 +145,17 @@ public class KrathaUnitTypes{
                         sizeFrom = 2;
                         sizeTo = 0;
                         length = 20;
-                        lifetime = 40;
+                        lifetime = 30;
                     }};
                     smokeEffect = new ParticleEffect(){{
                         colorFrom = KrathaPal.terraplasmLight;
                         colorTo = KrathaPal.terraplasmDark.a(0.1f);
                         cone = 40;
-                        sizeFrom = 3;
+                        sizeFrom = 2;
+                        particles = 5
                         sizeTo = 0;
-                        length = 30;
-                        lifetime = 90;
+                        length = 25;
+                        lifetime = 25;
                     }};
                     lifetime = 30f;
                     collidesAir = false;
