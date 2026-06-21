@@ -96,7 +96,7 @@ public class KrathaUnitTypes{
             rotateSpeed = 3f;
             health = 170;
             legCount = 3;
-            legLength = 25f;
+            legLength = 28f;
             legForwardScl = 0.8f;
             legMoveSpace = 1f;
             legGroupSize = 1;
@@ -117,9 +117,11 @@ public class KrathaUnitTypes{
                 rotate = false;
                 shootSound = Sounds.shootSap;
                 mirror = false;
+                layerOffset = 0.001f;
                 bullet = new BasicBulletType(){{
                     damage = 30;
-                    shootEffect = despawnEffect = smokeEffect = Fx.none;
+                    shootEffect = despawnEffect = Fx.none;
+                    smokeEffect = KrathaFx.shootTerraSmoke;
                     lifetime = 30f;
                     speed = 5;
                 }};
