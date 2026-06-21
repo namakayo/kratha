@@ -118,7 +118,7 @@ public class KrathaUnitTypes{
                 shootSound = Sounds.shootSap;
                 mirror = false;
                 layerOffset = 0.001f;
-                shootY = 3
+                shootY = 3;
                 bullet = new LiquidBulletType(KrathaLiquids.terraplasm){{
                     damage = 40;
                     speed = 6f;
