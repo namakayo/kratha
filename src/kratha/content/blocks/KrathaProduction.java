@@ -23,7 +23,7 @@ public class KrathaProduction {
     public static Block
     thermicDrill,plasmaDrill,laserBore,cliffBore,
 
-    spurstoneSmelter,crystallizationBasin;
+    spurstoneSmelter,crystallizationBasin,earthenExtractor;
     public static void load() {
         thermicDrill = new Drill("thermic-drill"){{
             requirements(Category.production, with(KrathaItems.krathite, 10, KrathaItems.guartz, 5));
@@ -114,6 +114,24 @@ public class KrathaProduction {
             consumeLiquid(KrathaLiquids.akacyte, 18f / 60f);
             ambientSound = Sounds.loopCultivator;
             ambientSoundVolume = 0.075f;
+        }};
+        earthenExtractor= new AttributeCrafter("earthen-extractor"){{
+            requirements(Category.crafting, with(KrathaItems.spurstone, 50, KrathaItems.cobalt, 30));
+            craftEffect = Fx.drillSteam;
+            attribute = Attribute.steam;
+            minEfficiency = 0.999f;
+            baseEfficiency = 0;
+            boostScals = 1/8.999f;
+            outputItem = new ItemStack(KrathaItems.guartz, 4);
+            craftTime = 96f;
+            size = 3;
+            hasLiquids = false;
+            squareSprite = false;
+            drawer = new DrawMulti(new DrawDefault(), new DrawGlowRegion());
+            ambientSound = Sounds.loopSmelter;
+            ambientSoundVolume = 0.1f;
+
+            consumeItems(with(KrathaItems.krathite, 3);
         }};
     }
 }
