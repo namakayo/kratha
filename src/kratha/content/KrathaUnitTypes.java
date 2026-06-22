@@ -243,7 +243,7 @@ public class KrathaUnitTypes{
             moveSoundVolume = 0.25f;
             moveSound = Sounds.shipMove;
             
-            weapons.add(new RepairBeamWeapon("repair-beam-weapon-center"){{
+            weapons.add(new RepairBeamWeapon(){{
                 x = 0f;
                 y = 0f;
                 shootY = 0f;
