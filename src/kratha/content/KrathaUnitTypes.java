@@ -33,7 +33,7 @@ import static mindustry.Vars.*;
 public class KrathaUnitTypes{
     public static UnitType
     sail,
-    terrapillar,tigaleg,renamo,gabamo,
+    terrapillar,tigaleg,renamo,gabamo,hiromo,
     keris,
     rocky,
     settler;
@@ -253,6 +253,66 @@ public class KrathaUnitTypes{
 
                 bullet = new BulletType(){{
                     maxRange = 140f;
+                }};
+            }});
+        }};
+        hiromo = new TerraUnitType("hiromo"){{
+            constructor = UnitWaterMove::create;
+            health = 320;
+            hitSize = 13f;
+            omniMovement = false;
+            rotateSpeed = 4f;
+            targetAir = false;
+            speed = 1.2f;
+            faceTarget = false;
+            
+            trailLength = 38;
+            waveTrailX = 5f;
+            trailScl = 1.6f;
+            
+            moveSoundVolume = 0.3f;
+            moveSound = Sounds.shipMove;
+            
+            weapons.add(new Weapon("kratha-hiromo-weapon"){{
+                reload = 54f;
+                x = 0f;
+                y = 0f;
+                shootCone = 40f;
+                mirror = false;
+                rotate = true;
+                bullet = new LiquidBulletType(KrathaLiquids.terraplasm){{
+                    damage = 70;
+                    speed = 5.5f;
+                    trailLength = 30;
+                    trailWidth = 3;
+                    trailColor = KrathaPal.terraplasm;
+                    shootEffect = Fx.none;
+                    hitEffect = new ParticleEffect(){{
+                        colorFrom = KrathaPal.terraplasmLight;
+                        colorTo = KrathaPal.terraplasmDark.a(0.1f);
+                        cone = 180;
+                        particles = 5;
+                        sizeFrom = 3;
+                        sizeTo = 0;
+                        length = 50;
+                        lifetime = 60;
+                    }};
+                    smokeEffect = new ParticleEffect(){{
+                        colorFrom = KrathaPal.terraplasmLight;
+                        colorTo = KrathaPal.terraplasmDark.a(0.1f);
+                        cone = 20;
+                        sizeFrom = 2;
+                        particles = 5;
+                        sizeTo = 0;
+                        length = 35;
+                        lifetime = 25;
+                    }};
+                    lifetime = 45f;
+                    collidesAir = false;
+                    puddles = 6;
+                    puddleSize = 30;
+                    puddleLiquid = KrathaLiquids.terraplasm;
+                    puddleRange = 3;
                 }};
             }});
         }};
