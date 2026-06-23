@@ -11,8 +11,12 @@ The Terraplasm is my very own version of Anuke's unfinished Neoplasm, a rapidly 
 
 (Lower end device might encounter lag)
 
-[gray[]]This an early version of KRATHA which is under heavy development, it may not display the final version. There are currently 3 playable sectors.
+There are currently 4 playable sectors, however, the entire campaign will get a complete reworked in the next update.
+
+[gray[]]This an early version of KRATHA which is under heavy development, it may not display the final version.
+
+Current version : 0.1
 '''
-version: 0
+version: 0.1
 minGameVersion: 154
 java: true
