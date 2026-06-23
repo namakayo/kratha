@@ -25,6 +25,9 @@ public class KrathaTechTree {
                     node(KrathaItems.cobalt, Seq.with(new Objectives.Produce(KrathaItems.cobalt)), () ->{
                         
                     });
+                    node(KrathaItems.kitegite, Seq.with(new Objectives.Produce(KrathaItems.kitegite)), () ->{
+                        
+                    });
                 });
             });
             node(KrathaDistribution.itemTube, () -> {
