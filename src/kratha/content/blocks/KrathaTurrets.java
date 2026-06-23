@@ -123,7 +123,7 @@ public class KrathaTurrets {
                             trailEffect = Fx.none;
                             despawnShake = 0.5f;
                             splashDamageRadius = 8f;
-                            splashDamage = 20f;
+                            splashDamage = 40f;
                             scaledSplashDamage = true;
                             shootEffect = KrathaFx.shootSkewer;
                             smokeEffect = KrathaFx.shootSmokeSkewer;
