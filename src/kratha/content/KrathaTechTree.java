@@ -52,13 +52,13 @@ public class KrathaTechTree {
                 });
             });
             node(KrathaProduction.thermicDrill, () -> {
-                node(KrathaProduction.laserDrill, () -> {
+                node(KrathaProduction.laserBore, () -> {
                         
                 });
                 node(KrathaProduction.cliffBore, () -> {
                         
                 });
-                node(KrathaProduction.plasmaBore, Seq.with(new Objectives.OnSector(offshore)),() -> {
+                node(KrathaProduction.plasmaDrill, Seq.with(new Objectives.OnSector(offshore)),() -> {
                         
                 });
             });
@@ -111,7 +111,9 @@ public class KrathaTechTree {
             node(KrathaSectorPresets.theFountain, () -> {
                 node(KrathaSectorPresets.oasis, Seq.with(new Objectives.SectorComplete(theFountain)),() -> {
                     node(KrathaSectorPresets.harbor, Seq.with(new Objectives.SectorComplete(oasis)),() -> {
+                        node(KrathaSectorPresets.offshore, Seq.with(new Objectives.SectorComplete(harbor)),() -> {
                 
+                        });
                     });
                 });
             });
