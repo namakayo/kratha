@@ -78,7 +78,7 @@ public class KrathaTechTree {
                 node(KrathaPower.turbine, Seq.with(new Objectives.OnSector(offshore)),() -> {
                     
                 });
-                node(KrathaPower.relay, () -> {
+                node(KrathaPower.candle, () -> {
                     
                 });
             });
