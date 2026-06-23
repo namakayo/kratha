@@ -41,18 +41,18 @@ public class KrathaTechTree {
                 });
                 node(KrathaDistribution.itemOverpass);
             });
-            node(KrathaLiquids.gyralPump, Seq.with(new Objectives.OnSector(offshore)), () -> {
-                node(KrathaLiquids.liquidTube, () -> {
-                   node(KrathaLiquids.liquidCell, () -> {
+            node(KrathaLiquid.gyralPump, Seq.with(new Objectives.OnSector(offshore)), () -> {
+                node(KrathaLiquid.liquidTube, () -> {
+                   node(KrathaLiquid.liquidCell, () -> {
                    
                    });
-                   node(KrathaLiquids.liquidOverpass, () -> {
+                   node(KrathaLiquid.liquidOverpass, () -> {
                    
                    });
                 });
             });
             node(KrathaProduction.thermicDrill, () -> {
-                node(KrathaProduction.laserBore, () -> {
+                node(KrathaProduction.laserDrill, () -> {
                         
                 });
                 node(KrathaProduction.cliffBore, () -> {
