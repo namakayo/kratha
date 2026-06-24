@@ -62,6 +62,9 @@ public class BioHeart extends BioBlock {
                     pulsed=false;
                 }
             }
+            if(!(allowRoot||hideDataPatchWarning)){
+                tile.setBlock(Terraplasm.datapatchInfo,team);
+            }
         }
         public void updatePulse() {
             if (true) {
