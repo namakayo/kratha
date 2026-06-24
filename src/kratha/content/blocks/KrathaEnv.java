@@ -28,7 +28,7 @@ public class KrathaEnv {
             terrastoneWall,terrastoneErodedWall,terrastoneGrassy,terrastoneFloor,terrastoneEroded,terrastoneWatra,terrastoneBoulder,terrastoneErodedBoulder,terrastoneErodedVent,
             krathagenFloor,krathagenDeep,krathagenWall,
             watraShallow,watraDeep,
-            fallenLeavesLegacy,fallenLeaves,lilypad,pebbles,krathiteOreWall,guartzOre,cobaltOre,anemiteOre;
+            fallenLeavesLegacy,fallenLeaves,lilypad,plant,flowerGreen,flowerPink,flowerRed,pebbles,krathiteOreWall,guartzOre,cobaltOre,anemiteOre;
     public static void load() {
         {
             {
@@ -200,8 +200,12 @@ public class KrathaEnv {
                 }};
                 //extra deco
                 fallenLeavesLegacy = new OverlayFloor("fallen-leaves"){{variants=3;}}; //old version of fallen leaves that is OverlayFloor instead of Prop, this is kept so old files wont be corrupted
-                fallenLeaves = new Prop("fallen-leaves-new"){{variants=3;hasShadow=false;}};
-                lilypad = new Prop("lilypad"){{variants=6;hasShadow=false;}};
+                fallenLeaves = new Prop("fallen-leaves-new"){{variants=3;hasShadow=false;layer=Layer.floor+0.01f;}};
+                lilypad = new Prop("lilypad"){{variants=6;hasShadow=false;layer=Layer.floor+0.01f;}};
+                plant = new Prop("plant"){{variants=3;hasShadow=false;}};
+                flowerGreen = new Prop("flower-green"){{variants=3;hasShadow=false;}};
+                flowerPink = new Prop("flower-pink"){{variants=3;hasShadow=false;}};
+                flowerRed = new Prop("flower-red"){{variants=3;hasShadow=false;}};
                 pebbles = new OverlayFloor("pebbles");
                 //ores
                 krathiteOreWall = new StaticWall("krathite-ore-wall"){{
