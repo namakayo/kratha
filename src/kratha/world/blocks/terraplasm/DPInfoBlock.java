@@ -8,5 +8,10 @@ public class DPInfoBlock extends MessageBlock {
     }
 
     public class DPInfoBuild extends MessageBuild {
+        @Override
+        public void updateTile(){
+            super.updateTile();
+            message.replace(0, sb.length(), "hi lol");
+        }
     }
  }     
