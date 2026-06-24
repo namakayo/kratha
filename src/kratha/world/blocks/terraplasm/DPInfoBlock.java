@@ -5,6 +5,7 @@ import mindustry.world.blocks.logic.MessageBlock;
 public class DPInfoBlock extends MessageBlock {
     public DPInfoBlock(String name){
         super(name);
+        update = true;
     }
 
     public class DPInfoBuild extends MessageBuild {
