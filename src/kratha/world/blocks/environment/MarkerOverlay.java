@@ -14,13 +14,7 @@ public class MarkerOverlay extends OverlayFloor{
         super(name);
     }
     @Override
-    public void load(){
-        super.load();
-        region = Core.atlas.find(name);
-    }
-    @Override
     public void drawBase(Tile tile){
-        Draw.z(Layer.debris);
-        if(shouldDraw)Draw.rect(region, tile.worldx(), tile.worldy());
+        if(shouldDraw)super.drawBase(tile);
     }
 }
