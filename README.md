@@ -1,4 +1,7 @@
-# KRATHA
-A mindustry mod about the planet **Kratha**
+<p align="center"><img src="assets/kratha.jpg" alt="kratha" width="1000"></p>
 
-*Althought not called "astherive", this is supposed to be the fourth iteration after Astherive, Astherive: Genesis, and A:RG, of course containing a similar Terraplasm*
+# KRATHA
+A mindustry mod about a not-so-green habitable planet *'Kratha"*
+
+This mod heavily focus on a new faction called the Terraplasm inspired by Anuke's unfinished neoplasm.
+This is the fourth iteration of Astherive.
