@@ -17,6 +17,6 @@ public class MarkerOverlay extends OverlayFloor{
     }
     @Override
     public void drawBase(Tile tile){
-        if(state.rules.editor)Draw.rect(region, tile.worldx(), tile.worldy());
+        if(state.isEditor()||state.isMenu())Draw.rect(region, tile.worldx(), tile.worldy());
     }
 }
