@@ -11,6 +11,7 @@ public class MarkerOverlay extends OverlayFloor{
     public boolean shouldDraw = true;
     public MarkerOverlay(String name){
         super(name);
+        variants = 0;
     }
     @Override
     public void drawBase(Tile tile){
