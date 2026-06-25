@@ -175,7 +175,7 @@ public class Root extends BioBlock {
 
         @Override
         public void onGrown(){
-            extraFloat4=nearbyMarker(5);
+            extraFloat4=nearbyMarker(4);
         }
         
         @Override
