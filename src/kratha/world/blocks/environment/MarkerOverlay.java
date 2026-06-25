@@ -15,6 +15,7 @@ public class MarkerOverlay extends OverlayFloor{
     }
     @Override
     public void drawBase(Tile tile){
-        if(shouldDraw)super.drawBase(tile);
+        Draw.z(Layer.floor+1);
+        if(shouldDraw)Draw.rect(region, tile.worldx(), tile.worldy());
     }
 }
