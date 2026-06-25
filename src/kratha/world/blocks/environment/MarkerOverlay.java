@@ -8,14 +8,15 @@ import mindustry.world.*;
 import mindustry.graphics.*;
 import mindustry.world.blocks.environment.OverlayFloor;
 
+import static mindustry.Vars.*;
+
 public class MarkerOverlay extends OverlayFloor{
-    public boolean shouldDraw = true;
     public MarkerOverlay(String name){
         super(name);
         variants = 0;
     }
     @Override
     public void drawBase(Tile tile){
-        if(shouldDraw)Draw.rect(region, tile.worldx(), tile.worldy());
+        if(state.rules.editor)Draw.rect(region, tile.worldx(), tile.worldy());
     }
 }
