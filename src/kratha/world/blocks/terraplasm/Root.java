@@ -213,10 +213,13 @@ public class Root extends BioBlock {
 
             if(unpack(extraFloat4)[0]==0||unpack(extraFloat4)[1]==0){
                 Building heart=getNearestHeart();
-                extraFloat4=pack(heart.tile.x,heart.tile.y);
+                if(heart!=null)extraFloat4=pack(heart.tile.x,heart.tile.y);
             }
             Tile heartTile=world.tile(unpack(extraFloat4)[0],unpack(extraFloat4)[1]);
-
+            if(heartTile!=null&&(heartTile.build==null||(heartTile.build!=null&&!(heartTile.build instanceof BioHeart.BioHeartBuild)))){
+                extraFloat4=pack(0,0);
+            }
+            
             if(heartTile!=null&&heartTile.build!=null){
                 Building heart = heartTile.build;
                 if(((allowEye&&!getbit(extraFloat3,0))||extraByte==-1)&&(heart!=null&&heart.items.has(Terraplasm.eye.requirements))){
