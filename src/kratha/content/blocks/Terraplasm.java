@@ -42,7 +42,7 @@ public class Terraplasm {
     public static void load() {
         {
             {
-                skewerMarker = new MarkerOverlay(skewer-marker);
+                skewerMarker = new MarkerOverlay("skewer-marker");
                 falseCore = new FalseCoreBlock("false-core"){{
                     //fake core to imitate attack mode, to be destroyed by wproc
                     targetable = false;
