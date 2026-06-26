@@ -132,33 +132,33 @@ public class ParallaxBlock extends TallBlock{
         }
         if(r==1){
             verts[0] = x - s;
-            verts[1] = y - s;
-            verts[6] = x - s + (x-s-cx)*p;
-            verts[7] = y - s + (y-s-cy)*p;
-            verts[12] = x - s + (x-s-cx)*p;
-            verts[13] = y + s + (y+s-cy)*p;
-            verts[18] = x - s;
-            verts[19] = y + s;
-        }
-        if(r==2){
-            verts[0] = x - s;
-            verts[1] = y - s;
-            verts[6] = x + s;
+            verts[1] = y + s;
+            verts[6] = x - s;
             verts[7] = y - s;
-            verts[12] = x + s + (x+s-cx)*p;
+            verts[12] = x - s + (x-s-cx)*p;
             verts[13] = y - s + (y-s-cy)*p;
             verts[18] = x - s + (x-s-cx)*p;
-            verts[19] = y - s + (y-s-cy)*p;
+            verts[19] = y + s + (y+s-cy)*p;
         }
-        if(r==3){
+        if(r==2){
             verts[0] = x + s + (x+s-cx)*p;
             verts[1] = y - s + (y-s-cy)*p;
+            verts[6] = x - s + (x-s-cx)*p;
+            verts[7] = y - s + (y-s-cy)*p;
+            verts[12] = x - s;
+            verts[13] = y - s;
+            verts[18] = x + s;
+            verts[19] = y - s;
+        }
+        if(r==3){
+            verts[0] = x + s;
+            verts[1] = y - s;
             verts[6] = x + s;
-            verts[7] = y - s;
-            verts[12] = x + s;
-            verts[13] = y + s;
+            verts[7] = y + s;
+            verts[12] = x + s + (x+s-cx)*p;
+            verts[13] = y + s + (y+s-cy)*p;
             verts[18] = x + s + (x+s-cx)*p;
-            verts[19] = y + s + (y+s-cy)*p;
+            verts[19] = y - s + (y-s-cy)*p;
         }
         
         verts[2] = c;
