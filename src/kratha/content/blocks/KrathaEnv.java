@@ -26,7 +26,7 @@ public class KrathaEnv {
             krathiteStaticwall,krathiteRough,krathiteFloor,krathitePlated,krathiteKrathagen,krathiteBoulder,krathiteBoulderLarge,krathiteVent,
             akrockWall,akacyteFloor,akrock,akrockPlated,akrockBoulder,akrockBoulderLarge,
             terrastoneWall,terrastoneErodedWall,terrastoneGrassy,terrastoneFloor,terrastoneEroded,terrastoneWatra,terrastoneBoulder,terrastoneErodedBoulder,terrastoneErodedVent,
-            krathagenFloor,krathagenDeep,krathagenDeeper,krathagenWall,
+            krathagenFloor,krathagenDeep,krathagenDeeper,krathagenDeepest,krathagenDeeperBlock,krathagenDeepestBlock,krathagenWall,
             watraShallow,watraDeep,
             fallenLeavesLegacy,fallenLeaves,lilypad,plant,flowerGreen,flowerPink,flowerRed,pebbles,krathiteOreWall,guartzOre,cobaltOre,anemiteOre;
     public static void load() {
@@ -178,8 +178,39 @@ public class KrathaEnv {
                     supportsOverlay = true;
                     drownTime = 120;
                 }};
-                krathagenDeeper = new ParallaxBlock("krathagen-deeper"){{
+                krathagenDeeper = new ParallaxFloor("krathagen-deeper"){{
+                    speedMultiplier = 0.3f;
                     variants = 4;
+                    liquidDrop = KrathaLiquids.krathagen;
+                    isLiquid = true;
+                    cacheLayer = CacheLayer.water;
+                    albedo = 0.95f;
+                    supportsOverlay = true;
+                    drownTime = 60;
+                    parallaxBlock = krathagenDeeperBlock;
+                }};
+                krathagenDeepest = new ParallaxFloor("krathagen-deepest"){{
+                    speedMultiplier = 0.2f;
+                    variants = 4;
+                    liquidDrop = KrathaLiquids.krathagen;
+                    isLiquid = true;
+                    cacheLayer = CacheLayer.water;
+                    albedo = 0.95f;
+                    supportsOverlay = true;
+                    drownTime = 30;
+                    parallaxBlock = krathagenDeepestBlock;
+                }};
+                krathagenDeeperBlock = new ParallaxBlock("krathagen-deeper-block"){{
+                    variants = 4;
+                    parallaxAmount = 80;
+                    floorName = "krathagen-deeper";
+                    depthFlag = 2;
+                }};
+                krathagenDeepestBlock = new ParallaxBlock("krathagen-deepest-block"){{
+                    variants = 4;
+                    parallaxAmount = 150;
+                    floorName = "krathagen-deepest";
+                    depthFlag = 1;
                 }};
                 //watra
                 watraShallow = new Floor("watra-shallow"){{
