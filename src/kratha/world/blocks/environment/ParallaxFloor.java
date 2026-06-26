@@ -6,7 +6,7 @@ import arc.math.*;
 import arc.util.*;
 import mindustry.world.*;
 import mindustry.graphics.Layer;
-import mindustry.world.blocks.environment.OverlayFloor;
+import mindustry.world.blocks.environment.Floor;
 
 import static mindustry.Vars.*;
 
