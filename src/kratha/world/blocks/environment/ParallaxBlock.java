@@ -22,6 +22,7 @@ public class ParallaxBlock extends TallBlock{
     public ParallaxBlock(String name){
         super(name);
         forceDark = false;
+        clipSize = 9999;
     }
     @Override
     public void init(){
