@@ -119,7 +119,6 @@ public class ParallaxBlock extends TallBlock{
         float p2 = 0;
         if(!toSur&&nblock instanceof ParallaxBlock pf)p2 = pf.parallaxAmount/Core.camera.width;
 
-        if(!deeper)return;
         //i sure do love assigning everything manually
         if(r==0){
             verts[0] = x - s + (x-s-cx)*p;
@@ -133,13 +132,13 @@ public class ParallaxBlock extends TallBlock{
         }
         if(r==1){
             verts[0] = x - s + (x-s-cx)*p2;
-            verts[1] = y - s + (y-s-cy)*p2;
+            verts[1] = y + s + (y+s-cy)*p2;
             verts[6] = x - s + (x-s-cx)*p2;
-            verts[7] = y + s + (y+s-cy)*p2;
+            verts[7] = y - s + (y-s-cy)*p2;
             verts[12] = x - s + (x-s-cx)*p;
-            verts[13] = y + s + (y+s-cy)*p;
+            verts[13] = y - s + (y-s-cy)*p;
             verts[18] = x - s + (x-s-cx)*p;
-            verts[19] = y - s + (y-s-cy)*p;
+            verts[19] = y + s + (y+s-cy)*p;
         }
         if(r==2){
             verts[0] = x + s + (x+s-cx)*p;
@@ -153,13 +152,13 @@ public class ParallaxBlock extends TallBlock{
         }
         if(r==3){
             verts[0] = x + s + (x+s-cx)*p2;
-            verts[1] = y + s + (y+s-cy)*p2;
+            verts[1] = y - s + (y-s-cy)*p2;
             verts[6] = x + s + (x+s-cx)*p2;
-            verts[7] = y - s + (y-s-cy)*p2;
+            verts[7] = y + s + (y+s-cy)*p2;
             verts[12] = x + s + (x+s-cx)*p;
-            verts[13] = y - s + (y-s-cy)*p;
+            verts[13] = y + s + (y+s-cy)*p;
             verts[18] = x + s + (x+s-cx)*p;
-            verts[19] = y + s + (y+s-cy)*p;
+            verts[19] = y - s + (y-s-cy)*p;
             
         }
         
