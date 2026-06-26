@@ -22,10 +22,10 @@ public class ParallaxBlock extends TallBlock{
     @Override
     public void drawBase(Tile tile){
         //shit code
-        float s = Vars.tilesize/2f;
+        float s = tilesize/2f;
         float x = tile.worldx(), y = tile.worldy();
         float[] verts = new float[24];
-        float c = Color.white.toFloatBits;
+        float c = Color.white.toFloatBits();
 
         verts[0] = x - s;
         verts[1] = y - s;
