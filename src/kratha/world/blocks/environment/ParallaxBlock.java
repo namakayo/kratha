@@ -28,6 +28,7 @@ public class ParallaxBlock extends TallBlock{
     @Override
     public void drawBase(Tile tile){
         Draw.z(layer);
+        Block f = tile.floor();
         float p = parallaxAmount/Core.camera.width;
         float cx = Core.camera.position.x, cy = Core.camera.position.y;
         
@@ -67,7 +68,81 @@ public class ParallaxBlock extends TallBlock{
 
         Draw.vert(region.texture, verts, 0, verts.length);
     }
-  
+    public void drawSide(Tile tile,r){
+        //rotation order : up left down right
+        float p = parallaxAmount/Core.camera.width;
+        float cx = Core.camera.position.x, cy = Core.camera.position.y;
+        
+        float s = tilesize/2f;
+        float x = tile.worldx(), y = tile.worldy();
+        float c = Color.white.toFloatBits();
+        float mc = Color.clearFloatBits;
+        TextureRegion reg = variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region;
+
+        //i sure do love assigning everything manually
+        if(r==0){
+            verts[0] = x - s + (x-s-cx)*p;
+            verts[1] = y + s + (y+s-cy)*p;
+            verts[6] = x + s + (x+s-cx)*p;
+            verts[7] = y + s + (y+s-cy)*p;
+            verts[12] = x + s;
+            verts[13] = y + s;
+            verts[18] = x - s;
+            verts[19] = y + s;
+        }
+        if(r==1){
+            verts[0] = x - s;
+            verts[1] = y - s;
+            verts[6] = x - s + (x-s-cx)*p;
+            verts[7] = y - s + (y-s-cy)*p;
+            verts[12] = x - s + (x-s-cx)*p;
+            verts[13] = y + s + (y+s-cy)*p;
+            verts[18] = x - s;
+            verts[19] = y + s;
+        }
+        if(r==2){
+            verts[0] = x - s;
+            verts[1] = y - s;
+            verts[6] = x + s;
+            verts[7] = y - s;
+            verts[12] = x + s + (x+s-cx)*p;
+            verts[13] = y - s + (y-s-cy)*p;
+            verts[18] = x - s + (x-s-cx)*p;
+            verts[19] = y - s + (y-s-cy)*p;
+        }
+        if(r==3){
+            verts[0] = x + s + (x+s-cx)*p;
+            verts[1] = y - s + (y-s-cy)*p;
+            verts[6] = x + s;
+            verts[7] = y - s;
+            verts[12] = x + s;
+            verts[13] = y + s;
+            verts[18] = x + s + (x+s-cx)*p;
+            verts[19] = y + s + (y+s-cy)*p;
+        }
+        
+        verts[2] = c;
+        verts[3] = reg.u;
+        verts[4] = reg.v2;
+        verts[5] = mc;
+
+        verts[8] = c;
+        verts[9] = reg.u2;
+        verts[10] = reg.v2;
+        verts[11] = mc;
+
+        verts[14] = c;
+        verts[15] = reg.u2;
+        verts[16] = reg.v;
+        verts[17] = mc;
+
+        verts[20] = c;
+        verts[21] = reg.u;
+        verts[22] = reg.v;
+        verts[23] = mc;
+
+        Draw.vert(region.texture, verts, 0, verts.length);
+    }
     @Override
     public boolean synthetic(){
         return true;
