@@ -26,7 +26,7 @@ public class KrathaEnv {
             krathiteStaticwall,krathiteRough,krathiteFloor,krathitePlated,krathiteKrathagen,krathiteBoulder,krathiteBoulderLarge,krathiteVent,
             akrockWall,akacyteFloor,akrock,akrockPlated,akrockBoulder,akrockBoulderLarge,
             terrastoneWall,terrastoneErodedWall,terrastoneGrassy,terrastoneFloor,terrastoneEroded,terrastoneWatra,terrastoneBoulder,terrastoneErodedBoulder,terrastoneErodedVent,
-            krathagenFloor,krathagenDeep,krathagenDeeper,krathagenDeepest,krathagenDeeperBlock,krathagenDeepestBlock,krathagenWall,
+            krathagenFloor,krathagenDeep,krathagenDeeper,krathagenDeepest,krathagenVoid,krathagenDeeperBlock,krathagenDeepestBlock,krathagenVoidBlock,krathagenWall,
             watraShallow,watraDeep,
             fallenLeavesLegacy,fallenLeaves,lilypad,plant,flowerGreen,flowerPink,flowerRed,pebbles,krathiteOreWall,guartzOre,cobaltOre,anemiteOre;
     public static void load() {
@@ -203,6 +203,18 @@ public class KrathaEnv {
                     parallaxBlock = krathagenDeepestBlock;
                     blendGroup = krathagenFloor;
                 }};
+                krathagenVoid = new ParallaxFloor("krathagen-void"){{
+                    speedMultiplier = 0.1f;
+                    variants = 0;
+                    liquidDrop = KrathaLiquids.krathagen;
+                    isLiquid = true;
+                    cacheLayer = CacheLayer.water;
+                    albedo = 0.95f;
+                    supportsOverlay = true;
+                    drownTime = 15;
+                    parallaxBlock = krathagenVoidBlock;
+                    blendGroup = krathagenFloor;
+                }};
                 krathagenDeeperBlock = new ParallaxBlock("krathagen-deeper-block"){{
                     variants = 4;
                     parallaxAmount = -80;
@@ -214,6 +226,12 @@ public class KrathaEnv {
                     parallaxAmount = -150;
                     floorName = "krathagen-deepest";
                     depthFlag = 1;
+                }};
+                krathagenVoidBlock = new ParallaxBlock("krathagen-void-block"){{
+                    variants = 0;
+                    parallaxAmount = -200;
+                    floorName = "krathagen-void";
+                    depthFlag = 0;
                 }};
                 //watra
                 watraShallow = new Floor("watra-shallow"){{
