@@ -13,7 +13,6 @@ import static mindustry.Vars.*;
 
 public class ParallaxBlock extends TallBlock{
     public float parallaxAmount = -100;
-    public float[] vertices = new float[24];
     public ParallaxBlock(String name){
         super(name);
         forceDark = false;
@@ -23,32 +22,35 @@ public class ParallaxBlock extends TallBlock{
     @Override
     public void drawBase(Tile tile){
         //shit code
-        Draw.z(Layer.floor+(parallaxAmount>0?0.01f:-0.01f));
-        float camoffX1=(tile.worldx()-tilesize/2-Core.camera.position.x)*((parallaxAmount)/Core.camera.width);
-        float camoffY1=(tile.worldy()-tilesize/2-Core.camera.position.y)*((parallaxAmount)/Core.camera.width);
-        float camoffX2=(tile.worldx()+tilesize/2-Core.camera.position.x)*((parallaxAmount)/Core.camera.width);
-        float camoffY2=(tile.worldy()-tilesize/2-Core.camera.position.y)*((parallaxAmount)/Core.camera.width);
-        float camoffX3=(tile.worldx()-tilesize/2-Core.camera.position.x)*((parallaxAmount)/Core.camera.width);
-        float camoffY3=(tile.worldy()+tilesize/2-Core.camera.position.y)*((parallaxAmount)/Core.camera.width);
-        float camoffX4=(tile.worldx()+tilesize/2-Core.camera.position.x)*((parallaxAmount)/Core.camera.width);
-        float camoffY4=(tile.worldy()+tilesize/2-Core.camera.position.y)*((parallaxAmount)/Core.camera.width);
+        float s = Vars.tilesize/2f;
+        float x = tile.worldx(), y = tile.worldy();
+        float[] verts = new float[24];
 
-        for(int i = 0; i < 4; i++){
-            vertices[i * 6 + 2] = Color.white.toFloatBits();
-            vertices[i * 6 + 5] = Color.clearFloatBits;
-        }
-        setPos(0,tile.worldx()-tilesize/2,tile.worldy()-tilesize/2);
-        setPos(1,tile.worldx()+tilesize/2,tile.worldy()-tilesize/2);
-        setPos(2,tile.worldx()+tilesize/2,tile.worldy()+tilesize/2);
-        setPos(3,tile.worldx()-tilesize/2,tile.worldy()+tilesize/2);
-        Draw.vert(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))].texture : region.texture, vertices, 0, vertices.length);
-    }
-  
-    private void setPos(int i, float x, float y){
-        if(i >= 0 && i < 4){
-            if(!Float.isNaN(x)) vertices[i * 6] = x;
-            if(!Float.isNaN(y)) vertices[i * 6 + 1] = y;
-        }
+        verts[0] = x - s;
+        verts[1] = y - s;
+        verts[2] = sample(this, tile.x, tile.y, tile.x - 1, tile.y - 1, tile.x, tile.y - 1, tile.x - 1, tile.y);
+        verts[3] = region.u;
+        verts[4] = region.v2;
+
+        verts[5] = x + s;
+        verts[6] = y - s;
+        verts[7] = sample(this, tile.x, tile.y, tile.x, tile.y - 1, tile.x + 1, tile.y - 1, tile.x + 1, tile.y);
+        verts[8] = region.u2;
+        verts[9] = region.v2;
+
+        verts[10] = x + s;
+        verts[11] = y + s;
+        verts[12] = sample(this, tile.x, tile.y, tile.x + 1, tile.y + 1, tile.x, tile.y + 1, tile.x + 1, tile.y);
+        verts[13] = region.u2;
+        verts[14] = region.v;
+
+        verts[15] = x - s;
+        verts[16] = y + s;
+        verts[17] = sample(this, tile.x, tile.y, tile.x - 1, tile.y + 1, tile.x, tile.y + 1, tile.x - 1, tile.y);
+        verts[18] = region.u;
+        verts[19] = region.v;
+
+        Draw.vert(region.texture, verts, 0, verts.length);
     }
   
     @Override
