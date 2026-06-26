@@ -229,7 +229,7 @@ public class KrathaEnv {
                 }};
                 krathagenVoidBlock = new ParallaxBlock("krathagen-void-block"){{
                     variants = 0;
-                    parallaxAmount = -200;
+                    parallaxAmount = -180;
                     floorName = "krathagen-void";
                     depthFlag = 0;
                 }};
