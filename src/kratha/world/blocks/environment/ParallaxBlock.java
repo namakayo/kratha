@@ -41,7 +41,7 @@ public class ParallaxBlock extends TallBlock{
         setPos(1,tile.worldx()+tilesize/2,tile.worldy()-tilesize/2);
         setPos(2,tile.worldx()+tilesize/2,tile.worldy()+tilesize/2);
         setPos(3,tile.worldx()-tilesize/2,tile.worldy()+tilesize/2);
-        Draw.vert(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region, vertices, 0, vertices.length);
+        Draw.vert(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))].texture : region.texture, vertices, 0, vertices.length);
     }
   
     private void setPos(int i, float x, float y){
