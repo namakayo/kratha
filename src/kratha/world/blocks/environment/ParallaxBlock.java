@@ -114,8 +114,13 @@ public class ParallaxBlock extends TallBlock{
             reg = wallRegions[0];
         }
         if(depthFlag==1){
-            if(!toSur&&
-            if(toSur) = wallRegions[2];
+            if(!toSur&&ndepth==2) reg = wallRegions[1];
+            if(toSur) reg = wallRegions[2];
+        }
+        if(depthFlag==0){
+            if(!toSur&&ndepth==1) reg = wallRegions[3];
+            if(!toSur&&ndepth==2) reg = wallRegions[4];
+            if(toSur) reg = wallRegions[5];
         }
 
         if(!deeper)return;
