@@ -18,7 +18,6 @@ public class ParallaxBlock extends TallBlock{
         super(name);
         forceDark = false;
         solid = false;
-        layer = Layer.floor-0.02f;
     }
     @Override
     public void init(){
@@ -27,7 +26,7 @@ public class ParallaxBlock extends TallBlock{
     }
     @Override
     public void drawBase(Tile tile){
-        Draw.z(layer);
+        Draw.z(Layer.floor-0.02f);
         Block f = tile.floor();
         float p = parallaxAmount/Core.camera.width;
         float cx = Core.camera.position.x, cy = Core.camera.position.y;
@@ -67,8 +66,14 @@ public class ParallaxBlock extends TallBlock{
         verts[23] = mc;
 
         Draw.vert(region.texture, verts, 0, verts.length);
+
+        Draw.z(Layer.floor-0.01f);
+        if(tile.nearby(0,1)!=null&&tile.nearby(0,1).floor()!=f)drawSide(tile,0);
+        if(tile.nearby(-1,0)!=null&&tile.nearby(-1,0).floor()!=f)drawSide(tile,1);
+        if(tile.nearby(0,-1)!=null&&tile.nearby(0,-1).floor()!=f)drawSide(tile,2);
+        if(tile.nearby(1,0)!=null&&tile.nearby(1,0).floor()!=f)drawSide(tile,3);
     }
-    public void drawSide(Tile tile,r){
+    public void drawSide(Tile tile,int r){
         //rotation order : up left down right
         float p = parallaxAmount/Core.camera.width;
         float cx = Core.camera.position.x, cy = Core.camera.position.y;
