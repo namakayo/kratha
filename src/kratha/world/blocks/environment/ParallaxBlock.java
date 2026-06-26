@@ -36,7 +36,7 @@ public class ParallaxBlock extends TallBlock{
         wallRegions[0] = Core.atlas.find(name+"-mid-to-sur");
         wallRegions[1] = Core.atlas.find(name+"-dep-to-mid");
         wallRegions[2] = Core.atlas.find(name+"-dep-to-sur");
-        wallRegions[3] = Core.atlas.find(name+"-vod-to-sur");
+        wallRegions[3] = Core.atlas.find(name+"-vod-to-dep");
         wallRegions[4] = Core.atlas.find(name+"-vod-to-mid");
         wallRegions[5] = Core.atlas.find(name+"-vod-to-sur");
     }
@@ -113,13 +113,9 @@ public class ParallaxBlock extends TallBlock{
             if(toSur) reg = wallRegions[2];
         }
         if(depthFlag==0){
-            /*
             if(!toSur&&ndepth==1) reg = wallRegions[3];
             if(!toSur&&ndepth==2) reg = wallRegions[4];
             if(toSur) reg = wallRegions[5];
-            ^^this is how the code SHOULD be, but no due to a bug that i dont even know how it occur 
-            */
-            reg = wallRegions[3];
         }
         float p2 = 0;
         if(!toSur&&nblock instanceof ParallaxBlock pf)p2 = pf.parallaxAmount/Core.camera.width;
