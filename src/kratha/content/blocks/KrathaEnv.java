@@ -202,13 +202,13 @@ public class KrathaEnv {
                 }};
                 krathagenDeeperBlock = new ParallaxBlock("krathagen-deeper-block"){{
                     variants = 4;
-                    parallaxAmount = 80;
+                    parallaxAmount = -80;
                     floorName = "krathagen-deeper";
                     depthFlag = 2;
                 }};
                 krathagenDeepestBlock = new ParallaxBlock("krathagen-deepest-block"){{
                     variants = 4;
-                    parallaxAmount = 150;
+                    parallaxAmount = -150;
                     floorName = "krathagen-deepest";
                     depthFlag = 1;
                 }};
