@@ -32,12 +32,12 @@ public class ParallaxBlock extends TallBlock{
     @Override
     public void load(){
         super.load();
-        wallRegions[0] = Core.atlas.find("mid-to-sur");
-        wallRegions[1] = Core.atlas.find("dep-to-mid");
-        wallRegions[2] = Core.atlas.find("dep-to-sur");
-        wallRegions[3] = Core.atlas.find("vod-to-sur");
-        wallRegions[4] = Core.atlas.find("vod-to-mid");
-        wallRegions[5] = Core.atlas.find("vod-to-sur");
+        wallRegions[0] = Core.atlas.find(name+"-mid-to-sur");
+        wallRegions[1] = Core.atlas.find(name+"-dep-to-mid");
+        wallRegions[2] = Core.atlas.find(name+"-dep-to-sur");
+        wallRegions[3] = Core.atlas.find(name+"-vod-to-sur");
+        wallRegions[4] = Core.atlas.find(name+"-vod-to-mid");
+        wallRegions[5] = Core.atlas.find(name+"-vod-to-sur");
     }
     @Override
     public void drawBase(Tile tile){
