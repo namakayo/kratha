@@ -32,13 +32,6 @@ public class ParallaxBlock extends TallBlock{
     @Override
     public void load(){
         super.load();
-        if(variants > 0){
-            for(int i = 0; i < variants; i++){
-                variantRegions[i] = Core.atlas.find(floorName + (i + 1));
-            }
-        }else{
-            variantRegions[0] = Core.atlas.find(floorName);
-        }
         wallRegions[0] = Core.atlas.find("mid-to-sur");
         wallRegions[1] = Core.atlas.find("dep-to-mid");
         wallRegions[2] = Core.atlas.find("dep-to-sur");
