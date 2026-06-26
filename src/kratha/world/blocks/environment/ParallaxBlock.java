@@ -20,16 +20,23 @@ public class ParallaxBlock extends TallBlock{
     }
     @Override
     public void drawBase(Tile tile){
+        //shit code
         Draw.z(Layer.floor+(parallaxAmount>0?0.01f:-0.01f));
-        float camoffX=(tile.worldx()-Core.camera.position.x)*((parallaxAmount)/Core.camera.width);
-        float camoffY=(tile.worldy()-Core.camera.position.y)*((parallaxAmount)/Core.camera.width);
-        float scl=parallaxAmount/Core.camera.width;
-        float sx=x-scale*0.5f;
-        float sy=y-scale*0.5f;
-        Draw.scl(scale,scale)
-        Draw.rect(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region,
-            tile.worldx()+camoffX+sx, tile.worldy()+camoffY+sy);
-        Draw.scl(1,1);
+        float camoffX1=(tile.worldx()-tilesize/2-Core.camera.position.x)*((parallaxAmount)/Core.camera.width);
+        float camoffY1=(tile.worldy()-tilesize/2-Core.camera.position.y)*((parallaxAmount)/Core.camera.width);
+        float camoffX2=(tile.worldx()+tilesize/2-Core.camera.position.x)*((parallaxAmount)/Core.camera.width);
+        float camoffY2=(tile.worldy()-tilesize/2-Core.camera.position.y)*((parallaxAmount)/Core.camera.width);
+        float camoffX3=(tile.worldx()-tilesize/2-Core.camera.position.x)*((parallaxAmount)/Core.camera.width);
+        float camoffY3=(tile.worldy()+tilesize/2-Core.camera.position.y)*((parallaxAmount)/Core.camera.width);
+        float camoffX4=(tile.worldx()+tilesize/2-Core.camera.position.x)*((parallaxAmount)/Core.camera.width);
+        float camoffY4=(tile.worldy()+tilesize/2-Core.camera.position.y)*((parallaxAmount)/Core.camera.width);
+        
+        Draw.quad(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region,
+            tile.worldx()-tilesize/2+camoffX1, tile.worldy()-tilesize/2+camoffY1, 1,
+            tile.worldx()+tilesize/2+camoffX2, tile.worldy()-tilesize/2+camoffY2, 1,
+            tile.worldx()-tilesize/2+camoffX3, tile.worldy()+tilesize/2+camoffY3, 1,
+            tile.worldx()+tilesize/2+camoffX4, tile.worldy()+tilesize/2+camoffY4, 1);
+        
     }
     @Override
     public boolean synthetic(){
