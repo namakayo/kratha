@@ -15,6 +15,8 @@ public class ParallaxBlock extends TallBlock{
     public ParallaxBlock(String name){
         super(name);
         forceDark = false;
+        hasShadow = false;
+        solid = false;
     }
     @Override
     public void drawBase(Tile tile){
