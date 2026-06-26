@@ -178,15 +178,8 @@ public class KrathaEnv {
                     supportsOverlay = true;
                     drownTime = 120;
                 }};
-                krathagenDeeper = new ParallaxFloor("krathagen-deeper"){{
-                    speedMultiplier = 0.1f;
+                krathagenDeeper = new ParallaxBlock("krathagen-deeper"){{
                     variants = 4;
-                    liquidDrop = KrathaLiquids.krathagen;
-                    isLiquid = true;
-                    cacheLayer = CacheLayer.water;
-                    albedo = 1f;
-                    supportsOverlay = true;
-                    drownTime = 45;
                 }};
                 //watra
                 watraShallow = new Floor("watra-shallow"){{
