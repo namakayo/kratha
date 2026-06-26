@@ -20,6 +20,5 @@ public class ParallaxFloor extends Floor{
     public void drawMain(Tile tile){
         Draw.z(Layer.floor-0.03f);
         super.drawMain(tile);
-        tile.setBlock(parallaxBlock);
     }
 }
