@@ -19,6 +19,8 @@ public class ParallaxBlock extends TallBlock{
     
     //mid to sur, dep to mid, dep to sur, vod to dep, vod to mid, vod to sur
     public TextureRegion[] wallRegions = new TextureRegion[6];
+
+    private final parallaxMultiplier = 1f/90;
     public ParallaxBlock(String name){
         super(name);
         forceDark = false;
@@ -49,7 +51,7 @@ public class ParallaxBlock extends TallBlock{
     public void drawBase(Tile tile){
         Draw.z(Layer.floor-0.51f+depthFlag*0.1f);
         Block f = tile.floor();
-        float p = renderer.getDisplayScale()*parallaxAmount;
+        float p = renderer.getDisplayScale()*parallaxAmount*parallaxMultiplier;
         float cx = Core.camera.position.x, cy = Core.camera.position.y;
         
         float s = tilesize/2f;
@@ -96,7 +98,7 @@ public class ParallaxBlock extends TallBlock{
     }
     public void drawSide(Tile tile,int r,Tile ntile){
         //rotation order : up left down right
-        float p = renderer.getDisplayScale()*parallaxAmount;
+        float p = renderer.getDisplayScale()*parallaxAmount*parallaxMultiplier;
         float cx = Core.camera.position.x, cy = Core.camera.position.y;
         
         float s = tilesize/2f;
@@ -123,7 +125,7 @@ public class ParallaxBlock extends TallBlock{
             if(toSur) reg = wallRegions[5];
         }
         float p2 = 0;
-        if(!toSur&&nblock instanceof ParallaxBlock pf)p2 = pf.parallaxAmount/Core.camera.width;
+        if(!toSur&&nblock instanceof ParallaxBlock pf)p2 = renderer.getDisplayScale()*pf.parallaxAmount*parallaxMultiplier;
 
         if(!deeper)return;
         //i sure do love assigning everything manually
