@@ -50,7 +50,7 @@ public class ParallaxBlock extends TallBlock{
     public void drawBase(Tile tile){
         Draw.z(Layer.floor-0.51f+depthFlag*0.1f);
         Block f = tile.floor();
-        float p = parallaxAmount/Core.camera.width;
+        float p = renderer.getDisplayScale()*parallaxAmount;
         float cx = Core.camera.position.x, cy = Core.camera.position.y;
         
         float s = tilesize/2f;
@@ -97,7 +97,7 @@ public class ParallaxBlock extends TallBlock{
     }
     public void drawSide(Tile tile,int r,Tile ntile){
         //rotation order : up left down right
-        float p = parallaxAmount/Core.camera.width;
+        float p = renderer.getDisplayScale()*parallaxAmount;
         float cx = Core.camera.position.x, cy = Core.camera.position.y;
         
         float s = tilesize/2f;
