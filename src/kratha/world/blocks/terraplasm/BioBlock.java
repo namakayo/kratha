@@ -230,7 +230,11 @@ public class BioBlock extends Block {
         }
         @Override
         public void draw() {
-            drawPulse(region,drawPulseScale);
+            if(block.variants == 0 || block.variantRegions == null){
+                drawPulse(region,drawPulseScale);
+            }else{
+                drawPulse(variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, block.variantRegions.length - 1))],drawPulseScale);
+            }
             Draw.scl(1,1);
         }
         public void tellDestroyed(int bit,float maxDist){
