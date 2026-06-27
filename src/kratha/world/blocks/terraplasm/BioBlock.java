@@ -50,6 +50,17 @@ public class BioBlock extends Block {
     public int pulseToGrowRoot=2;
 
     public boolean showMarkers = true;
+
+    public final static Point2[] d4x2 = {
+        new Point2(2, 0),
+        new Point2(2, 1),
+        new Point2(1, 2),
+        new Point2(0, 2),
+        new Point2(-1, 1),
+        new Point2(-1, 0),
+        new Point2(0, -1),
+        new Point2(1, -1)
+    };
     
     public BioBlock(String name){
         super(name);
