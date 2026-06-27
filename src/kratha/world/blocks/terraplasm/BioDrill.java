@@ -48,7 +48,7 @@ public class BioDrill extends BioBlock {
         //might conflict between mining wall and floor, dont care though:3
         for(Point2 pos : d4x2){
             Tile other = world.tile(pos[0],pos[1]);
-            if(other==null)continue
+            if(other==null)continue;
             if(canMineWall(other)){
                 returnCount++;
                 returnItem = other.wallDrop();
