@@ -6,7 +6,7 @@ import arc.graphics.*;
 import arc.math.*;
 import arc.util.*;
 import mindustry.world.*;
-import mindustry.graphics.Layer;
+import mindustry.graphics.*;
 import mindustry.world.blocks.environment.TallBlock;
 
 import static mindustry.Vars.*;
