@@ -18,7 +18,7 @@ public class ParallaxBlock extends TallBlock{
     public int depthFlag;
     public TextureRegion[] wallRegions = new TextureRegion[6];
 
-    private final float parallaxMultiplier = 1f/4000;
+    private final float parallaxMultiplier = 1f/1000;
     public ParallaxBlock(String name){
         super(name);
         forceDark = false;
@@ -126,6 +126,7 @@ public class ParallaxBlock extends TallBlock{
         if(!toSur&&nblock instanceof ParallaxBlock pf)p2 = renderer.getDisplayScale()*pf.parallaxAmount*parallaxMultiplier;
 
         if(!deeper)return;
+        boolean shouldDraw = false;
         //i sure do love assigning everything manually
         if(r==0&&(y+s+(y+s-cy)*p)<(y+s+(y+s-cy)*p2)){
             verts[0] = x - s + (x-s-cx)*p;
@@ -136,6 +137,7 @@ public class ParallaxBlock extends TallBlock{
             verts[13] = y + s + (y+s-cy)*p2;
             verts[18] = x - s + (x-s-cx)*p2;
             verts[19] = y + s + (y+s-cy)*p2;
+            shouldDraw = true;
         }
         if(r==1&&(x-s+(x-s-cx)*p)>(x-s+(x-s-cx)*p2)){
             verts[0] = x - s + (x-s-cx)*p;
@@ -146,6 +148,7 @@ public class ParallaxBlock extends TallBlock{
             verts[13] = y - s + (y-s-cy)*p2;
             verts[18] = x - s + (x-s-cx)*p2;
             verts[19] = y + s + (y+s-cy)*p2;
+            shouldDraw = true;
         }
         if(r==2&&(y-s+(y-s-cy)*p)>(y-s+(y-s-cy)*p2)){
             verts[0] = x + s + (x+s-cx)*p;
@@ -156,6 +159,7 @@ public class ParallaxBlock extends TallBlock{
             verts[13] = y - s + (y-s-cy)*p2;
             verts[18] = x + s + (x+s-cx)*p2;
             verts[19] = y - s + (y-s-cy)*p2;
+            shouldDraw = true;
         }
         if(r==3&&(x+s+(x+s-cx)*p)<(x+s+(x+s-cx)*p2)){
             verts[0] = x + s + (x+s-cx)*p;
@@ -166,6 +170,7 @@ public class ParallaxBlock extends TallBlock{
             verts[13] = y + s + (y+s-cy)*p2;
             verts[18] = x + s + (x+s-cx)*p2;
             verts[19] = y - s + (y-s-cy)*p2;
+            shouldDraw = true;
             
         }
         
@@ -189,7 +194,7 @@ public class ParallaxBlock extends TallBlock{
         verts[22] = reg.v;
         verts[23] = mc;
 
-        Draw.vert(reg.texture, verts, 0, verts.length);
+        if(shouldDraw)Draw.vert(reg.texture, verts, 0, verts.length);
     }
     @Override
     public boolean synthetic(){
