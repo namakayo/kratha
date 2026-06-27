@@ -15,12 +15,10 @@ public class ParallaxBlock extends TallBlock{
     private static float[] verts = new float[4*6];
     public float parallaxAmount = -100;
     public String floorName;
-    public int depthFlag; //for the wall. either 0, 1, or 2. very hardcoded smh
-    
-    //mid to sur, dep to mid, dep to sur, vod to dep, vod to mid, vod to sur
+    public int depthFlag;
     public TextureRegion[] wallRegions = new TextureRegion[6];
 
-    private final parallaxMultiplier = 1f/90;
+    private final float parallaxMultiplier = 1f/90;
     public ParallaxBlock(String name){
         super(name);
         forceDark = false;
