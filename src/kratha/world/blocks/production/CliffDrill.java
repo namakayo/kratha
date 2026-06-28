@@ -120,5 +120,43 @@ public class CliffDrill extends BeamDrill {
             Draw.reset();
         }
 
+        @Override
+        protected void updateFacing(){
+            lastItem = null;
+            boolean multiple = false;
+            int dx = Geometry.d4x(rotation), dy = Geometry.d4y(rotation);
+            facingAmount = 0;
+
+            //update facing tiles
+            for(int p = 0; p < size; p++){
+                Point2 l = lasers[p];
+                Tile dest = null;
+                for(int i = 0; i < range; i++){
+                    int rx = l.x + dx*i, ry = l.y + dy*i;
+                    Tile other = world.tile(rx, ry);
+                    if(other != null){
+                        if(other.solid()){
+                            Item drop = other.wallDrop();
+                            if(drop != null && drop.hardness <= tier && (blockedItems == null || !blockedItems.contains(drop))){
+                                facingAmount ++;
+                                if(lastItem != drop && lastItem != null){
+                                    multiple = true;
+                                }
+                                lastItem = drop;
+                                dest = other;
+                            }
+                        }
+                    }
+                }
+
+                facing[p] = dest;
+            }
+
+            //when multiple items are present, count that as no item
+            if(multiple){
+                lastItem = null;
+            }
+        }
+
     }
 }
