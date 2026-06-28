@@ -181,7 +181,7 @@ public class CliffDrill extends BeamDrill {
                             }
                         }
                     }
-                    newFacing[p*range+range] = dest;
+                    newFacing[p*range+i] = dest;
                 }
             }
 
