@@ -65,7 +65,7 @@ public class CliffDrill extends BeamDrill {
                             found = drop;
                             count++;
                             thisCount++;
-                            Drawf.selected(other.worldx(), other.worldy(), Blocks.router, Pal.accent);
+                            Drawf.selected(other.x, other.y, Blocks.router, Pal.accent);
                         }else{
                             invalidItem = drop;
                         }
