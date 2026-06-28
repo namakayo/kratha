@@ -214,7 +214,7 @@ public class CliffDrill extends BeamDrill {
                     int startDepth=999999;
                     for(int j=0;j<range;j++){
                         if(newFacing[i*range+j]!=null){
-                            startDepth=min(j+1,startDepth);
+                            startDepth=Math.min(j+1,startDepth);
                             depth=Math.max(j+1,depth);
                         }
                     }
