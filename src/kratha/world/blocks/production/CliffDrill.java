@@ -127,10 +127,10 @@ public class CliffDrill extends BeamDrill {
                     }
                     if(dir.x!=0){
                         Draw.scl(depth,1);
-                        Draw.rect(heatWallRegion, facing.worldx()+(depth*tilesize/2f*dir.x), facing.worldy(), rotDeg());
+                        Draw.rect(wallHeatRegion, face.worldx()+(depth*tilesize/2f*dir.x), face.worldy(), rotdeg());
                     }else{
                         Draw.scl(1,depth);
-                        Draw.rect(heatWallRegion, facing.worldx(), facing.worldy()+(depth*tilesize/2f*dir.y), rotDeg());
+                        Draw.rect(wallHeatRegion, face.worldx(), face.worldy()+(depth*tilesize/2f*dir.y), rotdeg());
                     }
                     Draw.scl(1,1);
                     Draw.color();
