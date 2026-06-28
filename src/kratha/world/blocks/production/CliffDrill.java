@@ -84,7 +84,7 @@ public class CliffDrill extends BeamDrill {
             int ddx = Geometry.d4x(rotation + 1), ddy = Geometry.d4y(rotation + 1);
 
             for(int i = 0; i < size; i++){
-                Tile face = newFacing[i];
+                Tile face = facing[i];
                 if(face != null){
                     Point2 p = lasers[i];
                     float lx = face.worldx() - (dir.x/2f)*tilesize, ly = face.worldy() - (dir.y/2f)*tilesize;
@@ -184,6 +184,26 @@ public class CliffDrill extends BeamDrill {
                     newFacing[p*range+i] = dest;
                 }
             }
+            //old facing for drawing
+            for(int p = 0; p < size; p++){
+                Point2 l = lasers[p];
+                Tile dest = null;
+                for(int i = 0; i < range; i++){
+                    int rx = l.x + dx*i, ry = l.y + dy*i;
+                    Tile other = world.tile(rx, ry);
+                    if(other != null){
+                        if(other.solid()){
+                            Item drop = other.wallDrop();
+                            if(drop != null && drop.hardness <= tier && (blockedItems == null || !blockedItems.contains(drop))){
+                                dest = other;
+                            }
+                            break;
+                        }
+                    }
+                }
+                facing[p] = dest;
+            }
+            
 
             //when multiple items are present, count that as no item
             if(multiple){
