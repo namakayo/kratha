@@ -71,6 +71,8 @@ public class CliffDrill extends BeamDrill {
                             invalidItem = drop;
                         }
                     }
+                }else{
+                    break;
                 }
             }
 
@@ -116,6 +118,8 @@ public class CliffDrill extends BeamDrill {
                     if(drop != null && drop.hardness <= tier && (blockedItems == null || !blockedItems.contains(drop))){
                         return true;
                     }
+                }else{
+                    break;
                 }
             }
         }
@@ -218,7 +222,7 @@ public class CliffDrill extends BeamDrill {
                             depth=Math.max(j+1,depth);
                         }
                     }
-                    depth=depth-startDepth;
+                    depth=depth-startDepth+1;
                     Draw.scl(depth/4f*warmup,1);
                     if(dir.x!=0){
                         Draw.rect(wallHeatRegion, face.worldx()+(depth*tilesize/2f*dir.x*warmup)-dir.x/2f*tilesize, face.worldy(), rotdeg());
@@ -288,6 +292,8 @@ public class CliffDrill extends BeamDrill {
                                 dest = other;
                                 thisCount++;
                             }
+                        }else{
+                            break;
                         }
                     }
                     newFacing[p*range+i] = dest;
