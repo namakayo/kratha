@@ -60,7 +60,7 @@ public class CliffDrill extends BeamDrill {
                 if(other != null && other.solid()){
                     Item drop = other.wallDrop();
                     if(drop != null){
-                        if(thisCount > stackLimit)break;
+                        if(thisCount >= stackLimit)break;
                         if(drop.hardness <= tier && (blockedItems == null || !blockedItems.contains(drop))){
                             found = drop;
                             count++;
@@ -109,7 +109,7 @@ public class CliffDrill extends BeamDrill {
         @Override
         public void drawSelect(){
             for(Tile tile : newFacing){
-                Drawf.selected(tile.x, tile.y, Blocks.router, Pal.accent);
+                if(tile!=null)Drawf.selected(tile.x, tile.y, Blocks.router, Pal.accent);
             }
             drawItemSelection(lastItem);
         }
@@ -254,7 +254,7 @@ public class CliffDrill extends BeamDrill {
                     Tile other = world.tile(rx, ry);
                     if(other != null){
                         if(other.solid()){
-                            if(thisCount>stackLimit)break;
+                            if(thisCount>=stackLimit)break;
                             Item drop = other.wallDrop();
                             if(drop != null && drop.hardness <= tier && (blockedItems == null || !blockedItems.contains(drop))){
                                 facingAmount ++;
