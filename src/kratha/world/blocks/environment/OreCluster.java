@@ -76,7 +76,7 @@ public class OreCluster extends Block{
         return true;
     }
 
-    public class OreClusterBuild extends Buildi ng{
+    public class OreClusterBuild extends Building{
         @Override
         public void draw(){
             if(!isCenter(tile))return;
