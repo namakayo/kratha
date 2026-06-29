@@ -267,7 +267,7 @@ public class KrathaEnv {
                     itemDrop = KrathaItems.krathite;
                 }};
                 guartzOre = new OreBlock("guartz-ore",KrathaItems.guartz);
-                guartzCluster = new OreCluster("guartzCluster"){{
+                guartzCluster = new OreCluster("guartz-cluster"){{
                     requirements(Category.effect, with());
                     buildVisibility = BuildVisibility.sandboxOnly;
                     variants = 2;
