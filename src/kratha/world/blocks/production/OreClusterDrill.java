@@ -64,6 +64,8 @@ public class OreClusterDrill extends Block{
     /** Chance the update effect will appear. */
     public float updateEffectChance = 0.02f;
 
+    public float range = 80f;
+
     /** Multipliers of drill speed for each item. Defaults to 1. */
     public ObjectFloatMap<Item> drillMultipliers = new ObjectFloatMap<>();
 
@@ -113,62 +115,15 @@ public class OreClusterDrill extends Block{
              new Bar(() -> Core.bundle.format("bar.drillspeed", Strings.fixed(e.lastDrillSpeed * 60 * e.timeScale(), 2)), () -> Pal.ammo, () -> e.warmup));
     }
 
-    public Item getDrop(Tile tile){
-        return tile.drop();
-    }
-
     @Override
     public void drawPlace(int x, int y, int rotation, boolean valid){
         super.drawPlace(x, y, rotation, valid);
 
-        Tile tile = world.tile(x, y);
-        if(tile == null) return;
-
-        countOre(tile);
-
-        if(returnItem != null){
-            float width = drawPlaceText(Core.bundle.formatFloat("bar.drillspeed", 60f / getDrillTime(returnItem) * returnCount, 2), x, y, valid);
-            float dx = x * tilesize + offset - width/2f - 4f, dy = y * tilesize + offset + size * tilesize / 2f + 5, s = iconSmall / 4f;
-            Draw.mixcol(Color.darkGray, 1f);
-            Draw.rect(returnItem.fullIcon, dx, dy - 1, s, s);
-            Draw.reset();
-            Draw.rect(returnItem.fullIcon, dx, dy, s, s);
-
-            if(drawMineItem){
-                Draw.color(returnItem.color);
-                Draw.rect(itemRegion, tile.worldx() + offset, tile.worldy() + offset);
-                Draw.color();
-            }
-        }else{
-            Tile to = tile.getLinkedTilesAs(this, tempTiles).find(t -> t.drop() != null && (t.drop().hardness > tier || (blockedItems != null && blockedItems.contains(t.drop()))));
-            Item item = to == null ? null : to.drop();
-            if(item != null){
-                drawPlaceText(Core.bundle.get("bar.drilltierreq"), x, y, valid);
-            }
-        }
+        Drawf.dashCircle(x, y, range, Pal.accent);
     }
 
     public float getDrillTime(Item item){
         return (drillTime + hardnessDrillMultiplier * item.hardness) / drillMultipliers.get(item, 1f);
-    }
-
-    @Override
-    public void setStats(){
-        super.setStats();
-
-        stats.add(Stat.drillTier, StatValues.drillables(drillTime, hardnessDrillMultiplier, size * size, drillMultipliers, b -> b instanceof Floor f && !f.wallOre && f.itemDrop != null &&
-            f.itemDrop.hardness <= tier && (blockedItems == null || !blockedItems.contains(f.itemDrop)) && (indexer.isBlockPresent(f) || state.isMenu())));
-
-        stats.add(Stat.drillSpeed, 60f / drillTime * size * size, StatUnit.itemsSecond);
-
-        if(liquidBoostIntensity != 1 && findConsumer(f -> f instanceof ConsumeLiquidBase && f.booster) instanceof ConsumeLiquidBase consBase){
-            stats.remove(Stat.booster);
-            stats.add(Stat.booster,
-                StatValues.speedBoosters("{0}" + StatUnit.timesSpeed.localized(),
-                consBase.amount,
-                liquidBoostIntensity * liquidBoostIntensity, false, consBase::consumes)
-            );
-        }
     }
 
     @Override
@@ -188,7 +143,7 @@ public class OreClusterDrill extends Block{
         public void drawConfigure(){
             Drawf.select(x, y, tile.block().size * tilesize / 2f + 2f, Pal.accent);
 
-            
+            Drawf.dashCircle(x, y, realRange, baseColor);
         }
 
         @Override
