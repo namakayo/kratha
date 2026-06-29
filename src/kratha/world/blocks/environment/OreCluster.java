@@ -15,6 +15,7 @@ import mindustry.world.*;
 import mindustry.world.meta.*;
 import mindustry.world.blocks.environment.*;
 import mindustry.gen.Building;
+import mindustry.type.Item;
 
 import static mindustry.Vars.*;
 
