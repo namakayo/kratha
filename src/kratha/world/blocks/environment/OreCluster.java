@@ -51,7 +51,7 @@ public class OreCluster extends Block{
 
     @Override
     public void drawBase(Tile tile){
-        if(isCenter(tile));
+        if(!isCenter(tile))return;
         float rot = Mathf.randomSeedRange(tile.pos() + 1, rotationRand);
 
         Draw.z(shadowLayer);
@@ -85,7 +85,7 @@ public class OreCluster extends Block{
     //yes anuke
     public boolean checkAdjacent(Tile tile){
         for(var point : offsets){
-            Tile other = Vars.world.tile(tile.x + point.x, tile.y + point.y);
+            Tile other = Vars.world.tile(tile.x + point.x -1, tile.y + point.y -1);
             if(other == null || other.block() != this){
                 return false;
             }
