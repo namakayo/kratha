@@ -267,7 +267,7 @@ public class KrathaEnv {
                     itemDrop = KrathaItems.krathite;
                 }};
                 guartzOre = new OreBlock("guartz-ore",KrathaItems.guartz);
-                guartzCluster = new OreCluster("guartz-cluster");
+                guartzCluster = new OreCluster("guartz-cluster",KrathaItems.guartz);
                 cobaltOre = new OreBlock("cobalt-ore",KrathaItems.cobalt);
                 anemiteOre = new OreBlock("anemite-ore",KrathaItems.anemite);
             }
