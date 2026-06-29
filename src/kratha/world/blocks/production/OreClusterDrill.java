@@ -146,7 +146,7 @@ public class OreClusterDrill extends Block{
 
         @Override
         public boolean onConfigureBuildTapped(Building other){
-            if(other instanceof CoreBlock.CoreBuild){
+            if(other instanceof OreCluster.OreClusterBuild){
                 link = other.pos();
                 return false;
             }
@@ -184,14 +184,24 @@ public class OreClusterDrill extends Block{
                 dump(drillItem != null && items.has(drillItem) ? drillItem : null);
             }
 
+            if(link == -1){
+                drillItem = null;
+            }
+            
             if(drillItem == null){
                 if(link != -1){
-                    drillItem = KrathaItems.guartz;
+                    Tile linkTile = world.tile(link);
+                    if(linkTile!=null&&linkTile.block()!=null&&linkTile.block().itemDrop!=null){
+                        drillItem=linkTile.block().itemDrop;
+                    }else{
+                        link=-1;
+                        return;
+                    }
                 }else{
                     return;
                 }
             }
-
+            
             timeDrilled += warmup * delta();
 
             float delay = getDrillTime(drillItem);
