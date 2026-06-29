@@ -137,6 +137,23 @@ public class OreClusterDrill extends Block{
         }
 
         @Override
+        public void configure(){
+
+        }
+
+        @Override
+        public boolean onConfigureBuildTapped(Building other){
+            if(block.clearOnDoubleTap){
+                if(other instanceof OreClusterBuild){
+                    deselect();
+                    configure(other.pos());
+                    return false;
+                }
+                return true;
+            }
+        }
+
+        @Override
         public boolean shouldConsume(){
             return items.total() < itemCapacity && enabled && drillItem != null;
         }
