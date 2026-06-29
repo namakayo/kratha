@@ -140,7 +140,7 @@ public class OreClusterDrill extends Block{
 
             if(link!=-1&&world.tile(link)!=null){
                 Tile linkTile = world.tile(link);
-                Drawf.select(linkTile.x, linkTile.y, 3*tilesize/2f+2f, Pal.remove);
+                Drawf.select(linkTile.x*tilesize, linkTile.y*tilesize, 3*tilesize/2f+2f, Pal.remove);
             }
         }
 
