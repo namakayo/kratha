@@ -85,7 +85,7 @@ public class OreCluster extends Block{
     //yes anuke
     public boolean checkAdjacent(Tile tile){
         for(var point : offsets){
-            Tile other = Vars.world.tile(tile.x + point.x -1, tile.y + point.y -1);
+            Tile other = Vars.world.tile(tile.x + point.x, tile.y + point.y);
             if(other == null || other.block() != this){
                 return false;
             }
