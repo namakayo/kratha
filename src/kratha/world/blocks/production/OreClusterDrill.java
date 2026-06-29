@@ -64,7 +64,7 @@ public class OreClusterDrill extends Block{
     public boolean drawRim = false;
     public boolean drawSpinSprite = true;
     public Color heatColor = Color.valueOf("ff5512");
-    public extureRegion rimRegion;
+    public TextureRegion rimRegion;
     public TextureRegion topRegion;
     public extureRegion itemRegion;
 
@@ -96,7 +96,7 @@ public class OreClusterDrill extends Block{
         super.load();
         rimRegion = Core.atlas.find(name+"-rim");
         topRegion = Core.atlas.find(name+"-top");
-        itemEegion = Core.atlas.find(name+"-item");
+        itemRegion = Core.atlas.find(name+"-item");
     }
 
     @Override
@@ -137,21 +137,16 @@ public class OreClusterDrill extends Block{
 
             Drawf.dashCircle(x, y, realRange, baseColor);
 
-            if(link!=-1&&world.tile(link!=null)){
+            if(link!=-1&&world.tile(link)!=null){
                 Tile linkTile = world.tile(link);
                 Drawf.select(linkTile.x, linkTile.y, tilesize/2f, Pal.remove);
             }
         }
 
         @Override
-        public void configure(){
-
-        }
-
-        @Override
         public boolean onConfigureBuildTapped(Building other){
             if(block.clearOnDoubleTap){
-                if(other instanceof CoreBuild){
+                if(other instanceof CoreBlock.CoreBuild){
                     deselect();
                     configure(other.pos());
                     return false;
@@ -183,12 +178,6 @@ public class OreClusterDrill extends Block{
         @Override
         public void pickedUp(){
             drillItem = null;
-        }
-
-        @Override
-        public Object senseObject(LAccess sensor){
-            if(sensor == LAccess.firstItem) return drillItem;
-            return super.senseObject(sensor);
         }
 
         @Override
@@ -238,13 +227,7 @@ public class OreClusterDrill extends Block{
 
         @Override
         public float progress(){
-            return drillItem == null ? 0f : Mathf.clamp(progress / getDrillTime(dominantItem));
-        }
-
-        @Override
-        public double sense(LAccess sensor){
-            if(sensor == LAccess.progress && drillItem != null) return progress;
-            return super.sense(sensor);
+            return drillItem == null ? 0f : Mathf.clamp(progress / getDrillTime(drillItem));
         }
 
         @Override
