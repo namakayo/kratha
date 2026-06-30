@@ -163,14 +163,10 @@ public class CliffDrill extends BeamDrill {
 
             time += edelta() * multiplier;
 
+            int addAmount = Math.min(facingAmount,itemCapacity-items.total());
             if(time >= drillTime){
-                for(Tile tile : newFacing){
-                    Item drop = tile == null ? null : tile.wallDrop();
-                    if(items.total() < itemCapacity && drop != null){
-                        items.add(drop, 1);
-                        produced(drop);
-                    }
-                }
+                items.add(lastItem, addAmount);
+                produced(lastItem, addAmount);
                 time %= drillTime;
             }
 
