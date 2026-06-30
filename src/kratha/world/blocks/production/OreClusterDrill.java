@@ -168,7 +168,7 @@ public class OreClusterDrill extends Block{
                 }
             }
 
-            int linkLimit = other.block().size==2?1:3;
+            int linkLimit = other.block.size==2?1:3;
             
             return dst<=range&&linkCount<linkLimit*4;
         }
