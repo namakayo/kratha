@@ -131,7 +131,7 @@ public class OreClusterDrill extends Block{
         return new TextureRegion[]{region, topRegion};
     }
 
-    public class DrillBuild extends Building{
+    public class OreClusterDrillBuild extends Building{
         public int link = -1;
         public float progress;
         public float warmup;
@@ -155,7 +155,9 @@ public class OreClusterDrill extends Block{
             float dx=other.x-x;
             float dy=other.y-y;
             float dst=Mathf.sqrt(dx*dx+dy*dy);
-            return dst<=range;
+            int sameCount = 0;
+            indexer.eachBlock(other.team(), x * tilesize, y * tilesize, range*2, other -> other instanceof OreClusterDrillBuild o && o.link != 1 && world.tile(o.link).build == other, other -> sameCount++;);
+            return dst<=range&&sameCount<3;
         }
 
         @Override
