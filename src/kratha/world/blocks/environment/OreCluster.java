@@ -37,6 +37,7 @@ public class OreCluster extends Block{
         clipSize = 100;
         update = true;
         drawTeamOverlay = false;
+        targetable = false;
     }
 
     @Override
@@ -57,6 +58,11 @@ public class OreCluster extends Block{
     @Override
     public boolean canBreak(Tile tile) {
         return state.isEditor();
+    }
+
+    @Override
+    public boolean synthetic(){
+        return false;
     }
 
     public class OreClusterBuild extends Building{
