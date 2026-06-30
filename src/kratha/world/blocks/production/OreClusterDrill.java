@@ -293,12 +293,14 @@ public class OreClusterDrill extends Block{
                 float dx = x2-x1;
                 float dy = y2-y1;
                 float dst = Mathf.sqrt(dx*dx+dy*dy);
-                x2-=(dx/dst)*tilesize;
-                y2-=(dy/dst)*tilesize;
+                x2-=(dx/dst)*tilesize*2;
+                y2-=(dy/dst)*tilesize*2;
+                x2+= Mathf.sin(timeDrilled*rotateSpeed)*tilesize/4f;
+                y2+= Mathf.cos(timeDrilled*rotateSpeed)*tilesize/4f;
                 float cx = (x2+x1)/2f;
                 float cy = (y2+y1)/2f;
                 float angle1 = Angles.angle(x1, y1, x2, y2);
-                Draw.scl(dst*4,0.5f);
+                Draw.scl(dst*4,1);
                 Draw.rect(wireRegion,cx,cy,angle1);
                 Draw.scl(1,1);
                 Drawf.spinSprite(rotatorRegion, x2, y2, timeDrilled * rotateSpeed);
