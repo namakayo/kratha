@@ -222,10 +222,12 @@ public class OreClusterDrill extends Block{
         protected float[] getBorePos(){
             Tile linkTile = world.tile(link);
             if(linkTile==null)return new float[]{0,0,0};
+            if(linkTile.block()==null)return new float[]{0,0,0};
             float x1 = x;
             float y1 = y;
-            float x2 = linkTile.worldx();
-            float y2 = linkTile.worldy();
+            float offset = linkTile.block().size%2!=0?0:tilesize/2f;
+            float x2 = linkTile.worldx()+offset;
+            float y2 = linkTile.worldy()+offset;
             float dx = x2-x1;
             float dy = y2-y1;
             float dst = Mathf.sqrt(dx*dx+dy*dy);
