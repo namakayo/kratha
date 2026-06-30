@@ -295,11 +295,12 @@ public class OreClusterDrill extends Block{
                 float dst = Mathf.sqrt(dx*dx+dy*dy);
                 x2-=dx/dst;
                 y2-=dy/dst;
-                float angle1 = Angles.angle(x1, y1, x2, y2),
-                vx = Mathf.cosDeg(angle1), vy = Mathf.sinDeg(angle1),
-                len1 = tilesize / 2f - 1.5f, len2 = tilesize / 2f - 1.5f;
-                Drawf.laser(wireRegion, wireRegion, wireRegion, x1 + vx*len1, y1 + vy*len1, x2 - vx*len2, y2 - vy*len2, 1, false);
-
+                float cx = (x2+x1)/2f;
+                float cx = (y2+y1)/2f;
+                float angle1 = Angles.angle(x1, y1, x2, y2);
+                Draw.scl(dst,1);
+                Draw.rect(wireRegion,cx,cy,angle1);
+                Draw.scl(1,1);
                 Draw.rect(boreRegion, x, y);
             }
             Draw.z(Layer.power+2.1f);
