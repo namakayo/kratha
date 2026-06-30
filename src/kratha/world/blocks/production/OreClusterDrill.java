@@ -155,9 +155,20 @@ public class OreClusterDrill extends Block{
             float dx=other.x-x;
             float dy=other.y-y;
             float dst=Mathf.sqrt(dx*dx+dy*dy);
-            int sameCount = 0;
-            indexer.eachBlock(other.team(), x * tilesize, y * tilesize, range*2, other -> other instanceof OreClusterDrillBuild o && o.link != 1 && world.tile(o.link).build == other, other -> sameCount++;);
-            return dst<=range&&sameCount<3;
+            int linkCount = 0;
+
+            //Namaka what the hell is this
+            int frange = (int) Math.ceil(range)+1;
+            for(int xm = -frange;xm<=frange;xm++){
+                for(int ym = -frange;ym<=frange;ym++){
+                    Tile other = tile.nearby(xm,ym);
+                    if(other!=null&&other.build!=null&&other.build instanceof OreClusterDrillBuild o&&o.link!=-1&&world.tile(o.link).build==other) {
+                        linkCount++;
+                    }
+                }
+            }
+            
+            return dst<=range&&linkCount<3;
         }
 
         @Override
