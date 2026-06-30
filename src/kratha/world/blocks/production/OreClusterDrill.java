@@ -147,7 +147,8 @@ public class OreClusterDrill extends Block{
 
             if(link!=-1&&world.tile(link)!=null&&world.tile(link).block()!=null){
                 Tile linkTile = world.tile(link);
-                Drawf.select(linkTile.x*tilesize, linkTile.y*tilesize, linkTile.block().size*tilesize/2f+2f, Pal.remove);
+                float offset = linkTile.block().size%2!=0?0:tilesize/2f;
+                Drawf.select(linkTile.x*tilesize+offset, linkTile.y*tilesize+offset, linkTile.block().size*tilesize/2f+2f, Pal.remove);
             }
         }
 
