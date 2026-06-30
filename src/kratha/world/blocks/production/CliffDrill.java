@@ -48,7 +48,7 @@ public class CliffDrill extends BeamDrill {
         super.setBars();
 
         addBar("drillspeed", (BeamDrillBuild e) ->
-            new Bar(() -> Core.bundle.format("bar.drillspeed", Strings.fixed(e.lastDrillSpeed, 2)), () -> Pal.ammo, () -> e.warmup));
+            new Bar(() -> Core.bundle.format("bar.drillspeed", Strings.fixed(e.lastDrillSpeed*60, 2)), () -> Pal.ammo, () -> e.warmup));
     }
     @Override
     public void drawPlace(int x, int y, int rotation, boolean valid){
