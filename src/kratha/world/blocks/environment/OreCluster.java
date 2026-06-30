@@ -85,6 +85,11 @@ public class OreCluster extends Block{
     public class OreClusterBuild extends Building{
         public int drillCount = 0;
 
+        @Override
+        public void tapped(){
+            updateDrillCount();
+        }
+
         public void updateDrillCount(){
             //this code is shitty, well, it does all that i need
             int s2 = 0;
