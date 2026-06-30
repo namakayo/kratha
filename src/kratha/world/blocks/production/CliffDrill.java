@@ -150,20 +150,21 @@ public class CliffDrill extends BeamDrill {
             updateFacing();
 
             float multiplier = Mathf.lerp(1f, optionalBoostIntensity, optionalEfficiency);
-            float drillTime = getDrillTime(lastItem);
+            int count = 0;
+            for(int j=0;j<range;j++){
+                if(newFacing[i*range+j]!=null){
+                    count++;
+                }
+            }
+            float drillTime = 60f/(getDrillTime(drillItem)*count);
             boostWarmup = Mathf.lerpDelta(boostWarmup, optionalEfficiency, 0.1f);
             lastDrillSpeed = (facingAmount * multiplier * timeScale) / drillTime * efficiency;
 
             time += edelta() * multiplier;
 
             if(time >= drillTime){
-                for(Tile tile : newFacing){
-                    Item drop = tile == null ? null : tile.wallDrop();
-                    if(items.total() < itemCapacity && drop != null){
-                        items.add(drop, 1);
-                        produced(drop);
-                    }
-                }
+                items.add(drillItem, 1);
+                produced(drillItem);
                 time %= drillTime;
             }
 
