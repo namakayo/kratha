@@ -30,9 +30,8 @@ public class OreCluster extends Block{
         super(name);
         variants = 2;
         solid = true;
-        clipSize = 90;
+        clipSize = 100;
         createRubble = false;
-        customShadow = true;
         size = 3;
         buildVisibility = BuildVisibility.sandboxOnly;
         clipSize = 100;
