@@ -69,7 +69,7 @@ public class OreClusterDrill extends Block{
     public TextureRegion itemRegion;
     public TextureRegion wireRegion;
     public TextureRegion boreRegion;
-    public TextureRegion boreBottomRegion;
+    public TextureRegion rotatorRegion;
 
     public OreClusterDrill(String name){
         super(name);
@@ -103,7 +103,7 @@ public class OreClusterDrill extends Block{
         itemRegion = Core.atlas.find(name+"-item");
         wireRegion = Core.atlas.find(name+"-wire");
         boreRegion = Core.atlas.find(name+"-bore");
-        boreBottomRegion = Core.atlas.find(name+"-bore-bottom");
+        boreBottomRegion = Core.atlas.find(name+"-rotator");
     }
 
     @Override
@@ -301,6 +301,7 @@ public class OreClusterDrill extends Block{
                 Draw.scl(dst,1);
                 Draw.rect(wireRegion,cx,cy,angle1);
                 Draw.scl(1,1);
+                Drawf.spinSprite(rotatorRegion, x, y, timeDrilled * rotateSpeed);
                 Draw.rect(boreRegion, x, y);
             }
             Draw.z(Layer.power+2.1f);
