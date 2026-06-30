@@ -33,9 +33,10 @@ public class OreCluster extends Block{
         clipSize = 100;
         createRubble = false;
         size = 3;
-        buildVisibility = BuildVisibility.sandboxOnly;
+        buildVisibility = BuildVisibility.editorOnly;
         clipSize = 100;
         update = true;
+        drawTeamOverlay = false;
     }
 
     @Override
