@@ -282,6 +282,11 @@ public class OreClusterDrill extends Block{
                 float y1 = y;
                 float x2 = linkTile.worldx();
                 float y2 = linkTile.worldy();
+                float dx = x2-x1;
+                float dy = y2-y1;
+                float dst = Mathf.sqrt(dx*dx+dy*dy);
+                x2-=dx*dst;
+                y2-=dy*dst;
                 float angle1 = Angles.angle(x1, y1, x2, y2),
                 vx = Mathf.cosDeg(angle1), vy = Mathf.sinDeg(angle1),
                 len1 = tilesize / 2f - 1.5f, len2 = tilesize / 2f - 1.5f;
@@ -289,7 +294,7 @@ public class OreClusterDrill extends Block{
 
                 Draw.rect(boreRegion, x, y);
             }
-            Draw.z(Layer.blockAfterCracks);
+            Draw.z(Layer.power+2.1);
             Draw.rect(topRegion, x, y);
             
 
