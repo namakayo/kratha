@@ -183,10 +183,12 @@ public class OreClusterDrill extends Block{
         public boolean onConfigureBuildTapped(Building other){
             if(other.block instanceof OreCluster&&canLink(other)){
                 link = other.pos();
+                if(other instanceof OreCluster.OreClusterBuild o)o.updateDrillCount();
                 return false;
             }
             if (other == this || link == other.pos()){
                 link = -1;
+                if(other instanceof OreCluster.OreClusterBuild o)o.updateDrillCount();
                 return false;
             }
             return true;
