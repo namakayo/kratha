@@ -276,6 +276,7 @@ public class KrathaEnv {
                     requirements(Category.effect, with());
                     variants = 2;
                     size = 2;
+                    maxDrillCount = 1;
                     itemDrop = KrathaItems.guartz;
                 }};
                 cobaltOre = new OreBlock("cobalt-ore",KrathaItems.cobalt);
