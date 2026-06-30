@@ -28,7 +28,7 @@ public class KrathaEnv {
             terrastoneWall,terrastoneErodedWall,terrastoneGrassy,terrastoneFloor,terrastoneEroded,terrastoneWatra,terrastoneBoulder,terrastoneErodedBoulder,terrastoneErodedVent,
             krathagenFloor,krathagenDeep,krathagenDeeper,krathagenDeepest,krathagenVoid,krathagenDeeperBlock,krathagenDeepestBlock,krathagenVoidBlock,krathagenWall,
             watraShallow,watraDeep,
-            fallenLeavesLegacy,fallenLeaves,lilypad,plant,flowerGreen,flowerPink,flowerRed,pebbles,krathiteOreWall,guartzOre,guartzCluster,cobaltOre,anemiteOre;
+            fallenLeavesLegacy,fallenLeaves,lilypad,plant,flowerGreen,flowerPink,flowerRed,pebbles,krathiteOreWall,guartzOre,guartzCluster,guartzClusterSmall,cobaltOre,anemiteOre;
     public static void load() {
         {
             {
@@ -269,7 +269,11 @@ public class KrathaEnv {
                 guartzOre = new OreBlock("guartz-ore",KrathaItems.guartz);
                 guartzCluster = new OreCluster("guartz-cluster"){{
                     requirements(Category.effect, with());
-                    buildVisibility = BuildVisibility.sandboxOnly;
+                    variants = 2;
+                    itemDrop = KrathaItems.guartz;
+                }};
+                guartzClusterSmall = new OreCluster("guartz-cluster-small"){{
+                    requirements(Category.effect, with());
                     variants = 2;
                     itemDrop = KrathaItems.guartz;
                 }};
