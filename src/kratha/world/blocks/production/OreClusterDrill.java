@@ -200,7 +200,7 @@ public class OreClusterDrill extends Block{
 
         protected float[] getBorePos(){
             Tile linkTile = world.tile(link);
-            if(linkTile==null)return;
+            if(linkTile==null)return new float[]{0,0,0};
             float x1 = x;
             float y1 = y;
             float x2 = linkTile.worldx();
@@ -251,7 +251,7 @@ public class OreClusterDrill extends Block{
                 progress += delta() * 1 * speed * warmup;
 
                 if(Mathf.chanceDelta(updateEffectChance * warmup)&&link!=-1)
-                    updateEffect.at(getBorePos[0] + Mathf.range(size * 2f), getBorePos[1] + Mathf.range(size * 2f));
+                    updateEffect.at(getBorePos()[0] + Mathf.range(size * 2f), getBorePos()[1] + Mathf.range(size * 2f));
             }else{
                 lastDrillSpeed = 0f;
                 warmup = Mathf.approachDelta(warmup, 0f, warmupSpeed);
@@ -316,7 +316,7 @@ public class OreClusterDrill extends Block{
                 float y1 = y;
                 float x2 = getBorePos()[0];
                 float y2 = getBorePos()[1];
-                float dst = getBorePos[2];
+                float dst = getBorePos()[2];
                 float cx = (x2+x1)/2f;
                 float cy = (y2+y1)/2f;
                 float angle1 = Angles.angle(x1, y1, x2, y2);
