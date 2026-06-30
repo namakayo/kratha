@@ -106,5 +106,19 @@ public class OreCluster extends Block{
             }
             drillCount = (int)Math.floor((float)s2/4);
         }
+
+        @Override
+        public void write(Writes write){
+            super.write(write);
+            write.i(drillCount);
+        }
+
+        @Override
+        public void read(Reads read, byte revision){
+            super.read(read, revision);
+            if(revision >= 1){
+                drillCount = read.i();
+            }
+        }
     }
             }
