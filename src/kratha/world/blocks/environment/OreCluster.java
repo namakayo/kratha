@@ -56,7 +56,7 @@ public class OreCluster extends Block{
     public void drawBase(Tile tile){
         float rot = Mathf.randomSeedRange(tile.pos() + 1, rotationRand);
 
-        float offset = size%2!=0?0:tilesize/2
+        float offset = size%2!=0?0:tilesize/2f;
 
         Draw.z(shadowLayer);
         Draw.color(0f, 0f, 0f, shadowAlpha);
