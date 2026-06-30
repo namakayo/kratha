@@ -118,7 +118,7 @@ public class OreClusterDrill extends Block{
     public void drawPlace(int x, int y, int rotation, boolean valid){
         super.drawPlace(x, y, rotation, valid);
 
-        Drawf.dashCircle(x, y, range, Pal.accent);
+        Drawf.dashCircle(x * tilesize, y * tilesize, range, Pal.accent);
     }
 
     public float getDrillTime(Item item){
