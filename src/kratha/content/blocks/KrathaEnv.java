@@ -21,6 +21,7 @@ import static mindustry.type.ItemStack.with;
 public class KrathaEnv {
     public static Block
             darkness,
+            arkteraWallA,arkteraTileA,arkteraTileB,arkteraTileC,
             terrasporeTree,terrasporeTreeLarge,woodWall,woodFloor,terrasporeFern,terrasporeFernLarge,
             container,
             krathiteStaticwall,krathiteRough,krathiteFloor,krathitePlated,krathiteKrathagen,krathiteBoulder,krathiteBoulderLarge,krathiteVent,
@@ -46,6 +47,10 @@ public class KrathaEnv {
                     hasShadow = false;
                     buildVisibility = BuildVisibility.sandboxOnly;
                 }};
+                arkteraWallA = new StaticWall("arktera-wall-a");
+                arkteraTileA = new Floor("arktera-tile-a", 4);
+                arkteraTileB = new Floor("arktera-tile-b", 0);
+                arkteraTileC = new Floor("arktera-tile-c", 2);
                 //terraspore
                 terrasporeFern = new SeaBush("terraspore-fern"){{
                     lobesMin = 4;
