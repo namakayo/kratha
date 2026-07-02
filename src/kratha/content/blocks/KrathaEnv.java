@@ -49,14 +49,14 @@ public class KrathaEnv {
                 }};
                 arkteraWallA = new StaticWall("arktera-wall-a");
                 arkteraTileA = new Floor("arktera-tile-a", 4){{
-                    drawEdgesOut = false;
+                    drawEdgeOut = false;
                 }};
                 arkteraTileB = new Floor("arktera-tile-b", 0){{
-                    drawEdgesOut = false;
+                    drawEdgeOut = false;
                     blendGroup = arkteraTileA;
                 }};
                 arkteraTileC = new Floor("arktera-tile-c", 2){{
-                    drawEdgesOut = false;
+                    drawEdgeOut = false;
                     blendGroup = arkteraTileA;
                 }};
                 //terraspore
