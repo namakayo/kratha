@@ -93,7 +93,7 @@ public class PanelLogger extends Block{
                 p.activate();
                 return;
             }
-            p.progress += delta()/p.hackTime*efficiency;
+            p.progress += delta()*efficiency;
             progress = p.progress/p.hackTime;
         }
 
