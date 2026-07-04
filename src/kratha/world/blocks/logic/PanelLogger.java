@@ -64,23 +64,36 @@ public class PanelLogger extends Block{
             Draw.rect(topRegion,x,y,rotdeg());
         }
         @Override
-        public void updateTile(){
-            super.updateTile();
+        public void drawSelect(){
+            Building b = connectedTo();
+            if(b!=null&&b instanceof PanelBlock.PanelBuild){
+                float offset = b.block.size%2!=0?0:tilesize/2f;
+                Drawf.select(b.tile.x*tilesize+offset, b.tile.y*tilesize+offset, b.block.size*tilesize/2f+2f, KrathaPal.arkteraOrange);
+            }
+        }
+        public Building connectedTo(){
             Tile tile1=tile.nearby(d4x2[rotation][0]);
             Tile tile2=tile.nearby(d4x2[rotation][1]);
             //insane amount of returns
-            if(tile1==null||tile2==null)return;
-            if(tile1.build==null||tile2.build==null)return;
+            if(tile1==null||tile2==null)return null;
+            if(tile1.build==null||tile2.build==null)return null;
             Building b=tile1.build;
-            if(!(b instanceof PanelBlock.PanelBuild p))return;
-            if(tile2.build!=b)return;
+            if(!(b instanceof PanelBlock.PanelBuild p))return null;
+            if(tile2.build!=b)return null;
+            return b;
+        }
+        @Override
+        public void updateTile(){
+            super.updateTile();
+            Building b = connectedTo();
+            if(b==null||!(b instanceof PanelBlock.PanelBuild p))return;
             if(p.enabled)return;
-            if(progress<1){
+            if(progress>=1){
                 progress=1;
                 p.enable();
                 return;
             }
-            progress += delta() / hackTime;
+            progress += delta()/hackTime;
         }
 
         @Override
