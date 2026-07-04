@@ -20,6 +20,11 @@ public class KrathaPal{
     terraOutline = Color.valueOf("352317"),
     krathianOutline = Color.valueOf("34253E"),
 
+    arkteraBrownDarker = Color.valueOf("292022"),
+    arkteraBrownDark = Color.valueOf("3E3739"),
+    arkteraBrown = Color.valueOf("888283"),
+    arkteraBrownLight = Color.valueOf("B1B1B1"),
+
     arkteraOrange = Color.valueOf("E28742"),
 
     //liquids
