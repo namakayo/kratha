@@ -3,16 +3,17 @@ package kratha.world.blocks.logic;
 import arc.Core;
 import arc.audio.*;
 import arc.graphics.g2d.*;
-import arc.util.io.*
+import arc.util.io.*;
 import mindustry.gen.*;
 import mindustry.world.*;
 import mindustry.world.meta.*;
+import mindustry.content.Fx;
 
 import static mindustry.Vars.state;
 
 public class PanelBlock extends Block{
     public Sound onSound = Sounds.click;
-
+    
     public TextureRegion onRegion;
 
     public PanelBlock(String name){
@@ -45,6 +46,11 @@ public class PanelBlock extends Block{
         @Override
         public void damage(float damage){
             return; //no damage
+        }
+
+        public void enable(){
+            Fx.lightning.at(tile.x,tile.y);
+            enabled = true;
         }
 
         @Override
