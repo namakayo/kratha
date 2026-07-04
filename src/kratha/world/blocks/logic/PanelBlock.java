@@ -43,12 +43,13 @@ public class PanelBlock extends Block{
     }
 
     public class PanelBuild extends Building{
+        Boolean active = false;
         @Override
         public void damage(float damage){
             return; //no damage
         }
 
-        public void enable(){
+        public void activate(){
             Fx.lightning.at(tile.x,tile.y);
             enabled = true;
         }
@@ -67,28 +68,28 @@ public class PanelBlock extends Block{
         public void draw(){
             super.draw();
 
-            if(enabled){
+            if(active){
                 Draw.rect(onRegion, x, y);
             }
         }
 
         @Override
         public Boolean config(){
-            return enabled;
+            return active;
         }
 
         @Override
         public void read(Reads read, byte revision){
             super.read(read, revision);
 
-            enabled = read.bool();
+            active = read.bool();
         }
 
         @Override
         public void write(Writes write){
             super.write(write);
 
-            write.bool(enabled);
+            write.bool(active);
         }
     }
               }
