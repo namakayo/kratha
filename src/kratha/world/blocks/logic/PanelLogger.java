@@ -27,11 +27,12 @@ public class PanelLogger extends Block{
         new Point2(-1, 0)},{
         new Point2(0, -1),
         new Point2(1, -1)
-    }}
+    }};
     public PanelLogger(String name){
         super(name);
         update = solid = rotate = true;
         rotateDraw = false;
+        size = 2;
     }
 
     @Override
@@ -63,7 +64,7 @@ public class PanelLogger extends Block{
         @Override
         public void updateTile(){
             super.updateTile();
-            for(Point2[] pa in d4x2[rotation]){
+            for(Point2[] pa : d4x2[rotation]){
                 Tile tile1=world.tile(pa[0]);
                 Tile tile2=world.tile(pa[1]);
                 //insane amount of returns
@@ -80,6 +81,18 @@ public class PanelLogger extends Block{
                 }
                 progress += delta() / hackTime;
             }
+        }
+
+        Override
+        public void write(Writes write){
+            super.write(write);
+            write.f(progress);
+        }
+
+        @Override
+        public void read(Reads read, byte revision){
+            super.read(read, revision);
+            progress = read.f();
         }
     }
 }
