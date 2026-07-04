@@ -74,7 +74,11 @@ public class KrathaProduction {
             size = 3;
             hasLiquids = true;
             squareSprite = false;
-            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(){{drawLiquid=KrathaLiquids.terac;padding=2.5f;}},new DrawDefault());
+            outputLiquid = new LiquidStack(KrathaLiquids.terac, 9/60f);
+            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawRegion("-rotator"){{
+                spinSprite = true;
+                rotateSpeed = -1;
+            }}, new DrawLiquidTile(){{drawLiquid=KrathaLiquids.terac;padding=2.5f;}},new DrawDefault());
         }};
 
         spurstoneSmelter = new GenericCrafter("spurstone-smelter"){{
