@@ -6,7 +6,7 @@ import mindustry.content.*;
 import kratha.graphics.KrathaPal;
 
 public class KrathaLiquids{
-    public static Liquid krathagen, watra, muddyWatra, terraplasm, akacyte, steam;
+    public static Liquid krathagen, watra, muddyWatra, terraplasm, akacyte, steam, terac;
     public static void load(){
 
         krathagen = new Liquid("krathagen", KrathaPal.krathagenLight){{
@@ -60,6 +60,10 @@ public class KrathaLiquids{
         }};
 
         steam = new Liquid("steam", KrathaPal.steamLight){{
+            gas = true;
+        }};
+
+        terac = new Liquid("terac", KrathaPal.teracLight){{
             gas = true;
         }};
     }
