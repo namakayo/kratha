@@ -40,7 +40,7 @@ public class PanelLogger extends Block{
     @Override
     public void setBars(){
         super.setBars(); 
-        addBar("progress", (PanelLoggerBuild entity) -> new Bar(() -> Core.bundle.format("kratha.hackprogress", (entity.progress)), () -> KrathaPal.arkteraOrange, () -> entity.progress));
+        addBar("progress", (PanelLoggerBuild entity) -> new Bar(() -> Core.bundle.format("kratha.hackprogress", Strings.fixed(entity.progress*100, 2))), () -> KrathaPal.arkteraOrange, () -> entity.progress));
     }
 
     @Override
