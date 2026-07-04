@@ -24,6 +24,8 @@ public class KrathaLogic{
         logger = new PanelLogger("logger"){{
             requirements(Category.logic, with(KrathaItems.krathite,50,KrathaItems.guartz,100,KrathaItems.spurstone,10));
             researchCost = with(KrathaItems.krathite, 10, KrathaItems.guartz,10,KrathaItems.spurstone,5);
+            consumePower(20/60f);
+            hasPower = true;
         }};
         controlPanel = new PanelBlock("control-panel"){{
             requirements(Category.logic, with());
