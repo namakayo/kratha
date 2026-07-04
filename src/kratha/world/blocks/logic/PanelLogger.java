@@ -4,6 +4,8 @@ import arc.*;
 import arc.graphics.g2d.*;
 import arc.struct.*;
 import arc.util.*;
+import arc.util.io.*;
+import arc.math.geom.*;
 import mindustry.*;
 import mindustry.entities.units.*;
 import mindustry.gen.*;
@@ -52,7 +54,7 @@ public class PanelLogger extends Block{
         return new TextureRegion[]{region,topRegion};
     }
 
-    public class PanelLoggerBuild extends Building implements HeatBlock, HeatConsumer{
+    public class PanelLoggerBuild extends Building{
         public float progress = 0;
         public float hackTime = 120;
 
