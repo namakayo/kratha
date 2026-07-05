@@ -17,13 +17,18 @@ import mindustry.world.draw.*;
 import mindustry.game.*;
 import kratha.graphics.KrathaPal;
 import kratha.content.*;
+import mindustry.type.*;
 
 import static mindustry.Vars.*;
 
 //kratha code is bullshit pretending to be normal shit
 public class PanelLogger extends Block{
     public TextureRegion topRegion;
-    public Item chip1,chip2,chip3,chip4;
+    //placeholders
+    public Item chip1 = KrathaItems.krathite;
+    public Item chip2 = KrathaItems.guartz;
+    public Item chip3 = KrathaItems.spurstone;
+    public Item chip4 = KrathaItems.cobalt;
     public final static Point2[][] d4x2 = {{
         new Point2(2, 0),
         new Point2(2, 1)},{
