@@ -24,11 +24,6 @@ import static mindustry.Vars.*;
 //kratha code is bullshit pretending to be shit
 public class PanelLogger extends Block{
     public TextureRegion topRegion;
-    //placeholders
-    public Item chip1 = KrathaItems.krathite;
-    public Item chip2 = KrathaItems.guartz;
-    public Item chip3 = KrathaItems.spurstone;
-    public Item chip4 = KrathaItems.cobalt;
     public final static Point2[][] d4x2 = {{
         new Point2(2, 0),
         new Point2(2, 1)},{
@@ -121,41 +116,41 @@ public class PanelLogger extends Block{
                 p.activate();
                 return;
             }
-            if(p.reqChip1>0){
-                if((float)(p.items.get(chip1))/p.reqChip1<p.progress/(float)p.hackTime){
-                    if(items.get(chip1)>0){
-                        items.remove(chip1,1);
-                        p.handleItem(this,chip1);
+            if(p.reqChip1>0&&p.items.get(p.chip1)<p.reqChip1){
+                if((float)(p.items.get(p.chip1))/p.reqChip1<p.progress/(float)p.hackTime+0.01f){
+                    if(items.get(p.chip1)>0){
+                        items.remove(p.chip1,1);
+                        p.handleItem(this,p.chip1);
                     }else{
                         return;
                     }
                 }
             }
-            if(p.reqChip2>0){
-                if((float)(p.items.get(chip2))/p.reqChip2<p.progress/(float)p.hackTime){
-                    if(items.get(chip2)>0){
-                        items.remove(chip2,1);
-                        p.handleItem(this,chip2);
+            if(p.reqChip2>0&&p.items.get(p.chip2)<p.reqChip2){
+                if((float)(p.items.get(p.chip2))/p.reqChip2<p.progress/(float)p.hackTime+0.01f){
+                    if(items.get(p.chip2)>0){
+                        items.remove(p.chip2,1);
+                        p.handleItem(this,p.chip2);
                     }else{
                         return;
                     }
                 }
             }
-            if(p.reqChip3>0){
-                if((float)(p.items.get(chip3))/p.reqChip3<p.progress/(float)p.hackTime){
-                    if(items.get(chip1)>0){
-                        items.remove(chip3,1);
-                        p.handleItem(this,chip3);
+            if(p.reqChip3>0&&p.items.get(p.chip3)<p.reqChip3){
+                if((float)(p.items.get(p.chip3))/p.reqChip3<p.progress/(float)p.hackTime+0.01f){
+                    if(items.get(p.chip3)>0){
+                        items.remove(p.chip3,1);
+                        p.handleItem(this,p.chip3);
                     }else{
                         return;
                     }
                 }
             }
-            if(p.reqChip4>0){
-                if((float)(p.items.get(chip4))/p.reqChip4<p.progress/(float)p.hackTime){
-                    if(items.get(chip1)>0){
-                        items.remove(chip4,1);
-                        p.handleItem(this,chip4);
+            if(p.reqChip4>0&&p.items.get(p.chip4)<p.reqChip4){
+                if((float)(p.items.get(p.chip4))/p.reqChip4<p.progress/(float)p.hackTime+0.01f){
+                    if(items.get(p.chip4)>0){
+                        items.remove(p.chip4,1);
+                        p.handleItem(this,p.chip4);
                     }else{
                         return;
                     }
@@ -171,10 +166,10 @@ public class PanelLogger extends Block{
 
         public boolean acceptChip(Building panel, Item item){
             if(!(panel instanceof PanelBlock.PanelBuild p))return false;
-            if(item==chip1&&p.reqChip1>0)return true;
-            if(item==chip2&&p.reqChip2>0)return true;
-            if(item==chip3&&p.reqChip3>0)return true;
-            if(item==chip4&&p.reqChip4>0)return true;
+            if(item==p.chip1&&p.reqChip1>0)return true;
+            if(item==p.chip2&&p.reqChip2>0)return true;
+            if(item==p.chip3&&p.reqChip3>0)return true;
+            if(item==p.chip4&&p.reqChip4>0)return true;
             return false;
         }
 
