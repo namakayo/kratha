@@ -26,6 +26,7 @@ public class PanelBlock extends Block{
         configureSound = Sounds.none;
         envEnabled = Env.any;
         hasItems = true;
+        buildVisibility = BuildVisibility.editorOnly;
 
         config(Boolean.class, (PanelBuild entity, Boolean b) -> entity.enabled = b);
     }
