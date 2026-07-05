@@ -104,19 +104,24 @@ public class PanelBlock extends Block{
         @Override
         public void drawSelect(){
             if(KrathaLogic.logger instanceof PanelLogger l){
+                String stringf = "";
                 if(reqChip1>0){
-                    drawPlaceText((Core.bundle.get("item."+l.chip1.name+".name")+" : "+(int)items.get(l.chip1)+"/"+reqChip1),tile.x,tile.y,true);
+                    if(stringf!="")stringf+="\n";
+                    stringf+=(Core.bundle.get("item."+l.chip1.name+".name")+" : "+(int)items.get(l.chip1)+"/"+reqChip1);
                 }
                 if(reqChip2>0){
-                    drawPlaceText((Core.bundle.get("item."+l.chip2.name+".name")+" : "+(int)items.get(l.chip2)+"/"+reqChip2),tile.x,tile.y,true);
+                    if(stringf!="")stringf+="\n";
+                    stringf+=(Core.bundle.get("item."+l.chip2.name+".name")+" : "+(int)items.get(l.chip2)+"/"+reqChip2);
                 }
                 if(reqChip3>0){
-                    drawPlaceText((Core.bundle.get("item."+l.chip3.name+".name")+" : "+(int)items.get(l.chip3)+"/"+reqChip3),tile.x,tile.y,true);
+                    if(stringf!="")stringf+="\n";
+                    stringf+=(Core.bundle.get("item."+l.chip3.name+".name")+" : "+(int)items.get(l.chip3)+"/"+reqChip3);
                 }
                 if(reqChip4>0){
-                    drawPlaceText((Core.bundle.get("item."+l.chip4.name+".name")+" : "+(int)items.get(l.chip4)+"/"+reqChip4),tile.x,tile.y,true);
+                    if(stringf!="")stringf+="\n";
+                    stringf+=(Core.bundle.get("item."+l.chip4.name+".name")+" : "+(int)items.get(l.chip4)+"/"+reqChip4);
                 }
-            }
+                drawPlaceText(stringf,tile.x,tile.y,true);
         }
 
         @Override
