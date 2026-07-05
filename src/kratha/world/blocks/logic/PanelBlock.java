@@ -12,11 +12,18 @@ import mindustry.content.Fx;
 import mindustry.logic.*;
 import mindustry.graphics.*;
 import kratha.content.blocks.KrathaLogic;
+import mindustry.type.*;
 
 import static mindustry.Vars.state;
 
 public class PanelBlock extends Block{
     public TextureRegion onRegion;
+
+    //placeholders
+    public Item chip1 = KrathaItems.krathite;
+    public Item chip2 = KrathaItems.guartz;
+    public Item chip3 = KrathaItems.spurstone;
+    public Item chip4 = KrathaItems.cobalt;
 
     public PanelBlock(String name){
         super(name);
