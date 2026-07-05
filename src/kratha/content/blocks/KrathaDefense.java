@@ -55,7 +55,7 @@ public class KrathaDefense{
             consumePower(30/60f);
         }};
         cutsceneRadar = new Radar("cutscene-radar"){{
-            requirements(Category.effect, BuildVisibility.sandboxOnly, with());
+            requirements(Category.effect, BuildVisibility.editorOnly, with());
             outlineColor = KrathaPal.krathaOutline;
             fogRadius = 40;
             discoveryTime = 30f;
