@@ -55,8 +55,8 @@ public class PanelBlock extends Block{
 
     public class PanelBuild extends Building{
         boolean active = false;
-        float progress = 0;
-        float hackTime = 300;
+        int progress = 0;
+        int hackTime = 10;
         @Override
         public void damage(float damage){
             return; //no damage
@@ -103,8 +103,8 @@ public class PanelBlock extends Block{
             super.read(read, revision);
 
             active = read.bool();
-            progress = read.f();
-            hackTime = read.f();
+            progress = read.i();
+            hackTime = read.i();
         }
 
         @Override
@@ -112,8 +112,8 @@ public class PanelBlock extends Block{
             super.write(write);
 
             write.bool(active);
-            write.f(progress);
-            write.f(hackTime);
+            write.i(progress);
+            write.i(hackTime);
         }
     }
               }
