@@ -8,6 +8,7 @@ import mindustry.world.*;
 import mindustry.world.meta.*;
 import mindustry.content.Fx;
 import mindustry.logic.*;
+import mindustry.graphics
 import kratha.content.blocks.KrathaLogic;
 
 import static mindustry.Vars.state;
@@ -29,9 +30,8 @@ public class PanelBlock extends Block{
 
     @Override
     public void setBars(){
-        //no
+        addBar("progress", (PanelBuild entity) -> new Bar(() -> Core.bundle.format("kratha.hackprogress", Strings.fixed(entity.pprogress*100, 0)), () -> Pal.accent, () -> entity.pprogress));
     }
-
     public boolean isAccessible(){
         return false;
     }
@@ -60,9 +60,16 @@ public class PanelBlock extends Block{
         public boolean active = false;
         public int progress = 0;
         public int hackTime = 10;
+        protected float pprogress = 0;
 
         public int reqChip1 = 0, reqChip2 = 0, reqChip3 = 0, reqChip4 = 0;
 
+        @Override
+        public void updateTile(){
+            super.updateTile();
+            pprogress=(float(progress))/hackTime;
+        }
+        
         @Override
         public void damage(float damage){
             return; //no damage
