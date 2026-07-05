@@ -32,7 +32,7 @@ public class KrathaLogic{
             researchCost = with(KrathaItems.krathite, 30);
         }};
         controlPanel = new PanelBlock("control-panel"){{
-            requirements(Category.logic, with());
+            requirements(Category.logic, BuildVisibility.editorOnly, with());
             size = 4;
         }};
     }
