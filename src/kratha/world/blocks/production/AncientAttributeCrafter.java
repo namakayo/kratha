@@ -10,6 +10,7 @@ import static mindustry.Vars.state;
 public class AncientAttributeCrafter extends AttributeCrafter{
     public AncientAttributeCrafter(String name){
         super(name);
+        allowDerelictRepair = false;
     }
 
     @Override
