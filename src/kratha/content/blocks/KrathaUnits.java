@@ -32,7 +32,7 @@ public class KrathaUnits {
                     researchCost = with(KrathaItems.krathite,200,KrathaItems.guartz,180,KrathaItems.spurstone,100,KrathaItems.cobalt,50);
                 }};
                 ancientFactory = new AncientUnitFactory("ancient-factory"){{
-                    requirements(Category.units, with());
+                    requirements(Category.units, BuildVisibility.sandboxOnly, with());
                     plans.add(new UnitPlan(KrathaUnitTypes.keris, 14 * 60f, with(KrathaItems.guartz, 15,KrathaItems.spurstone, 10)));
                     size = 4;
                     canPickup = false;
