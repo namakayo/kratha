@@ -112,7 +112,7 @@ public class PanelLogger extends Block{
                 return;
             }
             delay -= delta()*efficiency;
-            progress = p.progress/p.hackTime;
+            progress = ((float)p.progress)/p.hackTime;
             if(delay<=0){
                 delay=60;
                 p.progress++;
