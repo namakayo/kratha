@@ -104,6 +104,7 @@ public class PanelLogger extends Block{
             super.updateTile();
             Building b = connectedTo(tile,rotation);
             if(b==null||!(b instanceof PanelBlock.PanelBuild p))return;
+            progress = ((float)p.progress)/p.hackTime;
             if(p.active)return;
             if(p.progress>=p.hackTime){
                 p.progress=p.hackTime;
@@ -112,7 +113,7 @@ public class PanelLogger extends Block{
                 return;
             }
             delay -= delta()*efficiency;
-            progress = ((float)p.progress)/p.hackTime;
+            
             if(delay<=0){
                 delay=60;
                 p.progress++;
