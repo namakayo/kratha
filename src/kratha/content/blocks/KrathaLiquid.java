@@ -51,11 +51,11 @@ public class KrathaLiquid {
                     researchCost = with(KrathaItems.kitegite, 50);
                 }};
 
-                ancientPipeline = new LiquidTube("ancient-pipeline"){{
+                ancientPipeline = new AncientLiquidTube("ancient-pipeline"){{
                     requirements(Category.liquid, with(KrathaItems.arkscrap, 1));
                     botColor = KrathaPal.arkteraBrownDarker;
                 }};
-                ancientPipelineRouter = new LiquidRouter("ancient-pipeline-router"){{
+                ancientPipelineRouter = new AncientLiquidRouter("ancient-pipeline-router"){{
                     requirements(Category.liquid, with(KrathaItems.arkscrap, 1));
                 }};
             }
