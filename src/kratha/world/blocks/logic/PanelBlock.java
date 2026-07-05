@@ -95,16 +95,16 @@ public class PanelBlock extends Block{
         public void drawSelect(){
             if(KrathaLogic.logger instanceof PanelLogger l){
                 if(reqChip1>0&&items.get(l.chip1)<reqChip1){
-                    drawPlaceText((Core.bundle.get("item."+l.chip1+".name"), x, y, true)+" : "+items.get(l.chip1)+"/"+reqChip1);
+                    drawPlaceText((Core.bundle.get("item."+l.chip1.name+".name"), x, y, true)+" : "+items.get(l.chip1)+"/"+reqChip1);
                 }
                 if(reqChip2>0&&items.get(l.chip2)<reqChip2){
-                    drawPlaceText((Core.bundle.get("item."+l.chip2+".name"), x, y, true)+" : "+items.get(l.chip2)+"/"+reqChip2);
+                    drawPlaceText((Core.bundle.get("item."+l.chip2.name+".name"), x, y, true)+" : "+items.get(l.chip2)+"/"+reqChip2);
                 }
                 if(reqChip3>0&&items.get(l.chip3)<reqChip3){
-                    drawPlaceText((Core.bundle.get("item."+l.chip3+".name"), x, y, true)+" : "+items.get(l.chip3)+"/"+reqChip3);
+                    drawPlaceText((Core.bundle.get("item."+l.chip3.name+".name"), x, y, true)+" : "+items.get(l.chip3)+"/"+reqChip3);
                 }
                 if(reqChip4>0&&items.get(l.chip4)<reqChip4){
-                    drawPlaceText((Core.bundle.get("item."+l.chip4+".name"), x, y, true)+" : "+items.get(l.chip4)+"/"+reqChip4);
+                    drawPlaceText((Core.bundle.get("item."+l.chip4.name+".name"), x, y, true)+" : "+items.get(l.chip4)+"/"+reqChip4);
                 }
             }
         }
