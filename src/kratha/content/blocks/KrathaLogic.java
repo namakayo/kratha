@@ -39,9 +39,10 @@ public class KrathaLogic{
         }};
 
         invisible = new Block("invisible"){{
+            requirements(Category.logic, BuildVisibility.editorOnly, with());
             targetable = false;
             forceDark = true;
-            update = false:
+            update = false;
             size = 1;
         }};
     }
