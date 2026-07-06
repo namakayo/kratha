@@ -8,9 +8,15 @@ import mindustry.world.blocks.payloads.*;
 import static mindustry.Vars.state;
 
 public class AncientPayloadMassDriver extends PayloadMassDriver{
+    public boolean letConfig = false;
     public AncientPayloadMassDriver(String name){
         super(name);
         allowDerelictRepair = false;
+    }
+
+    @Override
+    public void setBars(){
+        //no
     }
 
     @Override
@@ -23,7 +29,7 @@ public class AncientPayloadMassDriver extends PayloadMassDriver{
         @Override
         public boolean onConfigureBuildTapped(Building other){
 
-            if(link != -1) return true;
+            if(!letConfig) return true;
                 
             if(this == other){
                 if(link == -1) deselect();
