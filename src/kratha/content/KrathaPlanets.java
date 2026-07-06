@@ -107,7 +107,7 @@ public class KrathaPlanets{
             accessible = true;
             hasAtmosphere = true;
             orbitSpacing = 1;
-            iconColor = atmosphereColor = Color.valueOf("ED93FF");
+            iconColor = atmosphereColor = landCloudColor = Color.valueOf("ED93FF");
             solarSystem = ryii;
             alwaysUnlocked = false;
             generator = new KrathaPlanetGenerator();
