@@ -47,7 +47,6 @@ public class KrathaUnits {
                     reload = 150f;
                     chargeTime = 120f;
                     range = 400f;
-                    configurable = false;
                     solid = false;
                     maxPayloadSize = 4f;
                     fogRadius = 0;
