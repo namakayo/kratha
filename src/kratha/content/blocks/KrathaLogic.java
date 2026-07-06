@@ -42,8 +42,7 @@ public class KrathaLogic{
             requirements(Category.logic, BuildVisibility.editorOnly, with());
             targetable = false;
             forceDark = true;
-            update = false;
-            size = 1;
+            solid = true;
         }};
     }
               }
