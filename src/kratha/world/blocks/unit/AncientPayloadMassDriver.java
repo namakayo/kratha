@@ -1,9 +1,9 @@
-package kratha.world.blocks.units;
+package kratha.world.blocks.payloads;
 
 import mindustry.gen.*;
 import mindustry.world.*;
 import mindustry.world.meta.*;
-import mindustry.world.blocks.units.*;
+import mindustry.world.blocks.payloads.*;
 
 import static mindustry.Vars.state;
 
