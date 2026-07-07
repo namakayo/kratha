@@ -4,7 +4,7 @@ import arc.graphics.*;
 import mindustry.type.*;
 import mindustry.content.*;
 import kratha.graphics.KrathaPal;
-import arc.struct.Seq;
+import arc.struct.*;
 
 public class KrathaLiquids{
     public static Liquid krathagen, watra, muddyWatra, terraplasm, akacyte, steam, terac;
@@ -48,8 +48,8 @@ public class KrathaLiquids{
             moveThroughBlocks = true;
             incinerable = false;
             blockReactive = false;
-            canStayOn.addAll(Liquids.water,muddyWatra,watra, Liquids.oil, Liquids.cryofluid);
-
+            canStayOn.add(muddyWatra);
+            canStayOn.add(watra);
             colorFrom = KrathaPal.terraplasmDark;
             colorTo = KrathaPal.terraplasmLight;
         }};
