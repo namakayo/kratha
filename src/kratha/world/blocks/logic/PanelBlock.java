@@ -114,8 +114,9 @@ public class PanelBlock extends Block{
             if(true){
                 String stringf = "";
                 for(int i=0;i<4;i++){
-                    int reqChip;
-                    Item chip;
+                    //reqChip1 and chip1 are placeholder so java doesnt yell at me
+                    int reqChip = reqChip1;
+                    Item chip = chip1;
                     switch(i){
                         case 0:
                             reqChip=reqChip1;
