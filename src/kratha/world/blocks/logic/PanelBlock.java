@@ -141,7 +141,7 @@ public class PanelBlock extends Block{
                         stringf+="[white]"+(
                                 Core.bundle.get("item."+chip.name+".name")+
                             " : ["+
-                            (items.get(chip)<(float)reqChip*0.5f?("#f00"):(items.get(chip)<(float)reqChip?("accent"):("white")))+
+                            (items.get(chip)<(float)reqChip*0.5f?("red"):(items.get(chip)<(float)reqChip?("accent"):("white")))+
                             "]"+(int)items.get(chip)+"[white]/"+reqChip);
                     }
                 }
