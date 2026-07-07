@@ -93,7 +93,7 @@ public class ScannerBlock extends Block{
             Building b = connectedTo(tile,rotation);
             if(b==null||b.block==null||!isAncient(b.block))return;
             if(b instanceof AncientMessageBlock.AncientMessageBuild msg){
-                ui.showText("Reserved Message",msg.message.toString());
+                ui.showText(Core.bundle.get("block."+b.block.name+".name"+" - Recovered Message"),msg.message.toString());
             }else{
                 ui.content.show(b.block);
             }
