@@ -145,7 +145,7 @@ public class PanelLogger extends Block{
                 reqChipAmount+=reqChip-p.items.get(chip);
                 reqChipTotal+=reqChip;
             }
-            needChipT=false;
+            boolean needChipT=false;
             if(reqChipAmount/reqChipTotal<p.progress/p.hackTime+1){
                 for(int i=0;i<4;i++){
                     Item chip=pb.chip1;
