@@ -130,7 +130,7 @@ public class PanelLogger extends Block{
             for(int i=0;i<4;i++){
                 Item chip=pb.chip1;
                 int reqChip=p.reqChip1;
-                switch(1){
+                switch(i){
                     case 0:
                         chip=pb.chip1;
                         reqChip=p.reqChip1;
