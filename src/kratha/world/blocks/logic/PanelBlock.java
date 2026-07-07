@@ -113,22 +113,32 @@ public class PanelBlock extends Block{
         public void drawSelect(){
             if(true){
                 String stringf = "";
-                if(reqChip1>0){
-                    if(stringf!="")stringf+="\n";
-                    stringf+=(Core.bundle.get("item."+chip1.name+".name")+" : "+(int)items.get(chip1)+"/"+reqChip1);
+                for(int i=0;i<4;i++){
+                    int reqChip;
+                    Item chip;
+                    switch(i){
+                        case 0:
+                            reqChip=reqChip1;
+                            chip=chip1;
+                            break;
+                        case 1:
+                            reqChip=reqChip2;
+                            chip=chip2;
+                            break;
+                        case 2:
+                            reqChip=reqChip3;
+                            chip=chip3;
+                            break;
+                        case 3:
+                            reqChip=reqChip4;
+                            chip=chip4;
+                            break;
+                    if(reqChip>0){
+                        if(stringf!="")stringf+="\n";
+                        stringf+="[white]"+(Core.bundle.get("item."+chip.name+".name")+" : ["+(items.get(chip)<(float)reqChip*0.5f?"red":items.get(chip)<(float)reqChip*0.75f?"yellow":"white")+"]"(int)items.get(chip)+"[white]/"+reqChip);
+                    }
                 }
-                if(reqChip2>0){
-                    if(stringf!="")stringf+="\n";
-                    stringf+=(Core.bundle.get("item."+chip2.name+".name")+" : "+(int)items.get(chip2)+"/"+reqChip2);
-                }
-                if(reqChip3>0){
-                    if(stringf!="")stringf+="\n";
-                    stringf+=(Core.bundle.get("item."+chip3.name+".name")+" : "+(int)items.get(chip3)+"/"+reqChip3);
-                }
-                if(reqChip4>0){
-                    if(stringf!="")stringf+="\n";
-                    stringf+=(Core.bundle.get("item."+chip4.name+".name")+" : "+(int)items.get(chip4)+"/"+reqChip4);
-                }
+                
                 drawPlaceText(stringf,tile.x,tile.y,true);
             }
         }
