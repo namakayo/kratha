@@ -24,6 +24,11 @@ public class AncientMessageBlock extends MessageBlock{
     }
 
     @Override
+    public boolean synthetic(){
+        return false;
+    }
+
+    @Override
     public boolean accessible(){
         return state.rules.editor;
     }
