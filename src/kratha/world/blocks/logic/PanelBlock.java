@@ -133,6 +133,7 @@ public class PanelBlock extends Block{
                             reqChip=reqChip4;
                             chip=chip4;
                             break;
+                    }
                     if(reqChip>0){
                         if(stringf!="")stringf+="\n";
                         stringf+="[white]"+(Core.bundle.get("item."+chip.name+".name")+" : ["+(items.get(chip)<(float)reqChip*0.5f?"red":items.get(chip)<(float)reqChip*0.75f?"yellow":"white")+"]"(int)items.get(chip)+"[white]/"+reqChip);
