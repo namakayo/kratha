@@ -36,6 +36,7 @@ public class KrathaLogic{
         controlPanel = new PanelBlock("control-panel"){{
             requirements(Category.logic, BuildVisibility.editorOnly, with());
             size = 4;
+            solid = true;
         }};
         ancientMessageVault = new AncientMessageBlock("ancient-message-vault"){{
             requirements(Category.logic, BuildVisibility.editorOnly, with());
