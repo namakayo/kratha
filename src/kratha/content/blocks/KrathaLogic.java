@@ -18,7 +18,7 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaLogic{
     public static Block
-    logger,scanner,controlPanel,
+    logger,scanner,controlPanel,ancientMessageVault;
 
     invisible;
 
@@ -36,6 +36,10 @@ public class KrathaLogic{
         controlPanel = new PanelBlock("control-panel"){{
             requirements(Category.logic, BuildVisibility.editorOnly, with());
             size = 4;
+        }};
+        ancientMessageVault = new AncientMessageBlock("ancient-message-vault"){{
+            requirements(Category.logic, BuildVisibility.editorOnly, with());
+            size = 2;
         }};
 
         invisible = new Block("invisible"){{
