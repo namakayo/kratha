@@ -186,6 +186,14 @@ public class Terraplasm {
                                 length = 0;
                                 baseLength = 20;
                                 lifetime = 10;
+                            }},
+                            new WaveEffect(){{
+                                colorFrom = KrathaPal.krathiteLight;
+                                colorTo = KrathaPal.krathiteLight;
+                                sizeFrom = 40;
+                                sizeTo = 0;
+                                lightColor = KrathaPal.krathiteLight;
+                                lightInterp = Interp.linear;
                             }};
                         );
 
