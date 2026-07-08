@@ -194,7 +194,7 @@ public class Terraplasm {
                                 sizeTo = 0;
                                 lightColor = KrathaPal.krathiteLight;
                                 lightInterp = Interp.linear;
-                            }};
+                            }}
                         );
 
                         hitEffect = new ParticleEffect(){{
