@@ -151,10 +151,10 @@ public class Terraplasm {
                     requirements(Category.turret, with(KrathaItems.krathite,4));
                     range = 165f;
 
-                    shoot.firstShotDelay = 10f;
+                    shoot.firstShotDelay = 20f;
 
                     recoil = 2f;
-                    reload = 25f;
+                    reload = 35f;
                     shake = 0f;
                     shootEffect = Fx.lancerLaserShoot;
                     smokeEffect = Fx.none;
@@ -185,7 +185,7 @@ public class Terraplasm {
                                 sizeTo = 3;
                                 length = 20;
                                 baseLength = 0;
-                                lifetime = 10;
+                                lifetime = 20;
                                 interp = Interp.pow2InInverse;
                             }},
                             new WaveEffect(){{
@@ -195,12 +195,12 @@ public class Terraplasm {
                                 sizeTo = 0;
                                 lightColor = KrathaPal.krathiteLight;
                                 lightInterp = Interp.linear;
-                                lifetime = 10;
+                                lifetime = 20;
                             }}
                         );
 
                         shootEffect = new ParticleEffect(){{
-                            colorFrom = colorTo = KrathaPal.krathiteLighg;
+                            colorFrom = colorTo = KrathaPal.krathiteLight;
                             cone = 90;
                             particles = 7;
                             sizeFrom = 2;
