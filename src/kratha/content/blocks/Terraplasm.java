@@ -232,8 +232,19 @@ public class Terraplasm {
                         trailWidth = 1.5f;
                         trailSinScl = 2.5f;
                         trailSinMag = 0.5f;
-                        trailEffect = Fx.none;
+                        trailEffect = ParticleEffect(){{
+                            colorFrom = colorTo = KrathaPal.krathite;
+                            cone = 45;
+                            particles = 2;
+                            sizeFrom = 2;
+                            sizeTo = 0;
+                            length = 10;
+                            lifetime = 60;
+                            interp = Interp.pow2Out;
+                        }}; 
                         despawnShake = 0.5f;
+                        trailInterval = 1;
+                        trailChance = 1;
                         
                         trailInterp = v -> Math.max(Mathf.slope(v), 0.8f);
                         shrinkX = 0.2f;
