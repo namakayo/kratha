@@ -167,7 +167,7 @@ public class Terraplasm {
                         interp = Interp.pow3Out;
                     }};
                     smokeEffect = Fx.none;
-                    heatColor = KrathaPal.krathiteLight
+                    heatColor = KrathaPal.krathiteLight;
                     size = 2;
                     targetAir = false;
                     moveWhileCharging = false;
