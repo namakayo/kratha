@@ -151,7 +151,7 @@ public class Terraplasm {
                     requirements(Category.turret, with(KrathaItems.krathite,4));
                     range = 165f;
 
-                    shoot.firstShotDelay = 20f;
+                    shoot.firstShotDelay = 30;
 
                     recoil = 2f;
                     reload = 35f;
@@ -161,7 +161,7 @@ public class Terraplasm {
                     heatColor = Color.red;
                     size = 2;
                     targetAir = false;
-                    moveWhileCharging = false;
+                    moveWhileCharging = true;
                     accurateDelay = false;
                     shootSound = Sounds.shootLancer;
             
@@ -170,11 +170,10 @@ public class Terraplasm {
                     ammoItem = KrathaItems.krathite;
                     maxAmmo = 5;
                     ammoItemMultiplier = 5;
+                    range = 80;
 
             
-                    shootType = new LaserBulletType(140){{
-                        colors = new Color[]{KrathaPal.krathite.cpy().a(0.4f), KrathaPal.krathiteLight, Color.white};
-                    
+                    shootType = new BasicBulletType(){{
                         chargeEffect = new MultiEffect(
                             new ParticleEffect(){{
                                 colorFrom = KrathaPal.krathiteLight;
@@ -183,10 +182,10 @@ public class Terraplasm {
                                 particles = 7;
                                 sizeFrom = 0;
                                 sizeTo = 3;
-                                length = 20;
-                                baseLength = 0;
-                                lifetime = 20;
-                                interp = Interp.pow2InInverse;
+                                length = -30;
+                                baseLength = 30;
+                                lifetime = 30;
+                                interp = Interp.pow2In;
                             }},
                             new WaveEffect(){{
                                 colorFrom = KrathaPal.krathiteLight;
@@ -195,7 +194,7 @@ public class Terraplasm {
                                 sizeTo = 0;
                                 lightColor = KrathaPal.krathiteLight;
                                 lightInterp = Interp.linear;
-                                lifetime = 20;
+                                lifetime = 30;
                             }}
                         );
 
@@ -209,6 +208,7 @@ public class Terraplasm {
                             lifetime = 60;
                             interp = Interp.pow3Out;
                         }};
+                        smokeEffect = Fx.none;
 
                         hitEffect = new ParticleEffect(){{
                             colorFrom = KrathaPal.krathiteLight;
@@ -220,12 +220,26 @@ public class Terraplasm {
                             length = 40;
                             lifetime = 60;
                         }};
-                        hitSize = 4;
-                        lifetime = 16f;
-                        drawSize = 400f;
-                        collidesAir = false;
-                        length = 120f;
-                        pierceCap = 3;
+                        knockback = 4f;
+                        height = 19f;
+                        width = 17f;
+                        damage = 40;
+                        speed = 8;
+                        lifetime = 10;
+                        backColor = hitColor = trailColor = KrathaPal.krathiteLight.lerp(KrathaPal.krathiteDark, 0.5f);
+                        frontColor = Color.white;
+                        trailLength = 10;
+                        trailWidth = 3.35f;
+                        trailSinScl = 2.5f;
+                        trailSinMag = 0.5f;
+                        trailEffect = Fx.none;
+                        despawnShake = 0.5f;
+                        
+                        trailInterp = v -> Math.max(Mathf.slope(v), 0.8f);
+                        shrinkX = 0.2f;
+                        shrinkY = 0.1f;
+                        buildingDamageMultiplier = 1f;
+                        pierceCap=8;
                     }};
                     drawer = new DrawTurret(){{
                         parts.add(
