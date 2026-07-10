@@ -161,7 +161,7 @@ public class Terraplasm {
                     heatColor = Color.red;
                     size = 2;
                     targetAir = false;
-                    moveWhileCharging = true;
+                    moveWhileCharging = false;
                     accurateDelay = false;
                     shootSound = Sounds.shootLancer;
             
