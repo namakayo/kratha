@@ -183,7 +183,8 @@ public class BioTurret extends Turret{
         public void onDestroyed(){
             splashLiquid(KrathaLiquids.terraplasm,40*size);
             if(Terraplasm.root instanceof Root r){
-                if(this.block==Terraplasm.skewer)tellDestroyed(0,r.skewerSpacing);
+                if(this.block==Terraplasm.skewer)tellDestroyed(1,r.skewerSpacing);
+                if(this.block==Terraplasm.trim)tellDestroyed(3,r.skewerSpacing);
             }
         }
         public Building getNearestHeart() {
