@@ -116,6 +116,7 @@ public class OreClusterDrill extends Block{
     }
 
     public Building closestCluster(Tile tile){
+        if(tile==null)return null;
         int frange = (int) Math.ceil((range/tilesize)/2)+1;
         float bestDst = Float.POSITIVE_INFINITY;
         Building bestBuild = null;
