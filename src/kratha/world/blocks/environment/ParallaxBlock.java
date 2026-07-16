@@ -8,6 +8,7 @@ import arc.util.*;
 import mindustry.world.*;
 import mindustry.graphics.*;
 import mindustry.world.blocks.environment.TallBlock;
+import mindustry.entities.units.*;
 
 import static mindustry.Vars.*;
 
@@ -199,5 +200,9 @@ public class ParallaxBlock extends TallBlock{
     @Override
     public boolean synthetic(){
         return true;
+    }
+    @Override
+    public void unitOn(Unit unit({
+        if(unit.isGrounded())unit.kill();
     }
 }
