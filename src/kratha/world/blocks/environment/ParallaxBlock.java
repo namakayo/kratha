@@ -27,6 +27,7 @@ public class ParallaxBlock extends TallBlock{
         update = true;
         drawTeamOverlay = false;
         targetable = false;
+        hasColor = true;
     }
     @Override
     public void init(){
@@ -204,9 +205,7 @@ public class ParallaxBlock extends TallBlock{
     public boolean synthetic(){
         return true;
     }
-    public boolean hasBuilding(){
-        return false;
-    }
+    
     
     public class ParallaxBuild extends Building{
         @Override
