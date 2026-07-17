@@ -25,6 +25,7 @@ public class ParallaxBlock extends TallBlock{
         forceDark = false;
         clipSize = 9999;
         update = true;
+        drawTeamOverlay = true;
     }
     @Override
     public void init(){
@@ -202,10 +203,29 @@ public class ParallaxBlock extends TallBlock{
     public boolean synthetic(){
         return true;
     }
+    public boolean isAccessible(){
+        return false;
+    }
+    
     public class ParallaxBuild extends Building{
         @Override
         public void unitOn(Unit unit){
             if(unit.isGrounded())unit.kill();
         }
+        @Override
+        public void damage(float damage){
+            return; //no damage
+        }
+
+        @Override
+        public boolean canPickup(){
+            return false; //no
+        }
+
+        @Override
+        public boolean collide(Bullet other){
+            return false; //no
+        }
+        
     }
 }
