@@ -204,7 +204,7 @@ public class ParallaxBlock extends TallBlock{
     public boolean synthetic(){
         return true;
     }
-    public boolean isAccessible(){
+    public boolean hasBuilding(){
         return false;
     }
     
