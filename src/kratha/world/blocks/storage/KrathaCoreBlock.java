@@ -11,6 +11,7 @@ public class KrathaCoreBlock extends CoreBlock {
     public class KrathaCoreBuild extends CoreBuild {
         @Override
         public void updateTile(){
+            super.updateTile();
             state.rules.worldProcessorPlayerLink = true; //im genius
         }
     }
