@@ -5,6 +5,7 @@ import arc.graphics.g2d.*;
 import arc.graphics.*;
 import arc.math.*;
 import arc.util.*;
+import arc.scene.ui.layout.Table;
 import mindustry.world.*;
 import mindustry.graphics.*;
 import mindustry.world.blocks.environment.TallBlock;
@@ -226,6 +227,9 @@ public class ParallaxBlock extends TallBlock{
         public boolean collide(Bullet other){
             return false; //no
         }
-        
+        @Override
+        public void display(Table table){
+            //no
+        }
     }
 }
