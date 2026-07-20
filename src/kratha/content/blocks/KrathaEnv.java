@@ -30,7 +30,7 @@ public class KrathaEnv {
             terrastoneWall,terrastoneErodedWall,terrastoneGrassy,terrastoneFloor,terrastoneEroded,terrastoneWatra,terrastoneBoulder,terrastoneErodedBoulder,terrastoneErodedVent,
             krathagenFloor,krathagenDeep,krathagenDeeper,krathagenDeepest,krathagenVoid,krathagenDeeperBlock,krathagenDeepestBlock,krathagenVoidBlock,krathagenWall,
             watraShallow,watraDeep,
-            fallenLeavesLegacy,fallenLeaves,lilypad,plant,flowerGreen,flowerPink,flowerRed,pebbles,krathiteOreWall,guartzOre,guartzCluster,guartzClusterSmall,cobaltOre,anemiteOre,arkscrapOre;
+            fallenLeavesLegacy,fallenLeaves,lilypad,plant,flowerGreen,flowerPink,flowerRed,pebbles,krathiteOreWall,guartzOre,guartzClusterSmall,guartzCluster,guartzClusterHuge,cobaltOre,anemiteOre,arkscrapOre;
     public static void load() {
         {
             {
@@ -308,16 +308,23 @@ public class KrathaEnv {
                     itemDrop = KrathaItems.arkscrap;
                 }};
                 guartzOre = new OreBlock("guartz-ore",KrathaItems.guartz);
-                guartzCluster = new OreCluster("guartz-cluster"){{
-                    requirements(Category.effect, BuildVisibility.editorOnly, with());
-                    variants = 2;
-                    itemDrop = KrathaItems.guartz;
-                }};
                 guartzClusterSmall = new OreCluster("guartz-cluster-small"){{
                     requirements(Category.effect, BuildVisibility.editorOnly, with());
                     variants = 2;
                     size = 2;
                     maxDrillCount = 1;
+                    itemDrop = KrathaItems.guartz;
+                }};
+                guartzCluster = new OreCluster("guartz-cluster"){{
+                    requirements(Category.effect, BuildVisibility.editorOnly, with());
+                    variants = 2;
+                    itemDrop = KrathaItems.guartz;
+                }};
+                guartzClusterHuge = new OreCluster("guartz-cluster-huge"){{
+                    requirements(Category.effect, BuildVisibility.editorOnly, with());
+                    variants = 0;
+                    size = 4;
+                    maxDrillCount = 7;
                     itemDrop = KrathaItems.guartz;
                 }};
                 cobaltOre = new OreBlock("cobalt-ore",KrathaItems.cobalt);
