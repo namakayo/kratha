@@ -106,7 +106,7 @@ public class AncientTunnel extends Block{
                 if(linkTile.build==null)return;
                 Drawf.line(Pal.accent,x, y, linkTile.build.x,linkTile.build.y);
                 if(state.rules.editor){
-                    Drawf.select(b.tile.x*tilesize, b.tile.y*tilesize, tilesize/2f+2f, Pal.accent);
+                    Drawf.select(linkTile.x*tilesize, linkTile.y*tilesize, tilesize/2f+2f, Pal.accent);
                 }
             }
             if(tunnelItem!=null)drawItemSelection(tunnelItem);
