@@ -78,11 +78,11 @@ public class KrathaEnv {
                 arkteraTileD = new Floor("arktera-tile-d", 4){{
                     drawEdgeIn = false;
                 }};
-                arkteraTileE = new Floor("arktera-tile-e", 0){{
+                arkteraTileE = new Floor("arktera-tile-e", 4){{
                     drawEdgeIn = false;
                     blendGroup = arkteraTileD;
                     speedMultiplier = 0.9f;
-                    liquidDrop = KrathaLiquids.watra;
+                    liquidDrop = KrathaLiquids.muddyWatra;
                     isLiquid = true;
                     cacheLayer = CacheLayer.water;
                     albedo = 0.7f;
