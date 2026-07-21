@@ -84,7 +84,7 @@ public class AncientTunnel extends Block{
             
             for(int i=0;i<4;i++){
                 Building near=this.nearby(i);
-                if(near!=null&&near.block==KrathaDistribution.ancientTunnelItemSorter&&near instanceof SorterBuild s){
+                if(near!=null&&near.block==KrathaDistribution.ancientTunnelItemSorter&&near instanceof Sorter.SorterBuild s){
                     tunnelItem=s.sortItem;
                 }
             }
