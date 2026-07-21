@@ -129,9 +129,11 @@ public class AncientTunnel extends Block{
             } else {
                 Draw.rect(topRegion2, x, y, rotation*90);
             }
-            Draw.color(tunnelItem.color);
-            Draw.rect(itemRegion, x, y);
-            Draw.color();
+            if(tunnelItem!=null){
+                Draw.color(tunnelItem.color);
+                Draw.rect(itemRegion, x, y);
+                Draw.color();
+            }
         }
         
         @Override
