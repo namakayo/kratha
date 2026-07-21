@@ -18,7 +18,7 @@ import mindustry.game.*;
 import kratha.content.*;
 import mindustry.type.*;
 import mindustry.world.blocks.distribution.*;
-import mindustry.content.Blocks;==
+import mindustry.content.Blocks;
 import kratha.content.blocks.KrathaDistribution;
 
 import static mindustry.Vars.*;
