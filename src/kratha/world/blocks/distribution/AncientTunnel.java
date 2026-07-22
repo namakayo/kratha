@@ -24,7 +24,8 @@ import kratha.content.blocks.KrathaDistribution;
 import static mindustry.Vars.*;
 
 public class AncientTunnel extends Block{
-    public TextureRegion topRegion1, topRegion2, itemRegion;
+    public TextureRegion[] rotRegion = new TextureRegion[4];
+    public TextureRegion itemRegion;
     public boolean isOutput=false;
     public float speed=1;
     
@@ -35,13 +36,15 @@ public class AncientTunnel extends Block{
         hasItems = true;
         configurable = true;
         itemCapacity = 4;
+        squareSprite = false;
     }
 
     @Override
     public void load(){
         super.load();
-        topRegion1 = Core.atlas.find(name+"-top1");
-        topRegion2 = Core.atlas.find(name+"-top2");
+        for(int i=0;i<4;i++){
+            rotRegion[i]=Core.atlas.find(name+"-atlas",i*32,0,32,32)
+        }
         itemRegion = Core.atlas.find(name+"-item");
     }
     
@@ -50,7 +53,7 @@ public class AncientTunnel extends Block{
 
     @Override
     public TextureRegion[] icons(){
-        return new TextureRegion[]{region,topRegion1};
+        return new TextureRegion[]{Core.atlas.find(name+"-atlas",0,0,32,32)};
     }
     @Override
     public boolean canBreak(Tile tile){
@@ -130,12 +133,8 @@ public class AncientTunnel extends Block{
         
         @Override
         public void draw(){
-            Draw.rect(region,x,y);
-            if (rotation<2){
-                Draw.rect(topRegion1, x, y, rotation*90);
-            } else {
-                Draw.rect(topRegion2, x, y, rotation*90);
-            }
+            Draw.rect(rotRegion[rotation],x,y);
+            
             if(tunnelItem!=null){
                 Draw.color(tunnelItem.color);
                 Draw.rect(itemRegion, x, y);

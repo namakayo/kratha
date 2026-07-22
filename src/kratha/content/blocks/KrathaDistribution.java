@@ -55,7 +55,7 @@ public class KrathaDistribution {
                     isOutput = true;
                 }};
                 ancientTunnelItemSorter = new Sorter("ancient-tunnel-item-sorter"){{
-                    requirements(Category.distribution, BuildVisibility.sandboxOnly, with());
+                    requirements(Category.distribution, BuildVisibility.editorOnly, with());
                 }};
             }
         }

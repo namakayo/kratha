@@ -74,7 +74,6 @@ public class BioBlock extends Block {
         rebuildable = false;
         drawTeamOverlay = false;
         destroySound = Sounds.loopSpray;
-        buildVisibility = BuildVisibility.sandboxOnly;
     }
 
     @Override
@@ -92,7 +91,7 @@ public class BioBlock extends Block {
 
     @Override
     public void requirements(Category cat, ItemStack[] stacks){
-        requirements(cat, BuildVisibility.editorOnly, stacks);
+        requirements(cat, BuildVisibility.sandboxOnly, stacks);
     }
     
     public class BioBuilding extends Building {
