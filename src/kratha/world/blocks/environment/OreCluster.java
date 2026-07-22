@@ -78,12 +78,10 @@ public class OreCluster extends Block{
     }
     
     @Override
-    public void createIcons(MultiPacker packer){
-        super.createIcons(packer);
+    public int minimapColor(Tile tile){
         PixmapRegion image = packer.get(fullIcon);
-        mapColor.set(image.get(image.width/2, image.height/2));
+        return image.get(image.width/2, image.height/2);
     }
-
     
     public class OreClusterBuild extends Building{
         public int drillCount = 0;
