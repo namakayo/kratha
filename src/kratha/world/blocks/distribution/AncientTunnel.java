@@ -53,7 +53,7 @@ public class AncientTunnel extends Block{
 
     @Override
     public TextureRegion[] icons(){
-        return new TextureRegion[]{new TextureRegion(Core.atlas.find(name+"-atlas"),0,0,32,32)};
+        return new TextureRegion[]{region};
     }
     @Override
     public boolean canBreak(Tile tile){
