@@ -7,6 +7,7 @@ import mindustry.world.blocks.logic.*;
 import arc.graphics.g2d.*;
 import arc.graphics.*;
 import mindustry.graphics.*;
+import kratha.graphics.KrathaPal;
 
 import static mindustry.Vars.state;
 
@@ -33,13 +34,7 @@ public class AncientMessageBlock extends MessageBlock{
     
     @Override
     public int minimapColor(Tile tile){
-        Texture texture = region.texture;
-        int cx = region.getX()+region.width/2;
-        int cy = region.getY()+region.height/2;
-        TextureData td = texture.getTextureData();
-        if(!td.isPrepared())td.prepare();
-        Pixmap pixmap = td.consumePixmap();
-        return pixmap.get(cx, cy);
+        return KrathaPal.deearthBase;
     }
 
     public class AncientMessageBuild extends MessageBuild{

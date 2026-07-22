@@ -15,6 +15,7 @@ import mindustry.graphics.*;
 import kratha.content.blocks.KrathaLogic;
 import mindustry.type.*;
 import kratha.content.KrathaItems;
+import kratha.graphics.KrathaPal;
 
 import static mindustry.Vars.state;
 
@@ -65,13 +66,7 @@ public class PanelBlock extends Block{
     
     @Override
     public int minimapColor(Tile tile){
-        Texture texture = region.texture;
-        int cx = region.getX()+region.width/2;
-        int cy = region.getY()+region.height/2;
-        TextureData td = texture.getTextureData();
-        if(!td.isPrepared())td.prepare();
-        Pixmap pixmap = td.consumePixmap();
-        return pixmap.get(cx, cy);
+        return KrathaPal.deearthBaseDark;
     }
 
     public class PanelBuild extends Building{
