@@ -1,4 +1,4 @@
-!= package kratha.content.blocks;
+package kratha.content.blocks;
 
 import arc.graphics.Color;
 import mindustry.world.Block;
