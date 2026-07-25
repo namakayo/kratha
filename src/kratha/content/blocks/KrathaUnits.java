@@ -44,7 +44,7 @@ public class KrathaUnits {
                 }};
                 rocketInstaller = new AncientReconstructor("rocket-installer"){{
                     requirements(Category.units, BuildVisibility.sandboxOnly, with());
-                    size = 4;
+                    size = 6;
                     consumeItems(with(KrathaItems.arkscrap, 12, KrathaItems.cobalt, 9));
                     consumeLiquid(KrathaLiquids.terac, 9f / 60f);
                     constructTime = 60f * 10f;
