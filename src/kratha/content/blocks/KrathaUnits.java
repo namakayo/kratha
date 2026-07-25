@@ -1,4 +1,4 @@
-package kratha.content.blocks;
+!= package kratha.content.blocks;
 
 import arc.graphics.Color;
 import mindustry.world.Block;
@@ -20,7 +20,7 @@ import static mindustry.type.ItemStack.with;
 
 public class KrathaUnits {
     public static Block
-            nauticAssembler, ancientFactory, ancientPayloadLauncher;
+            nauticAssembler, ancientFactory, rocketInstaller, ancientPayloadLauncher;
     public static void load() {
         {
             {
@@ -40,6 +40,14 @@ public class KrathaUnits {
                     configurable = false;
                     hasLiquids = true;
                     consumeLiquid(KrathaLiquids.terac, 3f / 60f);
+                }};
+                rocketInstaller = new AncientReconstructor("rocket-installer"){{
+                    requirements(Category.units, BuildVisibility.sandboxOnly, with());
+                    size = 4;
+                    consumeItems(with(KrathaItems.akrscarp, 12, KrathaItems.cobalt, 9));
+                    consumeLiquid(KrathaLiquids.terac, 9f / 60f);
+                    constructTime = 60f * 10f;
+                    upgrades.add(new UnitType[]{KrathaUnitTypes.sail, KrathaUnitTypes.sailRocket});
                 }};
                 ancientPayloadLauncher = new AncientPayloadMassDriver("ancient-payload-launcher"){{
                     requirements(Category.units, BuildVisibility.sandboxOnly, with(KrathaItems.krathite, 150, KrathaItems.spurstone, 200, KrathaItems.cobalt, 90));

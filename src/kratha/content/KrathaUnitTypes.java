@@ -32,7 +32,7 @@ import static mindustry.Vars.*;
 
 public class KrathaUnitTypes{
     public static UnitType
-    sail,
+    sail,sailRocket,
     terrapillar,tigaleg,renamo,gabamo,hiromo,
     keris,
     rocky,
@@ -73,6 +73,54 @@ public class KrathaUnitTypes{
                     hitEffect = despawnEffect = Fx.hitBulletColor;
                     hitColor = backColor = trailColor = KrathaPal.cobaltDark;
                     frontColor = KrathaPal.cobaltLight;
+                }};
+            }});
+        }};
+        sailRocket = new KrathaUnitType("sail-rocket"){{
+            constructor = UnitWaterMove::create;
+            health = 100;
+            hitSize = 12f;
+            omniMovement = false;
+            rotateSpeed = 2.8f;
+            targetAir = false;
+            speed = 1f;
+            faceTarget = false;
+            
+            trailLength = 25;
+            waveTrailX = 4f;
+            trailScl = 1.8f;
+            
+            moveSoundVolume = 0.45f;
+            moveSound = Sounds.shipMove;
+            
+            weapons.add(new Weapon("kratha-sail-rocket-weapon"){{
+                reload = 80f;
+                x = 0f;
+                y = 0f;
+                shootCone = 40f;
+                mirror = false;
+                rotate = true;
+                shoot = new ShootBarrel(){{
+                    barrels = new float[]{
+                        -1.2f, 0f, 0,
+                        0, 0, 0,
+                        1.2f, 0f, 0
+                    };
+                    shots = 3;
+                    shotDelay = 5f;
+                }};
+                bullet = new MissileBulletType(3.7f, 0){{
+                    frontColor = Pal.lightishOrange;
+                    backColor = Pal.lightOrange;
+                    width = 6f;
+                    height = 8f;
+                    shrinkY = 0f;
+                    homingPower = 0.07f;
+                    splashDamageRadius = 20f;
+                    splashDamage = 20;
+                    makeFire = true;
+                    hitEffect = Fx.blastExplosion;
+                    status = StatusEffects.burning;
                 }};
             }});
         }};
