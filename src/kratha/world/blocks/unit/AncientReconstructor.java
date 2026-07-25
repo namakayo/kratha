@@ -23,7 +23,7 @@ public class AncientReconstructor extends Reconstructor{
         return state.rules.editor;
     }
 
-    public class AncientReconstructorBuild extends PayloadDriverBuild{
+    public class AncientReconstructorBuild extends ReconstructorBuild{
         
         @Override
         public void damage(float damage){

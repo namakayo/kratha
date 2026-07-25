@@ -15,6 +15,7 @@ import kratha.content.*;
 import mindustry.content.*;
 import kratha.world.blocks.units.*;
 import kratha.world.blocks.payloads.*;
+import mindustry.type.*;
 
 import static mindustry.type.ItemStack.with;
 
@@ -44,7 +45,7 @@ public class KrathaUnits {
                 rocketInstaller = new AncientReconstructor("rocket-installer"){{
                     requirements(Category.units, BuildVisibility.sandboxOnly, with());
                     size = 4;
-                    consumeItems(with(KrathaItems.akrscarp, 12, KrathaItems.cobalt, 9));
+                    consumeItems(with(KrathaItems.arkscrap, 12, KrathaItems.cobalt, 9));
                     consumeLiquid(KrathaLiquids.terac, 9f / 60f);
                     constructTime = 60f * 10f;
                     upgrades.add(new UnitType[]{KrathaUnitTypes.sail, KrathaUnitTypes.sailRocket});
@@ -58,7 +59,7 @@ public class KrathaUnits {
                     solid = false;
                     maxPayloadSize = 4f;
                     fogRadius = 0;
-        }};
+                }};
             }
         }
     }
