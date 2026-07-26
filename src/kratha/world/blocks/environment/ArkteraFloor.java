@@ -23,7 +23,7 @@ import java.util.*;
 import static mindustry.Vars.*;
 
 //for edge support for when liquid floor is next to normal floor
-public ArkteraFloor extends Floor{
+public class ArkteraFloor extends Floor{
     public ArkteraFloor(String name){
         super(name);
     }
