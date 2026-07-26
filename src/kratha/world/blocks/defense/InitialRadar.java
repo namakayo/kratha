@@ -19,7 +19,7 @@ public class InitialRadar extends Radar{
     public InitialRadar(String name){
         super(name);
     }
-    public class RadarBuild extends Building{
+    public class InitialRadarBuild extends RadarBuild{
         @Override
         public void updateTile(){
             super.updateTile();
