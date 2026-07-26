@@ -68,7 +68,7 @@ public class ScannerBlock extends Block{
     }
     public boolean isAncient(Block bb){
         //maybe theres a better way to do this...?
-        return (bb instanceof AncientCrafter||bb instanceof AncientAttributeCrafter||bb instanceof AncientLiquidTube||bb instanceof AncientLiquidRouter||bb instanceof AncientUnitFactory||bb instanceof AncientPayloadMassDriver||bb instanceof AncientMessageBlock||bb instanceof AncientTunnel);
+        return (bb instanceof AncientCrafter||bb instanceof AncientAttributeCrafter||bb instanceof AncientLiquidTube||bb instanceof AncientLiquidRouter||bb instanceof AncientUnitFactory||bb instanceof AncientPayloadMassDriver||bb instanceof AncientMessageBlock||bb instanceof AncientTunnel||bb instanceof AncientReconstructor);
     }
 
     public class ScannerBuild extends Building{
