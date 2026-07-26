@@ -27,6 +27,10 @@ public class ArkteraFloor extends Floor{
     public ArkteraFloor(String name){
         super(name);
     }
+    public ArkteraFloor(String name, int variants){
+        super(name);
+        variants = variants;
+    }
     @Override
     protected void drawEdges(Tile tile){
         blenders.clear();
@@ -50,5 +54,9 @@ public class ArkteraFloor extends Floor{
         }
   
         drawBlended(tile, true);
+    }
+    @Override
+    protected TextureRegion[][] edges(int x, int y){
+        return blendGroup.asFloor().edges;
     }
 }
