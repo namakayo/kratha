@@ -124,8 +124,8 @@ public class OreClusterDrill extends Block{
             for(int ym = -frange;ym<=frange;ym++){
                 Tile othert = tile.nearby(xm,ym);
                 if(othert!=null&&othert.build!=null&&othert.build instanceof OreCluster.OreClusterBuild b) {
-                    int dx=b.x-tile.build.x;
-                    int dy=b.y-tile.build.y;
+                    float dx=b.x-tile.build.x;
+                    float dy=b.y-tile.build.y;
                     float dst=Mathf.sqrt(dx*dx+dy*dy);
                     if(dst<bestDst&&canLink(tile,b)){
                         bestBuild=b;
