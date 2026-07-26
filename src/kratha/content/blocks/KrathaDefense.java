@@ -9,13 +9,14 @@ import mindustry.content.*;
 import mindustry.gen.*;
 import kratha.content.KrathaItems;
 import kratha.graphics.KrathaPal;
+import kratha.world.blocks.defense*;
 
 import static mindustry.type.ItemStack.with;
 
 public class KrathaDefense{
     public static Block
     krathiteWall,krathiteWallLarge,spurstoneWall,spurstoneWallLarge,cobaltWall,cobaltWallLarge,
-    radar,cutsceneRadar,worldRadar;
+    radar,cutsceneRadar,initialRadar;
   
     public static void load(){
          krathiteWall = new Wall("krathite-wall"){{
@@ -63,13 +64,12 @@ public class KrathaDefense{
             customShadow = true;
             rebuildable = false;
         }};
-        worldRadar = new Radar("world-radar"){{
+        initialRadar = new InitialRadar("initial-radar"){{
             requirements(Category.effect, BuildVisibility.editorOnly, with());
             outlineColor = KrathaPal.krathaOutline;
-            fogRadius = 999999999;
+            fogRadius = 50;
             discoveryTime = 0f;
             glowColor = KrathaPal.krathiteLight;
-            customShadow = true;
             rebuildable = false;
         }};
     }
