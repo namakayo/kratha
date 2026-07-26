@@ -64,21 +64,21 @@ public class KrathaEnv {
                     breakable = false;
                     alwaysReplace = false;
                 }};
-                arkteraTileA = new Floor("arktera-tile-a", 4){{
+                arkteraTileA = new ArkteraFloor("arktera-tile-a", 4){{
                     drawEdgeOut = false;
                 }};
-                arkteraTileB = new Floor("arktera-tile-b", 0){{
-                    drawEdgeOut = false;
-                    blendGroup = arkteraTileA;
-                }};
-                arkteraTileC = new Floor("arktera-tile-c", 2){{
+                arkteraTileB = new ArkteraFloor("arktera-tile-b", 0){{
                     drawEdgeOut = false;
                     blendGroup = arkteraTileA;
                 }};
-                arkteraTileD = new Floor("arktera-tile-d", 4){{
+                arkteraTileC = new ArkteraFloor("arktera-tile-c", 2){{
+                    drawEdgeOut = false;
+                    blendGroup = arkteraTileA;
+                }};
+                arkteraTileD = new ArkteraFloor("arktera-tile-d", 4){{
                     drawEdgeIn = false;
                 }};
-                arkteraTileE = new Floor("arktera-tile-e", 4){{
+                arkteraTileE = new ArkteraFloor("arktera-tile-e", 4){{
                     drawEdgeIn = false;
                     speedMultiplier = 0.9f;
                     liquidDrop = KrathaLiquids.muddyWatra;
