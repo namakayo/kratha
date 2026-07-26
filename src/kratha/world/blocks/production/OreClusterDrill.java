@@ -120,12 +120,15 @@ public class OreClusterDrill extends Block{
         int frange = (int) Math.ceil((range/tilesize)/2)+1;
         float bestDst = Float.POSITIVE_INFINITY;
         Building bestBuild = null;
+        float offset = size%2!=0?0:tilesize/2f;
+        float thisx=tile.x+offset;
+        float thisy=tile.y+offset;
         for(int xm = -frange;xm<=frange;xm++){
             for(int ym = -frange;ym<=frange;ym++){
                 Tile othert = tile.nearby(xm,ym);
                 if(othert!=null&&othert.build!=null&&othert.build instanceof OreCluster.OreClusterBuild b) {
-                    float dx=b.x-tile.build.x;
-                    float dy=b.y-tile.build.y;
+                    float dx=b.x-thisx;
+                    float dy=b.y-thisy;
                     float dst=Mathf.sqrt(dx*dx+dy*dy);
                     if(dst<bestDst&&canLink(tile,b)){
                         bestBuild=b;
@@ -156,8 +159,11 @@ public class OreClusterDrill extends Block{
     }
 
     public boolean canLink(Tile tile, Building other){
-        float dx=other.x-tile.worldx();
-        float dy=other.y-tile.worldy();
+        float offset = size%2!=0?0:tilesize/2f;
+        float thisx=tile.x+offset;
+        float thisy=tile.y+offset;
+        float dx=other.x-thisx;
+        float dy=other.y-thisy;
         float dst=Mathf.sqrt(dx*dx+dy*dy);
         int linkCount = linkCountOf(tile,other);
         int linkLimit = 0;
