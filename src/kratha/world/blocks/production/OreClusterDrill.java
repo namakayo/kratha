@@ -160,7 +160,7 @@ public class OreClusterDrill extends Block{
 
     public boolean canLink(Tile tile, Building other){
         float offset = size%2!=0?0:tilesize/2f;
-        float thisx=tile.x*tilesize,+offset;
+        float thisx=tile.x*tilesize+offset;
         float thisy=tile.y*tilesize+offset;
         float dx=other.x-thisx;
         float dy=other.y-thisy;
