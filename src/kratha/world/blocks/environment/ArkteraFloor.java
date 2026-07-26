@@ -29,7 +29,13 @@ public class ArkteraFloor extends Floor{
     }
     public ArkteraFloor(String name, int variants){
         super(name);
-        variants = variants;
+        this.variants = variants;
+        placeableLiquid = true;
+        allowRectanglePlacement = true;
+        instantBuild = true;
+        ignoreBuildDarkness = true;
+        obstructsLight = false;
+        placeEffect = Fx.rotateBlock;
     }
     @Override
     protected void drawEdges(Tile tile){
