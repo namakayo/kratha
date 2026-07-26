@@ -9,7 +9,7 @@ import mindustry.content.*;
 import mindustry.gen.*;
 import kratha.content.KrathaItems;
 import kratha.graphics.KrathaPal;
-import kratha.world.blocks.defense*;
+import kratha.world.blocks.defense.*;
 
 import static mindustry.type.ItemStack.with;
 
