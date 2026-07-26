@@ -44,9 +44,8 @@ public class ArkteraFloor extends Floor{
             if(other == null) continue;
   
             Floor ob = (this == tile.floor() || other.overlay() == Blocks.air ? other.floor() : other.overlay());
-            TextureRegion[][] obe = ob.blendGroup.asFloor().edges;
-  
-            if(ob.drawEdgeOut && doEdge(tile, other, ob) && obe != null){
+            
+            if(ob.drawEdgeOut && doEdge(tile, other, ob)){
                 if(!blended.getAndSet(ob.id)){
                     blenders.add(ob);
                 }
