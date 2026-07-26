@@ -30,7 +30,7 @@ public class KrathaEnv {
             terrastoneWall,terrastoneErodedWall,terrastoneGrassy,terrastoneFloor,terrastoneEroded,terrastoneWatra,terrastoneBoulder,terrastoneErodedBoulder,terrastoneErodedVent,
             krathagenFloor,krathagenDeep,krathagenDeeper,krathagenDeepest,krathagenVoid,krathagenDeeperBlock,krathagenDeepestBlock,krathagenVoidBlock,krathagenWall,
             watraShallow,watraDeep,
-            fallenLeavesLegacy,fallenLeaves,lilypad,plant,flowerGreen,flowerPink,flowerRed,pebbles,krathiteOreWall,guartzOre,guartzClusterSmall,guartzCluster,guartzClusterHuge,cobaltOre,anemiteOre,arkscrapOre;
+            fallenLeavesLegacy,fallenLeaves,lilypad,plant,flowerGreen,flowerPink,flowerRed,pebbles,krathiteOreWall,guartzOre,guartzClusterSmall,guartzCluster,guartzClusterHuge,cobaltOre,cobaltClusterSmall,cobaltCluster,anemiteOre,arkscrapOre;
     public static void load() {
         {
             {
@@ -337,6 +337,18 @@ public class KrathaEnv {
                     itemDrop = KrathaItems.guartz;
                 }};
                 cobaltOre = new OreBlock("cobalt-ore",KrathaItems.cobalt);
+                cobaltClusterSmall = new OreCluster("cobalt-cluster-small"){{
+                    requirements(Category.effect, BuildVisibility.editorOnly, with());
+                    variants = 2;
+                    size = 2;
+                    maxDrillCount = 1;
+                    itemDrop = KrathaItems.cobalt;
+                }};
+                cobaltCluster = new OreCluster("cobalt-cluster"){{
+                    requirements(Category.effect, BuildVisibility.editorOnly, with());
+                    variants = 2;
+                    itemDrop = KrathaItems.cobalt;
+                }};
                 anemiteOre = new OreBlock("anemite-ore",KrathaItems.anemite);
                 arkscrapOre = new OreBlock("arkscrap-ore",KrathaItems.arkscrap);
             }
