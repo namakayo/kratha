@@ -15,7 +15,7 @@ import static mindustry.type.ItemStack.with;
 public class KrathaDefense{
     public static Block
     krathiteWall,krathiteWallLarge,spurstoneWall,spurstoneWallLarge,cobaltWall,cobaltWallLarge,
-    radar,cutsceneRadar;
+    radar,cutsceneRadar,worldRadar;
   
     public static void load(){
          krathiteWall = new Wall("krathite-wall"){{
@@ -59,6 +59,15 @@ public class KrathaDefense{
             outlineColor = KrathaPal.krathaOutline;
             fogRadius = 40;
             discoveryTime = 30f;
+            glowColor = KrathaPal.krathiteLight;
+            customShadow = true;
+            rebuildable = false;
+        }};
+        worldRadar = new Radar("world-radar"){{
+            requirements(Category.effect, BuildVisibility.editorOnly, with());
+            outlineColor = KrathaPal.krathaOutline;
+            fogRadius = 999999999;
+            discoveryTime = 0f;
             glowColor = KrathaPal.krathiteLight;
             customShadow = true;
             rebuildable = false;
