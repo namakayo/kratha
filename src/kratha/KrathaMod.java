@@ -44,7 +44,6 @@ public class KrathaMod extends Mod{
         KrathaPlanets.load();
         KrathaSectorPresets.load();
         KrathaTechTree.load();
-        KrathaLogic.init();
     }
 
 }
