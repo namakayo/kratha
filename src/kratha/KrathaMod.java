@@ -7,7 +7,6 @@ import mindustry.mod.*;
 import mindustry.ui.dialogs.*;
 import kratha.content.blocks.KrathaBlocks;
 import kratha.content.*;
-import kratha.logic.*;
 import kratha.ui.TeamsUI;
 
 public class KrathaMod extends Mod{
