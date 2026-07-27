@@ -11,7 +11,7 @@ public class UnpackCoorI implements LExecutor.LInstruction {
         this.y = y;
     }
     
-    public UnpackCoorI()
+    public UnpackCoorI();
     
     @Override
     public void run(LExecutor exec){

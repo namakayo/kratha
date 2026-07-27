@@ -11,7 +11,7 @@ public class PackCoorI implements LExecutor.LInstruction {
         this.y = y;
     }
     
-    public PackCoorI()
+    public PackCoorI();
     
     @Override
     public void run(LExecutor exec){
