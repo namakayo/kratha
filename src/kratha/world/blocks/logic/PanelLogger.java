@@ -125,12 +125,6 @@ public class PanelLogger extends Block{
                 needChip=false;
                 return;
             }
-            if(p.progress>=p.hackTime){
-                p.progress=p.hackTime;
-                progress=1;
-                p.activate();
-                return;
-            }
             int reqChipTotal=0;
             int reqChipAmount=0;
             for(int i=0;i<4;i++){
@@ -157,6 +151,12 @@ public class PanelLogger extends Block{
                 
                 reqChipAmount+=(reqChip-p.items.get(chip));
                 reqChipTotal+=reqChip;
+            }
+            if(p.progress>=p.hackTime&&reqChipAmount<=0){
+                p.progress=p.hackTime;
+                progress=1;
+                p.activate();
+                return;
             }
             int reqChipHave = reqChipTotal-reqChipAmount;
             boolean needChipT=false;
