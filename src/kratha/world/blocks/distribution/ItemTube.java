@@ -79,5 +79,9 @@ public class ItemTube extends Conveyor {
             Draw.z(Layer.block);
             Draw.rect(topRegions[drawbits][drawrot], x, y, 0);
         }
+        @Override
+        public void unitOn(Unit unit){
+            //no
+        }
     }
   }
