@@ -115,5 +115,20 @@ public class OreCluster extends Block{
             super.read(read, revision);
             drillCount = read.i();
         }
+        
+        @Override
+        public void damage(float damage){
+            return; //no damage
+        }
+
+        @Override
+        public boolean canPickup(){
+            return false; //no
+        }
+
+        @Override
+        public boolean collide(Bullet other){
+            return false; //no
+        }
     }
-            }
+}
