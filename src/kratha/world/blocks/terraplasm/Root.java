@@ -177,6 +177,7 @@ public class Root extends BioBlock {
 
         @Override
         public void onGrown(){
+            super.onGrown();
             extraByte=nearbyMarker(4);
         }
         

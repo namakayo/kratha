@@ -58,7 +58,7 @@ public class BioTurret extends Turret{
 
     @Override
     public void requirements(Category cat, ItemStack[] stacks){
-        requirements(cat, BuildVisibility.editorOnly, stacks);
+        requirements(cat, BuildVisibility.sandboxOnly, stacks);
     }
     
 

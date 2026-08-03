@@ -80,13 +80,6 @@ public class BioBlock extends Block {
     public void postInit(){
         super.postInit();
         databaseTag = "terraplasm";
-        if(allowAll){
-            allowRoot=true;
-            allowDrill=true;
-            allowEye=true;
-            allowSkewer=true;
-            allowCradle=true;
-        }
     }
 
     @Override
@@ -188,7 +181,13 @@ public class BioBlock extends Block {
             }
         }
         public void onGrown(){
-            //have i been a good person?
+            if(allowAll){
+                allowRoot=true;
+                allowDrill=true;
+                allowEye=true;
+                allowSkewer=true;
+                allowCradle=true;
+            }
         }
         public void updatePulse() {
             boolean pulseEnd=true;
