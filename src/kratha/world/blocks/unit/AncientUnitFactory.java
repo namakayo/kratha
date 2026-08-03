@@ -11,6 +11,7 @@ public class AncientUnitFactory extends UnitFactory{
     public AncientUnitFactory(String name){
         super(name);
         allowDerelictRepair = false;
+        health = 1000000;
     }
 
     @Override
