@@ -12,6 +12,7 @@ public class AncientPayloadMassDriver extends PayloadMassDriver{
     public AncientPayloadMassDriver(String name){
         super(name);
         allowDerelictRepair = false;
+        health = 1000000;
     }
 
     @Override

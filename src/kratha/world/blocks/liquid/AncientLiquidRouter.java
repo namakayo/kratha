@@ -11,6 +11,7 @@ public class AncientLiquidRouter extends LiquidRouter{
     public AncientLiquidRouter(String name){
         super(name);
         allowDerelictRepair = false;
+        health = 1000000;
     }
 
     @Override

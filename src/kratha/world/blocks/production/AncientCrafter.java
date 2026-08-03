@@ -11,6 +11,7 @@ public class AncientCrafter extends GenericCrafter{
     public AncientCrafter(String name){
         super(name);
         allowDerelictRepair = false;
+        health = 1000000;
     }
 
     @Override

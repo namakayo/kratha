@@ -11,6 +11,7 @@ public class AncientReconstructor extends Reconstructor{
     public AncientReconstructor(String name){
         super(name);
         allowDerelictRepair = false;
+        health = 1000000;
     }
 
     @Override

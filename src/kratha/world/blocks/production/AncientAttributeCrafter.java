@@ -11,6 +11,7 @@ public class AncientAttributeCrafter extends AttributeCrafter{
     public AncientAttributeCrafter(String name){
         super(name);
         allowDerelictRepair = false;
+        health = 1000000;
     }
 
     @Override

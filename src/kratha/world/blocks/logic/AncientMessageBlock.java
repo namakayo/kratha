@@ -15,6 +15,7 @@ public class AncientMessageBlock extends MessageBlock{
     public AncientMessageBlock(String name){
         super(name);
         allowDerelictRepair = false;
+        health = 1000000;
     }
 
     @Override

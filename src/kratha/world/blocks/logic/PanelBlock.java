@@ -37,7 +37,7 @@ public class PanelBlock extends Block{
         envEnabled = Env.any;
         hasItems = true;
         buildVisibility = BuildVisibility.editorOnly;
-
+        health = 1000000;
         config(Boolean.class, (PanelBuild entity, Boolean b) -> entity.enabled = b);
     }
 
