@@ -14,7 +14,7 @@ import mindustry.graphics.*;
 import mindustry.world.*;
 import mindustry.world.meta.*;
 import mindustry.world.blocks.environment.*;
-import mindustry.gen.Building;
+import mindustry.gen.*;
 import kratha.world.blocks.production.OreClusterDrill;
 import mindustry.type.*;
 import mindustry.ui.*;
