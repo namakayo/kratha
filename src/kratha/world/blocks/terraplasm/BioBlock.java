@@ -79,7 +79,7 @@ public class BioBlock extends Block {
     @Override
     public void postInit(){
         super.postInit();
-        databaseTag = Core.bundle.get("kratha.terraplasm-database-tag");
+        databaseTag = "terraplasm";
         if(allowAll){
             allowRoot=true;
             allowDrill=true;

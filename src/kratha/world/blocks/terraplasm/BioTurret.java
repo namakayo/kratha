@@ -49,6 +49,12 @@ public class BioTurret extends Turret{
         unitFilter = u -> u.getDuration(KrathaStatusEffects.seen)>1;
         buildVisibility = BuildVisibility.sandboxOnly;
     }
+    
+    @Override
+    public void postInit(){
+        super.postInit();
+        databaseTag = "terraplasm";
+    }
 
     @Override
     public void requirements(Category cat, ItemStack[] stacks){
