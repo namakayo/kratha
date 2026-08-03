@@ -39,6 +39,7 @@ public class AncientTunnel extends Block{
         configurable = true;
         itemCapacity = 4;
         squareSprite = false;
+        health = 1000000;
     }
 
     @Override

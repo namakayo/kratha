@@ -42,6 +42,7 @@ public class OreCluster extends Block{
         drawTeamOverlay = false;
         targetable = false;
         customShadow = true;
+        health = 1000000;
     }
 
     @Override
