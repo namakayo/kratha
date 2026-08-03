@@ -81,6 +81,18 @@ public class BioBlock extends Block {
         super.postInit();
         databaseTag = "terraplasm";
     }
+    @Override
+    public void afterPatch(){
+        super.afterPatch();
+        if(allowAll){
+            allowRoot=true;
+            allowDrill=true;
+            allowEye=true;
+            allowSkewer=true;
+            allowCradle=true;
+            allowTrim=true;
+        }
+    }
 
     @Override
     public void requirements(Category cat, ItemStack[] stacks){
@@ -181,13 +193,7 @@ public class BioBlock extends Block {
             }
         }
         public void onGrown(){
-            if(allowAll){
-                allowRoot=true;
-                allowDrill=true;
-                allowEye=true;
-                allowSkewer=true;
-                allowCradle=true;
-            }
+            //have i been a good person?
         }
         public void updatePulse() {
             boolean pulseEnd=true;
