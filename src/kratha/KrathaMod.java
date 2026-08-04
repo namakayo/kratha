@@ -7,13 +7,16 @@ import mindustry.mod.*;
 import mindustry.ui.dialogs.*;
 import kratha.content.blocks.KrathaBlocks;
 import kratha.content.*;
+import mindustry.gen.*;
 import kratha.ui.TeamsUI;
+
+import static mindustry.Vars.*;
 
 public class KrathaMod extends Mod{
 
     public KrathaMod(){
         Log.info("They are watching."); //no reason for this lol
-
+        loadSettings();
         /*
         Events.on(ClientLoadEvent.class, e -> {
             Time.runTask(10f, () -> {
@@ -26,10 +29,16 @@ public class KrathaMod extends Mod{
         */
         
     }
+    public void loadSettings(){
+        ui.settings.addCategory(Core.bundle.get("settings.kratha-title"), Icon.about, t -> {
+            t.checkPref("@settings.terraplasm-item-debug", false);
+        });
+    }
     @Override
     public void init(){
         super.init();
         TeamsUI.init();
+        KrathaVars.init();
     }
     @Override
     public void loadContent(){
