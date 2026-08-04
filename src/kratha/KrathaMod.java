@@ -29,8 +29,8 @@ public class KrathaMod extends Mod{
         */
         
     }
-    public void loadSettings(){
-        ui.settings.addCategory(Core.bundle.get("settings.kratha-title"), Icon.book, t -> {
+    private void loadSettings(){
+        Vars.ui.settings.addCategory(Core.bundle.get("settings.kratha-title"), Icon.book, t -> {
             t.checkPref("@settings.terraplasm-item-debug", false);
         });
     }
