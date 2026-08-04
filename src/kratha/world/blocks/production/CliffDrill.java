@@ -15,7 +15,6 @@ import mindustry.type.*;
 import mindustry.entities.units.*;
 import mindustry.content.Blocks;
 import mindustry.game.Team;
-import kratha.annotations.KrathaAnnotations.*;
 import arc.*;
 import arc.struct.*;
 import arc.util.io.*;
