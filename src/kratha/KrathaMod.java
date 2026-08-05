@@ -17,7 +17,7 @@ public class KrathaMod extends Mod{
     public KrathaMod(){
         Log.info("They are watching."); //no reason for this lol
         Events.on(ClientLoadEvent.class,e->{
-            ui.settings.addCategory(Core.bundle.get("settings.kratha-title"), Icon.book, t -> {
+            ui.settings.addCategory(Core.bundle.get("settings.kratha-title"), Core.atlas.find("kratha-setting-icon"), t -> {
                 t.checkPref("@settings.terraplasm-item-debug", false);
             });
         });

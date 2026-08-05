@@ -393,6 +393,11 @@ public class Root extends BioBlock {
             if(lastItem!=null){
                 Draw.rect(lastItem.fullIcon, x, y, itemSize, itemSize);
             }
+            if(KrathaVars.itemDebug,itemTargetX>-1&&itemTargetY>-1){
+                Lines.stroke(1f,KrathaPal.debugPink);
+                Lines.line(x,y,itemTargetX*tilesize,itemTargetY*tilesize);
+                Draw.reset();
+            }
         }
 
         //item mechanic

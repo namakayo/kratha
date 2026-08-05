@@ -28,7 +28,7 @@ public class KrathaPal{
 
     arkteraOrange = Color.valueOf("E28742"),
 
-    krathaLogicCol = Color.valueOf("EF23DD"),
+    debugPink = Color.valueOf("EE00FF"),
     //liquids
     krathagenDark = Color.valueOf("381932"),
     krathagen = Color.valueOf("622C55"),
