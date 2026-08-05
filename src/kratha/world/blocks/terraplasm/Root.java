@@ -28,7 +28,7 @@ import kratha.content.terraplasm.Terraplasm;
 
 import mindustry.Vars;
 import static mindustry.Vars.*;
-import static kratha.Vars.*;
+import static kratha.KrathaVars.*;
 
 //if you're looking for how roots spread and the pattern, go to BioBlock.java
 public class Root extends BioBlock {
