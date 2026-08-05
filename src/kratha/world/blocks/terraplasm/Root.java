@@ -28,6 +28,7 @@ import kratha.content.terraplasm.Terraplasm;
 
 import mindustry.Vars;
 import static mindustry.Vars.*;
+import static kratha.Vars.*;
 
 //if you're looking for how roots spread and the pattern, go to BioBlock.java
 public class Root extends BioBlock {
@@ -393,7 +394,7 @@ public class Root extends BioBlock {
             if(lastItem!=null){
                 Draw.rect(lastItem.fullIcon, x, y, itemSize, itemSize);
             }
-            if(KrathaVars.itemDebug,itemTargetX>-1&&itemTargetY>-1){
+            if(terraplasmItemDebug&&itemTargetX>-1&&itemTargetY>-1){
                 Lines.stroke(1f,KrathaPal.debugPink);
                 Lines.line(x,y,itemTargetX*tilesize,itemTargetY*tilesize);
                 Draw.reset();
