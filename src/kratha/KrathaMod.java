@@ -2,7 +2,7 @@ package kratha;
 
 import arc.*;
 import arc.util.*;
-import arc.graphics.g2d.TextureRegionDrawable;
+import arc.scene.style.TextureRegionDrawable;
 import mindustry.game.EventType.*;
 import mindustry.mod.*;
 import mindustry.ui.dialogs.*;
