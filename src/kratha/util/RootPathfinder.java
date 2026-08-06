@@ -59,8 +59,8 @@ public class RootPathfinder{
     limit=0;
     Node lastTrace=(Node)done.get(done.size-1);
     while(limit<1000){
-      int lp=findPos(done,lastTrace.x,lastTrace.y);
-      if(done.get(lp) instanceof Node n){
+      int lp=findPos(done,lastTrace.px,lastTrace.py);
+      if(lp!=-1&&done.get(lp) instanceof Node n){
         if(n.isSource()){
           break;
         }
