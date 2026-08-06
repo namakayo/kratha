@@ -255,7 +255,7 @@ public class Root extends BioBlock {
 
             //item movement
             
-            if(lastItem!=null&&itemTargetX!=-1&&itemTaregtY!=-1&&(lastTarget.x!=itemTargetX||lastTarget.y!=itemTargetY)){
+            if(lastItem!=null&&itemTargetX!=-1&&itemTargetY!=-1&&(lastTarget.x!=itemTargetX||lastTarget.y!=itemTargetY)){
                 lastTarget.x=itemTargetX;
                 lastTarget.y=itemTargetY;
                 path=pf.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
