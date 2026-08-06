@@ -9,7 +9,7 @@ import kratha.world.blocks.terraplasm.*;
 import static mindustry.Vars.*;
 
 public class RootPathfinder{
-  public static Seq findPath(int fromx, int fromy, int tox, int toy){
+  public Seq findPath(int fromx, int fromy, int tox, int toy){
     Seq queue=new Seq();
     Seq done=new Seq();
     done.add(new Node(fromx,fromy,fromx,fromy,Mathf.dst(fromx,fromy,tox,toy)));
@@ -52,18 +52,18 @@ public class RootPathfinder{
     }
     return output;
   }
-  protected static class Node{
+  protected class Node{
     public int x;
     public int y;
     public int px;
     public int py;
     public float val;
     public Node(int x,int y,int px,int py,float val){
-      x=x;
-      y=y;
-      px=px;
-      py=py;
-      val=val;
+      this.x=x;
+      this.y=y;
+      this.px=px;
+      this.py=py;
+      this.val=val;
     }
     public boolean isSource(){
       return x==px&&y==py;

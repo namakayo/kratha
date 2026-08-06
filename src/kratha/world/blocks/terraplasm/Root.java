@@ -32,7 +32,8 @@ import static mindustry.Vars.*;
 //if you're looking for how roots spread and the pattern, go to BioBlock.java
 public class Root extends BioBlock {
     public TextureRegion[][] atlasRegion = new TextureRegion[12][4];
-    private Seq<Building> heartArray = new Seq<>(Building.class);
+    protected Seq<Building> heartArray = new Seq<>(Building.class);
+    protected RootPathfinder pf = new RootPathfinder();
     
     //dont worry about those two bitmask thing, its only for texture
     //100% handwritten btw, beautiful isnt it?
@@ -395,7 +396,7 @@ public class Root extends BioBlock {
                 Draw.rect(lastItem.fullIcon, x, y, itemSize, itemSize);
             }
             if(lastItem!=null&&Core.settings.getBool("kratha.terraplasm-item-debug")&&itemTargetX>-1&&itemTargetY>-1){
-                path=RootPathfinder.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
+                path=pf.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
                 for(int i=1;i<path.size;i++){
                     if(path.get(i) instanceof Point2 p&&path.get(i-1) instanceof Point2 pl){
                         Lines.stroke(1f,KrathaPal.debugPink);
