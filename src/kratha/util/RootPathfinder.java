@@ -4,6 +4,7 @@ import arc.math.*;
 import arc.math.geom.*;
 import arc.struct.*;
 import mindustry.world.*;
+import mindustry.gen.*;
 import kratha.world.blocks.terraplasm.*;
 
 import static mindustry.Vars.*;
@@ -11,10 +12,15 @@ import static mindustry.Vars.*;
 public class RootPathfinder{
   public Seq findPath(int fromx, int fromy, int tox, int toy){
     int limit=0;
+    int maxLimit=10000;
+    Tile target=world.tile(tox,toy);
+    if(target==null){
+      return new Seq();
+    }
     Seq queue=new Seq();
     Seq done=new Seq();
     done.add(new Node(fromx,fromy,fromx,fromy,Mathf.dst(fromx,fromy,tox,toy)));
-    while(limit<1000){
+    while(limit<maxLimit){
       for(int i=0;i<done.size;i++){
         if(done.get(i) instanceof Node n&&!n.checked){
           for(int j=0;j<4;j++){
@@ -25,10 +31,8 @@ public class RootPathfinder{
               if(!hasPos(done,ax,ay)){
                 queue.add(new Node(ax,ay,n.x,n.y,Mathf.dst(ax,ay,tox,toy)));
               }
-            }else if(a!=null&&a.build!=null&&a.build.block instanceof BioBlock){
-              if(a.build.tile.x==tox&&a.build.tile.y==toy){
-                queue.add(tox,toy,n.x,n.y,0));
-              }
+            }else if(a!=null&&a==target){
+              queue.add(tox,toy,n.x,n.y,0);
             }
           }
           n.checked=true;
@@ -51,7 +55,7 @@ public class RootPathfinder{
         queue.remove(closesti);
         done.add(priority);
         Tile tp=world.tile(priority.x,priority.y);
-        if(priority.x==tox&&priority.y==toy){
+        if(tp!=null&&tp==target){
           break;
         }
       };
@@ -60,7 +64,7 @@ public class RootPathfinder{
     Seq trace=new Seq();
     limit=0;
     Node lastTrace=(Node)done.get(done.size-1);
-    while(limit<1000){
+    while(limit<maxLimit){
       int lp=findPos(done,lastTrace.px,lastTrace.py);
       if(lp!=-1&&done.get(lp) instanceof Node n){
         if(n.isSource()){
