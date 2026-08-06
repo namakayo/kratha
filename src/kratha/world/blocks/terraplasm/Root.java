@@ -394,13 +394,12 @@ public class Root extends BioBlock {
                 Draw.rect(lastItem.fullIcon, x, y, itemSize, itemSize);
             }
             if(lastItem!=null&&Core.settings.getBool("kratha.terraplasm-item-debug")&&itemTargetX>-1&&itemTargetY>-1){
-                Lines.stroke(1f,KrathaPal.debugPink);
-                Lines.line(x,y,itemTargetX*tilesize,itemTargetY*tilesize);
-                Draw.reset();
                 Seq pathfind=RootPathfinder.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
-                for(int i=0;i<pathfind.size;i++){
-                    if(pathfind.get(i) instanceof Point2 p){
-                        Drawf.square(p.x*tilesize,p.y*tilesize,tilesize/2,0);
+                for(int i=1;i<pathfind.size;i++){
+                    if(pathfind.get(i) instanceof Point2 p&&pathfind.get(i-1) instanceof Point2 pl){
+                        Lines.stroke(1f,KrathaPal.debugPink);
+                        Lines.line(pl.x*tilesize,pl.y*tilesize,p.x*tilesize,p.y*tilesize);
+                        Draw.reset();
                     }
                 }
             }
