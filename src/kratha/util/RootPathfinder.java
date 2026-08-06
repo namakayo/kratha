@@ -25,6 +25,10 @@ public class RootPathfinder{
               if(!hasPos(done,ax,ay)){
                 queue.add(new Node(ax,ay,n.x,n.y,Mathf.dst(ax,ay,tox,toy)));
               }
+            }else if(a!=null&&a.build!=null&&a.build.block instanceof BioBlock){
+              if(a.build.tile.x==tox&&a.build.tile.y==toy){
+                queue.add(new Node(ax,ay,n.x,n.y,0));
+              }
             }
           }
           n.checked=true;
