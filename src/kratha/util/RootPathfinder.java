@@ -48,7 +48,7 @@ public class RootPathfinder{
         done.add(priority);
         Tile tp=world.tile(priority.x,priority.y);
         if(tp!=null&&tp.build!=null){
-          if(tp.build.x==tox&&tp.build.y==toy){
+          if(tp.build.tile.x==tox&&tp.build.tile.y==toy){
             break;
           }
         }
