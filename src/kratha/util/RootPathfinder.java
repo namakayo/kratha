@@ -10,10 +10,11 @@ import static mindustry.Vars.*;
 
 public class RootPathfinder{
   public Seq findPath(int fromx, int fromy, int tox, int toy){
+    int limit=0;
     Seq queue=new Seq();
     Seq done=new Seq();
     done.add(new Node(fromx,fromy,fromx,fromy,Mathf.dst(fromx,fromy,tox,toy)));
-    while(true){
+    while(limit<100){
       for(int i=0;i<done.size;i++){
         if(done.get(i) instanceof Node n){
           for(int j=0;j<4;j++){
@@ -21,7 +22,9 @@ public class RootPathfinder{
             int ay=n.y+Geometry.d4[j].y;
             Tile a=world.tile(ax,ay);
             if(a!=null&&a.build!=null&&a.build.block instanceof Root){
-              queue.add(new Node(ax,ay,n.x,n.y,Mathf.dst(ax,ay,tox,toy)));
+              if(!hasPos(done,ax,ay)){
+                queue.add(new Node(ax,ay,n.x,n.y,Mathf.dst(ax,ay,tox,toy)));
+              }
             }
           }
         }
@@ -43,6 +46,7 @@ public class RootPathfinder{
         queue.remove(closesti);
         done.add(priority);
       };
+      limit++;
     }
     Seq output=new Seq();
     for(int i=0;i<done.size;i++){
@@ -51,6 +55,16 @@ public class RootPathfinder{
       }
     }
     return output;
+  }
+  protected boolean hasPos(Seq seq,int x,int y){
+    for(let i=0;i<seq.size;i++){
+      if(seq.get(i) instanceof Node n){
+        if(n.x==x&&n.y==y){
+          return true;
+        }
+      }
+    }
+    return false;
   }
   protected class Node{
     public int x;
