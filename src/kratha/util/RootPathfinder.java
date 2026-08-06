@@ -61,11 +61,11 @@ public class RootPathfinder{
     while(limit<1000){
       int lp=findPos(done,lastTrace.x,lastTrace.y);
       if(done.get(lp) instanceof Node n){
-        trace.add(new Point2(n.x,n.y));
-        lastTrace=n;
-        if(n.isSource()){
+        if(hasPos(trace,n.x,n.y)){
           break;
         }
+        trace.add(new Point2(n.x,n.y));
+        lastTrace=n;
       }
       limit++;
     }
@@ -105,9 +105,6 @@ public class RootPathfinder{
       this.px=px;
       this.py=py;
       this.val=val;
-    }
-    public boolean isSource(){
-      return x==px&&y==py;
     }
   }
 }
