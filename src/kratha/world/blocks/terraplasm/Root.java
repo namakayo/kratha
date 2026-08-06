@@ -106,7 +106,9 @@ public class Root extends BioBlock {
         public Item lastItem;
         public int itemTargetX = -1, itemTargetY = -1;
         public Building itemFrom=null;
-        public Seq path=new Seq();
+        
+        protected Seq path=new Seq();
+        protected Point2 lastTarget=new Point2(-1,-1);
         
         @Override
         public void updateTile(){
@@ -253,6 +255,12 @@ public class Root extends BioBlock {
 
             //item movement
             
+            if(lastTarget.x!=itemTargetX||lastTarget.y!=itemTargetY){
+                lastTarget.x=itemTargetX;
+                lastTarget.y=itemTargetY;
+                path=pf.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
+            }
+            
             if(lastItem == null && items.any()){
                 lastItem = items.first();
             }
@@ -396,7 +404,6 @@ public class Root extends BioBlock {
                 Draw.rect(lastItem.fullIcon, x, y, itemSize, itemSize);
             }
             if(lastItem!=null&&Core.settings.getBool("kratha.terraplasm-item-debug")&&itemTargetX>-1&&itemTargetY>-1){
-                path=pf.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
                 for(int i=1;i<path.size;i++){
                     if(path.get(i) instanceof Point2 p&&path.get(i-1) instanceof Point2 pl){
                         Lines.stroke(1f,KrathaPal.debugPink);

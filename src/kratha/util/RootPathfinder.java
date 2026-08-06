@@ -14,7 +14,7 @@ public class RootPathfinder{
     Seq queue=new Seq();
     Seq done=new Seq();
     done.add(new Node(fromx,fromy,fromx,fromy,Mathf.dst(fromx,fromy,tox,toy)));
-    while(limit<100){
+    while(limit<1000){
       for(int i=0;i<done.size;i++){
         if(done.get(i) instanceof Node n&&!n.checked){
           for(int j=0;j<4;j++){
@@ -46,16 +46,27 @@ public class RootPathfinder{
       if(queue.get(closesti) instanceof Node priority){
         queue.remove(closesti);
         done.add(priority);
+        if(priority.x==tox&&priority.y==toy){
+          break;
+        }
       };
       limit++;
     }
-    Seq output=new Seq();
-    for(int i=0;i<done.size;i++){
-      if(done.get(i) instanceof Node n){
-        output.add(new Point2(n.x,n.y));
+    Seq trace=new Seq();
+    limit=0;
+    Node lastTrace=(Node)done.get(done.size-1);
+    while(limit<1000){
+      int lp=lastPos(done,lastTrace.x,lastTrace.y);
+      if(done.get(lp) instanceof Node n){
+        trace.add(new Point2(n.x,n.y));
+        lastTrace=n;
+        if(n.isSource()){
+          break;
+        }
       }
+      limit++;
     }
-    return output;
+    return trace;
   }
   protected boolean hasPos(Seq seq,int x,int y){
     for(int i=0;i<seq.size;i++){
@@ -67,6 +78,17 @@ public class RootPathfinder{
     }
     return false;
   }
+  protected int findPos(Seq seq,int x,int y){
+    for(int i=0;i<seq.size;i++){
+      if(seq.get(i) instanceof Node n){
+        if(n.x==x&&n.y==y){
+          return i;
+        }
+      }
+    }
+    return -1;
+  }
+
   protected class Node{
     public int x;
     public int y;
