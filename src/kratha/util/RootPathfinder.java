@@ -57,7 +57,7 @@ public class RootPathfinder{
     return output;
   }
   protected boolean hasPos(Seq seq,int x,int y){
-    for(let i=0;i<seq.size;i++){
+    for(int i=0;i<seq.size;i++){
       if(seq.get(i) instanceof Node n){
         if(n.x==x&&n.y==y){
           return true;
