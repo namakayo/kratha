@@ -44,7 +44,13 @@ public class RootPathfinder{
         done.add(priority);
       };
     }
-    return done;
+    Seq output=new Seq();
+    for(int i=0;i<done.size;i++){
+      if(done.get(i) instanceof Node n){
+        output.add(new Point2(n.x,n.y));
+      }
+    }
+    return output;
   }
   protected static class Node{
     public int x;

@@ -25,8 +25,8 @@ import mindustry.gen.*;
 import java.util.Random;
 import kratha.graphics.*;
 import kratha.content.terraplasm.Terraplasm;
+import kratha.util.*;
 
-import mindustry.Vars;
 import static mindustry.Vars.*;
 
 //if you're looking for how roots spread and the pattern, go to BioBlock.java
@@ -397,6 +397,12 @@ public class Root extends BioBlock {
                 Lines.stroke(1f,KrathaPal.debugPink);
                 Lines.line(x,y,itemTargetX*tilesize,itemTargetY*tilesize);
                 Draw.reset();
+                Seq pathfind=RootPathfinder.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
+                for(int i=0;i<pathfind.size;i++){
+                    if(pathfind.get(i) instanceof Point2 p){
+                        Drawf.square(p.x*tilesize,p.y*tilesize,tilesize/2,0);
+                    }
+                }
             }
         }
 
