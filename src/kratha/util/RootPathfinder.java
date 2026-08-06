@@ -16,7 +16,7 @@ public class RootPathfinder{
     done.add(new Node(fromx,fromy,fromx,fromy,Mathf.dst(fromx,fromy,tox,toy)));
     while(limit<100){
       for(int i=0;i<done.size;i++){
-        if(done.get(i) instanceof Node n){
+        if(done.get(i) instanceof Node n&&!n.checked){
           for(int j=0;j<4;j++){
             int ax=n.x+Geometry.d4[j].x;
             int ay=n.y+Geometry.d4[j].y;
@@ -27,6 +27,7 @@ public class RootPathfinder{
               }
             }
           }
+          n.checked=true;
         }
       }
       if(queue.size<=0){
@@ -72,6 +73,7 @@ public class RootPathfinder{
     public int px;
     public int py;
     public float val;
+    public boolean checked=false;
     public Node(int x,int y,int px,int py,float val){
       this.x=x;
       this.y=y;
