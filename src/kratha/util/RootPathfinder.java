@@ -46,8 +46,11 @@ public class RootPathfinder{
       if(queue.get(closesti) instanceof Node priority){
         queue.remove(closesti);
         done.add(priority);
-        if(priority.x==tox&&priority.y==toy){
-          break;
+        Tile tp=world.tile(priority.x,priority.y);
+        if(tp!=null&&tp.build!=null){
+          if(tp.build.x==tox&&tp.build.y==toy){
+            break;
+          }
         }
       };
       limit++;
