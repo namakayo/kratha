@@ -397,7 +397,7 @@ public class Root extends BioBlock {
             if(lastItem!=null&&Core.settings.getBool("kratha.terraplasm-item-debug")&&itemTargetX>-1&&itemTargetY>-1){
                 path=RootPathfinder.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
                 for(int i=1;i<path.size;i++){
-                    if(path.get(i) instanceof Point2 p&&pathfind.get(i-1) instanceof Point2 pl){
+                    if(path.get(i) instanceof Point2 p&&path.get(i-1) instanceof Point2 pl){
                         Lines.stroke(1f,KrathaPal.debugPink);
                         Lines.line(pl.x*tilesize,pl.y*tilesize,p.x*tilesize,p.y*tilesize);
                         Draw.reset();
