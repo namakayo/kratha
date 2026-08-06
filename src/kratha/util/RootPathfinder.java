@@ -27,7 +27,7 @@ public class RootPathfinder{
               }
             }else if(a!=null&&a.build!=null&&a.build.block instanceof BioBlock){
               if(a.build.tile.x==tox&&a.build.tile.y==toy){
-                queue.add(new Node(ax,ay,n.x,n.y,0));
+                queue.add(tox,toy,n.x,n.y,0));
               }
             }
           }
@@ -51,10 +51,8 @@ public class RootPathfinder{
         queue.remove(closesti);
         done.add(priority);
         Tile tp=world.tile(priority.x,priority.y);
-        if(tp!=null&&tp.build!=null){
-          if(tp.build.tile.x==tox&&tp.build.tile.y==toy){
-            break;
-          }
+        if(priority.x==tox&&priority.y==toy){
+          break;
         }
       };
       limit++;
