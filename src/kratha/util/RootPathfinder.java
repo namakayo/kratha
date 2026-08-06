@@ -9,6 +9,7 @@ import kratha.world.blocks.terraplasm.*;
 
 import static mindustry.Vars.*;
 
+//Greedy best first search for items in roots
 public class RootPathfinder{
   public Seq findPath(int fromx, int fromy, int tox, int toy){
     int limit=0;
@@ -32,7 +33,7 @@ public class RootPathfinder{
                 queue.add(new Node(ax,ay,n.x,n.y,Mathf.dst(ax,ay,tox,toy)));
               }
             }else if(a!=null&&a.build!=null&&a.build==target){
-              queue.add(tox,toy,n.x,n.y,0);
+              queue.add(new Node(tox,toy,n.x,n.y,0));
             }
           }
           n.checked=true;
