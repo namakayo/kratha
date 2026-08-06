@@ -13,7 +13,7 @@ public class RootPathfinder{
   public Seq findPath(int fromx, int fromy, int tox, int toy){
     int limit=0;
     int maxLimit=10000;
-    Tile target=world.tile(tox,toy);
+    Building target=world.tile(tox,toy).build;
     if(target==null){
       return new Seq();
     }
@@ -31,7 +31,7 @@ public class RootPathfinder{
               if(!hasPos(done,ax,ay)){
                 queue.add(new Node(ax,ay,n.x,n.y,Mathf.dst(ax,ay,tox,toy)));
               }
-            }else if(a!=null&&a==target){
+            }else if(a!=null&&a.build!=null&&a.build==target){
               queue.add(tox,toy,n.x,n.y,0);
             }
           }
@@ -54,8 +54,7 @@ public class RootPathfinder{
       if(queue.get(closesti) instanceof Node priority){
         queue.remove(closesti);
         done.add(priority);
-        Tile tp=world.tile(priority.x,priority.y);
-        if(tp!=null&&tp==target){
+        if(priority.val==0){
           break;
         }
       };
