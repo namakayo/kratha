@@ -61,7 +61,7 @@ public class RootPathfinder{
     while(limit<1000){
       int lp=findPos(done,lastTrace.x,lastTrace.y);
       if(done.get(lp) instanceof Node n){
-        if(hasPos(trace,n.x,n.y)){
+        if(hasPos2(trace,n.x,n.y)){
           break;
         }
         trace.add(new Point2(n.x,n.y));
@@ -74,6 +74,16 @@ public class RootPathfinder{
   protected boolean hasPos(Seq seq,int x,int y){
     for(int i=0;i<seq.size;i++){
       if(seq.get(i) instanceof Node n){
+        if(n.x==x&&n.y==y){
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+  protected boolean hasPos2(Seq seq,int x,int y){
+    for(int i=0;i<seq.size;i++){
+      if(seq.get(i) instanceof Point2 n){
         if(n.x==x&&n.y==y){
           return true;
         }
