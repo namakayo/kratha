@@ -56,7 +56,7 @@ public class RootPathfinder{
     limit=0;
     Node lastTrace=(Node)done.get(done.size-1);
     while(limit<1000){
-      int lp=lastPos(done,lastTrace.x,lastTrace.y);
+      int lp=findPos(done,lastTrace.x,lastTrace.y);
       if(done.get(lp) instanceof Node n){
         trace.add(new Point2(n.x,n.y));
         lastTrace=n;
