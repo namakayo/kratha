@@ -107,8 +107,8 @@ public class Root extends BioBlock {
         public int itemTargetX = -1, itemTargetY = -1;
         public Building itemFrom=null;
         
-        protected Seq path=new Seq();
-        protected Point2 lastTarget=new Point2(-1,-1);
+        public Seq path=new Seq();
+        public Point2 lastTarget=new Point2(-1,-1);
         
         @Override
         public void updateTile(){
