@@ -15,13 +15,14 @@ public class RootPathfinder{
     done.add(new Node(fromx,fromy,fromx,fromy,Mathf.dst(fromx,fromy,tox,toy)));
     while(true){
       for(int i=0;i<done.size;i++){
-        Node n=done.get(i);
-        for(int j=0;j<4;j++){
-          int ax=n.x+Geometry.d4[j].x;
-          int ay=n.y+Geometry.d4[j].y;
-          Tile a=world.tile(ax,ay);
-          if(a!=null&&a.build!=null&&a.build.block instanceof Root){
-            queue.add(new Node(ax,ay,n.x,n.y,Mathf.dst(ax,ay,tox,toy)));
+        if(done.get(i) instanceof Node n){
+          for(int j=0;j<4;j++){
+            int ax=n.x+Geometry.d4[j].x;
+            int ay=n.y+Geometry.d4[j].y;
+            Tile a=world.tile(ax,ay);
+            if(a!=null&&a.build!=null&&a.build.block instanceof Root){
+              queue.add(new Node(ax,ay,n.x,n.y,Mathf.dst(ax,ay,tox,toy)));
+            }
           }
         }
       }
@@ -31,19 +32,21 @@ public class RootPathfinder{
       float closest=Float.POSITIVE_INFINITY;
       int closesti=0;
       for(int i=0;i<queue.size;i++){
-        Node n=queue.get(i);
-        if(n.val<closest){
-          closest=n.val;
-          closesti=i;
+        if(queue.get(i) instanceof Node n){
+          if(n.val<closest){
+            closest=n.val;
+            closesti=i;
+          }
         }
       }
-      Node priority=queue.get(closesti);
-      queue.remove(closesti);
-      done.add(priority);
+      if(queue.get(closesti) instanceof Node priority){
+        queue.remove(closesti);
+        done.add(priority);
+      };
     }
     return done;
   }
-  protected class Node{
+  protected static class Node{
     public int x;
     public int y;
     public int px;
