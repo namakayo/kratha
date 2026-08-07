@@ -225,7 +225,9 @@ public class ParallaxBlock extends TallBlock{
     public class ParallaxBuild extends Building{
         @Override
         public void unitOn(Unit unit){
-            if(unit.isGrounded())unit.kill();
+            if(unit.isGrounded()&&!(unit instanceof WaterMovec)){
+                unit.kill();
+            }
         }
         @Override
         public void damage(float damage){
