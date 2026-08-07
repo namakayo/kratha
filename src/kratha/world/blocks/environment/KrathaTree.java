@@ -118,8 +118,8 @@ public class KrathaTree extends TallBlock{
         float camoffx=0;
         float camoffy=0;
         if(doParallax){
-            camoffX=(tile.worldx()-Core.camera.position.x)*((hoff+parallaxAmount)/Core.camera.width);
-            camoffY=(tile.worldy()-Core.camera.position.y)*((hoff+parallaxAmount)/Core.camera.width);
+            camoffx=(tile.worldx()-Core.camera.position.x)*((hoff+parallaxAmount)/Core.camera.width);
+            camoffy=(tile.worldy()-Core.camera.position.y)*((hoff+parallaxAmount)/Core.camera.width);
         }
         Draw.rect(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region,
             tile.worldx()+camoffX, tile.worldy()+camoffY, rot);
