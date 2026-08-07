@@ -282,7 +282,7 @@ public class Root extends BioBlock {
                 Building target = world.tile(next.x,next.y).build;
                 //for root
                 if(target != null && target instanceof RootBuild targetr){
-                    Seq targetpath targetr.path;
+                    Seq targetpath=targetr.path;
                     if(target.acceptItem(this, lastItem)){
                         target.handleItem(this, lastItem);
                         targetr.itemTargetX = itemTargetX;
@@ -312,7 +312,7 @@ public class Root extends BioBlock {
                         path=targetp;
                         targetr.lastTarget = new Point2(itemTargetX,itemTargetY);
                         extraFloat2 = 0;
-                        targetr.extraFloat 2 = 0;
+                        targetr.extraFloat2 = 0;
                         itemTargetX = targetrit.x;
                         itemTargetY = targetrit.y;
                         lastTarget = targetrlt;
