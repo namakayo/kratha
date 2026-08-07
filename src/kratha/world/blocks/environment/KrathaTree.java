@@ -75,7 +75,7 @@ public class KrathaTree extends TallBlock{
             irand.setSeed(tile.pos()+i);
             float thisBranchParallaxAmount = 0;
             if(doParallax){
-                (float)irand.random(branchParallaxAmount/2, branchParallaxAmount*3/4);
+                thisBranchParallaxAmount=(float)irand.random(branchParallaxAmount/2, branchParallaxAmount*3/4);
             }
             float bAlpha=1f;
             if(shouldFade&&Vars.player.unit()!=null&&!Vars.player.unit().dead()){
