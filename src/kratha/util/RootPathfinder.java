@@ -15,10 +15,11 @@ public class RootPathfinder{
     int limit=0;
     int maxLimit=100000;
     boolean notFound=false;
-    Building target=world.tile(tox,toy).build;
-    if(target==null){
+    Tile targetTile=world.tile(tox,toy):
+    if(targetTile==null||targetTile.build==null){
       return new Seq();
     }
+    Building target=targetTile.build;
     Seq queue=new Seq();
     Seq done=new Seq();
     done.add(new Node(fromx,fromy,fromx,fromy,Mathf.dst(fromx,fromy,tox,toy)));
