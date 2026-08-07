@@ -13,7 +13,7 @@ import static mindustry.Vars.*;
 public class RootPathfinder{
   public Seq findPath(int fromx, int fromy, int tox, int toy){
     int limit=0;
-    int maxLimit=10000;
+    int maxLimit=1000000;
     Building target=world.tile(tox,toy).build;
     if(target==null){
       return new Seq();
