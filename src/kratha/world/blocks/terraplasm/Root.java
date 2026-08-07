@@ -278,7 +278,7 @@ public class Root extends BioBlock {
             }
             extraFloat2 = pack(itemTargetX,itemTargetY);
             if(lastItem != null && path.size>0 && extraFloat1<=0) {
-                Point2 next = (Point2)path.get(0);
+                Point2 next = (Point2)path.get(path.size-1);
                 Building target = world.tile(next.x,next.y).build;
                 //for root
                 if(target != null && target instanceof RootBuild targetr){
@@ -286,7 +286,7 @@ public class Root extends BioBlock {
                         target.handleItem(this, lastItem);
                         targetr.itemTargetX = itemTargetX;
                         targetr.itemTargetY = itemTargetY;
-                        path.remove(0);
+                        path.pop();
                         targetr.path = path;
                         targetr.lastTarget = new Point2(itemTargetX,itemTargetY);
                         extraFloat2 = 0;
