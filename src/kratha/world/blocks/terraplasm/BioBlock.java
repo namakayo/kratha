@@ -184,14 +184,6 @@ public class BioBlock extends Block {
             //have i been a good person?
         }
         public void updatePulse() {
-            if(allowAll){
-                allowRoot=true;
-                allowDrill=true;
-                allowEye=true;
-                allowSkewer=true;
-                allowCradle=true;
-                allowTrim=true;
-            }
             boolean pulseEnd=true;
             int neartileCount=0;
             if (true) {
@@ -229,7 +221,7 @@ public class BioBlock extends Block {
                     }
                 }
                 Random random = new Random();
-                if (isRoot&&possibleGrowDir.size()>0&&biopulse>1&&allowRoot&&(pulseCharge>=pulseToGrowRoot)){
+                if (isRoot&&possibleGrowDir.size()>0&&biopulse>1&&(allowRoot||allowAll)&&(pulseCharge>=pulseToGrowRoot)){
                     pulseCharge=0;
                     growRoot();
                 }

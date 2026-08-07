@@ -213,13 +213,13 @@ public class Root extends BioBlock {
             }
 
             //growing drill for floor
-            if(tile != null && tile.drop() != null && allowDrill && clear2){
+            if(tile != null && tile.drop() != null && (allowDrill||allowAll) && clear2){
                 tile.setBlock(Terraplasm.harvester,team);
             }
             //growing drill for wall
             for(int i=0;i<4;i++){
                 Tile wallTile = tile.nearby(Geometry.d4(i).x*(i<2?2:1),Geometry.d4(i).y*(i<2?2:1));
-                if(allowDrill&&wallTile!=null&&wallTile.block()!=null&&wallTile.wallDrop()!=null&&clear2){
+                if((allowDrill||allowAll)&&wallTile!=null&&wallTile.block()!=null&&wallTile.wallDrop()!=null&&clear2){
                     tile.setBlock(Terraplasm.harvester,team);
                 }
             }
@@ -235,19 +235,19 @@ public class Root extends BioBlock {
             
             if(heartTile!=null&&heartTile.build!=null){
                 Building heart = heartTile.build;
-                if(((allowEye&&!getbit(extraFloat3,0))||extraByte==-1)&&(heart!=null&&heart.items.has(Terraplasm.eye.requirements))){
+                if((((allowEye||allowAll)&&!getbit(extraFloat3,0))||extraByte==-1)&&(heart!=null&&heart.items.has(Terraplasm.eye.requirements))){
                     boolean sameNear = passiveGrow(Terraplasm.eye,eyeSpacing,eyeRate,heart);
                     if(sameNear)extraFloat3=setbit(extraFloat3,0,true);
                 }
-                if(((allowSkewer&&!getbit(extraFloat3,1))||extraByte==1)&&clear3&&(heart!=null&&heart.items.has(Terraplasm.skewer.requirements))){
+                if((((allowSkewer||allowAll)&&!getbit(extraFloat3,1))||extraByte==1)&&clear3&&(heart!=null&&heart.items.has(Terraplasm.skewer.requirements))){
                     boolean sameNear = passiveGrow(Terraplasm.skewer,skewerSpacing,skewerRate,heart);
                     if(sameNear)extraFloat3=setbit(extraFloat3,1,true);
                 }
-                if(((allowCradle&&!getbit(extraFloat3,2))||extraByte==2)&&clear3&&(heart!=null&&heart.items.has(Terraplasm.cradle.requirements))){
+                if((((allowCradle||allowAll)&&!getbit(extraFloat3,2))||extraByte==2)&&clear3&&(heart!=null&&heart.items.has(Terraplasm.cradle.requirements))){
                     boolean sameNear = passiveGrow(Terraplasm.cradle,cradleSpacing,cradleRate,heart);
                     if(sameNear)extraFloat3=setbit(extraFloat3,2,true);
                 }
-                if(((allowTrim&&!getbit(extraFloat3,3))||extraByte==3)&&clear2&&(heart!=null&&heart.items.has(Terraplasm.trim.requirements))){
+                if((((allowTrim||allowAll)&&!getbit(extraFloat3,3))||extraByte==3)&&clear2&&(heart!=null&&heart.items.has(Terraplasm.trim.requirements))){
                     boolean sameNear = passiveGrow(Terraplasm.trim,trimSpacing,trimRate,heart);
                     if(sameNear)extraFloat3=setbit(extraFloat3,3,true);
                 }
