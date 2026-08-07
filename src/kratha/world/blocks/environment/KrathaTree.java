@@ -49,6 +49,7 @@ public class KrathaTree extends TallBlock{
     @Override
     public void drawBase(Tile tile){
         boolean shouldFade=Core.settings.getInt("kratha.tree-fade-distance")>0&&Core.settings.getInt("kratha.tree-fade-amount")>0;
+        boolean doParallax=Core.settings.getBool("kratha.render-3d");
         float fadeAmount=Core.settings.getInt("kratha.tree-fade-amount")/100f;
         float fadeDist=Core.settings.getInt("kratha.tree-fade-distance")<20?Core.settings.getInt("kratha.tree-fade-distance")*8:999999;
         float fadeDistTo=fadeDist/8*6;
@@ -72,8 +73,10 @@ public class KrathaTree extends TallBlock{
             var region = Angles.angleDist(ba, 225f) <= botAngle ? (variant>1?branchRegion1bot:branchRegion2bot) : (variant>1?branchRegion1:branchRegion2);
             var sRegion = (variant>1?branchRegion1s:branchRegion2s);
             irand.setSeed(tile.pos()+i);
-            float thisBranchParallaxAmount = (float)irand.random(branchParallaxAmount/2, branchParallaxAmount*3/4);
-                
+            float thisBranchParallaxAmount = 0;
+            if(doParallax){
+                (float)irand.random(branchParallaxAmount/2, branchParallaxAmount*3/4);
+            }
             float bAlpha=1f;
             if(shouldFade&&Vars.player.unit()!=null&&!Vars.player.unit().dead()){
                 bAlpha=Math.max(0,Math.min(fadeDist-fadeDistTo,Mathf.dst(tile.worldx() + Angles.trnsx(angle, origin + w*0.5f),tile.worldy() + Angles.trnsy(angle, origin + h*0.5f),Vars.player.unit().x,Vars.player.unit().y)-fadeDistTo))/(fadeDist-fadeDistTo)*fadeAmount+(1-fadeAmount);
@@ -112,8 +115,12 @@ public class KrathaTree extends TallBlock{
         float hoff = Mathf.randomSeedRange(tile.pos() + 1, heightRange);
         
         Draw.z(layer);
-        float camoffX=(tile.worldx()-Core.camera.position.x)*((hoff+parallaxAmount)/Core.camera.width);
-        float camoffY=(tile.worldy()-Core.camera.position.y)*((hoff+parallaxAmount)/Core.camera.width);
+        float camoffx=0;
+        float camoffy=0;
+        if(doParallax){
+            camoffX=(tile.worldx()-Core.camera.position.x)*((hoff+parallaxAmount)/Core.camera.width);
+            camoffY=(tile.worldy()-Core.camera.position.y)*((hoff+parallaxAmount)/Core.camera.width);
+        }
         Draw.rect(variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region,
             tile.worldx()+camoffX, tile.worldy()+camoffY, rot);
     }

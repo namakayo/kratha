@@ -64,6 +64,12 @@ public class ParallaxBlock extends TallBlock{
     @Override
     public void drawBase(Tile tile){
         Draw.z(Layer.floor-0.51f+depthFlag*0.1f);
+        TextureRegion reg = variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region;
+
+        if(!Core.settings.getBool("kratha.render-3d")){
+            Draw.rect(reg,x,y);
+            return;
+        }
         Block f = tile.floor();
         float p = renderer.getDisplayScale()*parallaxAmount*parallaxMultiplier;
         float cx = Core.camera.position.x, cy = Core.camera.position.y;
@@ -72,8 +78,7 @@ public class ParallaxBlock extends TallBlock{
         float x = tile.worldx(), y = tile.worldy();
         float c = Color.white.toFloatBits();
         float mc = Color.clearFloatBits;
-        TextureRegion reg = variants > 0 ? variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))] : region;
-
+        
         verts[0] = x - s + (x-s-cx)*p;
         verts[1] = y - s + (y-s-cy)*p;
         verts[2] = c;

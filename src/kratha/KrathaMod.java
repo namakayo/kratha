@@ -22,6 +22,7 @@ public class KrathaMod extends Mod{
                 t.sliderPref("kratha.tree-fade-distance",8,0,20,1,s->s<=0?"Don't fade":(s>=20?"Fade all":(s==1?s+" tile":s+" tiles")));
                 t.sliderPref("kratha.tree-fade-amount",75,0,100,5,s->s+"%");
                 t.checkPref("kratha.tree-fade-shadow", false);
+                t.checkPref("kratha.render-3d", true);
                 t.checkPref("kratha.terraplasm-item-debug", false);
             });
         });
