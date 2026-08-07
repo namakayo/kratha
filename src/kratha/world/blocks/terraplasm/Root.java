@@ -308,7 +308,7 @@ public class Root extends BioBlock {
                         lastTarget = new Point2(-1,-1);
                         items.remove(lastItem, 1);
                         lastItem = null;
-                    }else if(((Point2)targetpath.get(targetpath.size-1)).x==tile.x&&((Point2)targetpath.get(targetpath.size-1)).y==tile.y){
+                    }else if(targetpath.size>0&&((Point2)targetpath.get(targetpath.size-1)).x==tile.x&&((Point2)targetpath.get(targetpath.size-1)).y==tile.y){
                         //swap items
                         Item targetri = targetr.lastItem;
                         Point2 targetrlt = targetr.lastTarget;
