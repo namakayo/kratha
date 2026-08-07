@@ -64,6 +64,7 @@ public class RootPathfinder{
     Seq trace=new Seq();
     limit=0;
     Node lastTrace=(Node)done.get(done.size-1);
+    trace.add(new Point2(lastTrace.x,lastTrace.y));
     while(limit<maxLimit){
       int lp=findPos(done,lastTrace.px,lastTrace.py);
       if(lp!=-1&&done.get(lp) instanceof Node n){
