@@ -22,7 +22,7 @@ public class KrathaTree extends TallBlock{
     public int lobesMin = 4, lobesMax = 7;
     public float botAngle = 50f, origin = 0.1f;
     public float sclMin = 300f, sclMax = 360f, magMin = 5f, magMax = 15f, timeRange = 40f, spread = 0f;
-    public float fadeDist = 70f, fadeDistTo = 50f, fadeAmount=0.75f; //fade amount 1 means 100% 0 means no fade
+    
     public float parallaxAmount = 100f;
     public float branchParallaxAmount = parallaxAmount/2f;
     static Rand rand = new Rand();
@@ -48,6 +48,9 @@ public class KrathaTree extends TallBlock{
 
     @Override
     public void drawBase(Tile tile){
+        float fadeAmount=Core.settings.getInt("kratha.tree-fade-amount")/100f;
+        float fadeDist=Core.settings.getInt("kratha.tree-fade-distance")<20?Core.settings.getInt("kratha.tree-fade-distance")*8:Float.POSITIVE_INFINITY;
+        float fadeDistTo=fadeDist/8*6;
         Draw.z(layer);
         rand.setSeed(tile.pos());
         float offset = rand.random(180f);
@@ -97,7 +100,7 @@ public class KrathaTree extends TallBlock{
         }
         
         Draw.z(shadowLayer);
-        Draw.color(0f, 0f, 0f, shadowAlpha);
+        Draw.color(0f, 0f, 0f, shadowAlpha*(Core.settings.getBool("kratha.tree-fade-shadow")?tAlpha:1f));
         Draw.rect(variants > 0 ? variantShadowRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantShadowRegions.length - 1))] : customShadowRegion,
             tile.worldx() + shadowOffset, tile.worldy() + shadowOffset, rot);
 
