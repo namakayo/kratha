@@ -48,8 +48,9 @@ public class KrathaTree extends TallBlock{
 
     @Override
     public void drawBase(Tile tile){
+        boolean shouldFade=Core.settings.getInt("kratha.tree-fade-distance")>0&&Core.settings.getInt("kratha.tree-fade-amount")>0;
         float fadeAmount=Core.settings.getInt("kratha.tree-fade-amount")/100f;
-        float fadeDist=Core.settings.getInt("kratha.tree-fade-distance")<20?Core.settings.getInt("kratha.tree-fade-distance")*8:Float.POSITIVE_INFINITY;
+        float fadeDist=Core.settings.getInt("kratha.tree-fade-distance")<20?Core.settings.getInt("kratha.tree-fade-distance")*8:999999;
         float fadeDistTo=fadeDist/8*6;
         Draw.z(layer);
         rand.setSeed(tile.pos());
@@ -58,7 +59,7 @@ public class KrathaTree extends TallBlock{
         float rot = Mathf.randomSeedRange(tile.pos() + 1, rotationRand);
 
         float tAlpha=1f;
-        if(Vars.player.unit()!=null&&!Vars.player.unit().dead()){
+        if(shouldFade&&Vars.player.unit()!=null&&!Vars.player.unit().dead()){
             tAlpha=Math.max(0,Math.min(fadeDist-fadeDistTo,Mathf.dst(tile.worldx(),tile.worldy(),Vars.player.unit().x,Vars.player.unit().y)-fadeDistTo))/(fadeDist-fadeDistTo)*fadeAmount+(1-fadeAmount);
         }
     
@@ -73,7 +74,11 @@ public class KrathaTree extends TallBlock{
             irand.setSeed(tile.pos()+i);
             float thisBranchParallaxAmount = (float)irand.random(branchParallaxAmount/2, branchParallaxAmount*3/4);
                 
-            Draw.color(0f, 0f, 0f, shadowAlpha);
+            float bAlpha=1f;
+            if(shouldFade&&Vars.player.unit()!=null&&!Vars.player.unit().dead()){
+                bAlpha=Math.max(0,Math.min(fadeDist-fadeDistTo,Mathf.dst(tile.worldx() + Angles.trnsx(angle, origin + w*0.5f),tile.worldy() + Angles.trnsy(angle, origin + h*0.5f),Vars.player.unit().x,Vars.player.unit().y)-fadeDistTo))/(fadeDist-fadeDistTo)*fadeAmount+(1-fadeAmount);
+            }
+            Draw.color(0f, 0f, 0f, shadowAlpha*(Core.settings.getBool("kratha.tree-fade-shadow")?bAlpha:1f));
             if(sRegion!=null){
                 Draw.z(shadowLayer);
                 Draw.rect(sRegion,
@@ -82,10 +87,6 @@ public class KrathaTree extends TallBlock{
                     origin*4f, h/2f,
                     angle
                 );    
-            }
-            float bAlpha=1f;
-            if(Vars.player.unit()!=null&&!Vars.player.unit().dead()){
-                bAlpha=Math.max(0,Math.min(fadeDist-fadeDistTo,Mathf.dst(tile.worldx() + Angles.trnsx(angle, origin + w*0.5f),tile.worldy() + Angles.trnsy(angle, origin + h*0.5f),Vars.player.unit().x,Vars.player.unit().y)-fadeDistTo))/(fadeDist-fadeDistTo)*fadeAmount+(1-fadeAmount);
             }
             Draw.color(1f,1f,1f,bAlpha);
             Draw.z(layer);
