@@ -281,13 +281,12 @@ public class Root extends BioBlock {
                 Point2 next = (Point2)path.get(path.size-1);
                 Building target = world.tile(next.x,next.y).build;
                 Building finalTarget = world.tile(itemTargetX,itemTargetY).build;
-                if(target==null||finalTarget==null){
-                    //retry pathfinding
-                    path=pf.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
-                    next = (Point2)path.get(path.size-1);
-                    target = world.tile(next.x,next.y).build;
+                if(finalTarget==null){
+                    itemTargetX=-1;
+                    itemTargetY=-1;
+                    target=null;
                 }
-                if(!(target instanceof RootBuild)&&target!=finalTarget){
+                if(target==null||(!(target instanceof RootBuild)&&target!=finalTarget)){
                     //retry pathfinding
                     path=pf.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
                     next = (Point2)path.get(path.size-1);
