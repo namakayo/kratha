@@ -280,6 +280,15 @@ public class Root extends BioBlock {
             if(lastItem != null && path.size>0 && extraFloat1<=0) {
                 Point2 next = (Point2)path.get(path.size-1);
                 Building target = world.tile(next.x,next.y).build;
+                Build finalTarget = world.tile(itemTargetX,itemTargetY);
+                if(target==null||finalTarget==null){
+                    //retry pathfinding
+                    path=pf.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
+                }
+                if(!(finalTarget instanceof Root)&&target!=finalTarget){
+                    //retry pathfinding
+                    path=pf.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
+                }
                 //for root
                 if(target != null && target instanceof RootBuild targetr){
                     Seq targetpath=targetr.path;
@@ -364,15 +373,15 @@ public class Root extends BioBlock {
             }
             if(lastItem!=null&&Core.settings.getBool("kratha.terraplasm-item-debug")&&itemTargetX>-1&&itemTargetY>-1){
                 Draw.z(Layer.power);
+                Lines.stroke(1f,KrathaPal.debugPurple.a(0.5f));
+                Lines.line(x,y,itemTargetX*tilesize,itemTargetY*tilesize);
+                Draw.reset();
                 for(int i=1;i<path.size;i++){
                     if(path.get(i) instanceof Point2 p&&path.get(i-1) instanceof Point2 pl){
                         Lines.stroke(1f,KrathaPal.debugPink);
                         Lines.line(pl.x*tilesize,pl.y*tilesize,p.x*tilesize,p.y*tilesize);
                         Draw.reset();
                     }
-                    Lines.stroke(1f,KrathaPal.debugPurple);
-                    Lines.line(x,y,itemTargetX*tilesize,itemTargetY*tilesize);
-                    Draw.reset();
                 }
             }
         }
