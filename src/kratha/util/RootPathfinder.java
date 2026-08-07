@@ -13,7 +13,8 @@ import static mindustry.Vars.*;
 public class RootPathfinder{
   public Seq findPath(int fromx, int fromy, int tox, int toy){
     int limit=0;
-    int maxLimit=1000000;
+    int maxLimit=100000;
+    boolean notFound=false;
     Building target=world.tile(tox,toy).build;
     if(target==null){
       return new Seq();
@@ -21,7 +22,7 @@ public class RootPathfinder{
     Seq queue=new Seq();
     Seq done=new Seq();
     done.add(new Node(fromx,fromy,fromx,fromy,Mathf.dst(fromx,fromy,tox,toy)));
-    while(limit<maxLimit){
+    while(true){
       for(int i=0;i<done.size;i++){
         if(done.get(i) instanceof Node n&&!n.checked){
           for(int j=0;j<4;j++){
@@ -39,7 +40,8 @@ public class RootPathfinder{
           n.checked=true;
         }
       }
-      if(queue.size<=0){
+      if(queue.size<=0||limit>maxLimit){
+        notFound=true;
         break;
       }
       float closest=Float.POSITIVE_INFINITY;
@@ -60,6 +62,9 @@ public class RootPathfinder{
         }
       };
       limit++;
+    }
+    if(notFound){
+      return new Seq();
     }
     Seq trace=new Seq();
     limit=0;
