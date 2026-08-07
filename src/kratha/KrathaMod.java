@@ -19,7 +19,7 @@ public class KrathaMod extends Mod{
         Log.info("They are watching."); //no reason for this lol
         Events.on(ClientLoadEvent.class,e->{
             ui.settings.addCategory(Core.bundle.get("kratha.kratha-title"),new TextureRegionDrawable(Core.atlas.find("kratha-setting-icon")),t -> {
-                t.sliderPref("kratha.tree-fade-distance",8,0,20,1,s->{s<=0?"Don't fade":(s>=20?"Fade all":s+" tiles")});
+                t.sliderPref("kratha.tree-fade-distance",8,0,20,1,s->s<=0?"Don't fade":(s>=20?"Fade all":s+" tiles"));
                 t.sliderPref("kratha.tree-fade-amount",75,0,100,5,s->s+"%");
                 t.checkPref("kratha.tree-fade-shadow", false);
                 t.checkPref("kratha.terraplasm-item-debug", false);
