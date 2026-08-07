@@ -285,7 +285,7 @@ public class Root extends BioBlock {
                     //retry pathfinding
                     path=pf.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
                 }
-                if(!(finalTarget instanceof Root)&&target!=finalTarget){
+                if(!(finalTarget instanceof RootBuild)&&target!=finalTarget){
                     //retry pathfinding
                     path=pf.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
                 }
