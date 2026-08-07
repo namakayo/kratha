@@ -282,6 +282,7 @@ public class Root extends BioBlock {
                 Building target = world.tile(next.x,next.y).build;
                 //for root
                 if(target != null && target instanceof RootBuild targetr){
+                    Seq targetpath targetr.path;
                     if(target.acceptItem(this, lastItem)){
                         target.handleItem(this, lastItem);
                         targetr.itemTargetX = itemTargetX;
@@ -295,6 +296,29 @@ public class Root extends BioBlock {
                         lastTarget = new Point2(-1,-1);
                         items.remove(lastItem, 1);
                         lastItem = null;
+                    }else if(((Point2)targetpath.get(targetpath.size-1)).x==tile.x&&((Point2)targetpath.get(targetpath.size-1)).y==tile.y){
+                        //swap items
+                        Item targetri = targetr.lastItem;
+                        Point2 targetrlt = targetr.lastTarget;
+                        Point2 targetrit = new Point2(targetr.itemTargetX,targetr.itemTargetY);
+                        targetr.items.remove(targetri,1);
+                        targetr.handleItem(this, lastItem);
+                        targetr.itemTargetX = itemTargetX;
+                        targetr.itemTargetY = itemTargetY;
+                        path.pop();
+                        Seq targetp = targetr.path;
+                        targetr.path = path;
+                        targetp.pop();
+                        path=targetp;
+                        targetr.lastTarget = new Point2(itemTargetX,itemTargetY);
+                        extraFloat2 = 0;
+                        targetr.extraFloat 2 = 0;
+                        itemTargetX = targetrit.x;
+                        itemTargetY = targetrit.y;
+                        lastTarget = targetrlt;
+                        items.remove(lastItem,1);
+                        handleItem(targetr,targetri);
+                        lastItem = targetri;
                     }
                 }
                 //for biobuilding that is not root
