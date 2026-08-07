@@ -280,7 +280,7 @@ public class Root extends BioBlock {
             if(lastItem != null && path.size>0 && extraFloat1<=0) {
                 Point2 next = (Point2)path.get(path.size-1);
                 Building target = world.tile(next.x,next.y).build;
-                Building finalTarget = world.tile(itemTargetX,itemTargetY);
+                Building finalTarget = world.tile(itemTargetX,itemTargetY).build;
                 if(target==null||finalTarget==null){
                     //retry pathfinding
                     path=pf.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
