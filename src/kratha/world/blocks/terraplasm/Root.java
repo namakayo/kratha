@@ -277,89 +277,24 @@ public class Root extends BioBlock {
                 }
             }
             extraFloat2 = pack(itemTargetX,itemTargetY);
-            if(lastItem != null && itemTargetX != -1 && itemTargetY != -1 && extraFloat1<=0) {
-                Building target = null;
-                Building randomTarget = null;
-                int randomDirI=(int)Math.floor(random.nextFloat()*4);
-                
-                float bestDist = Float.POSITIVE_INFINITY; //FEAR THE INFINITE POWER
-                for(int i=0;i<4;i++){
-                    Building adj;
-                    Tile itemTargetTile = world.tile(itemTargetX,itemTargetY);
-                    Block itemTargetBlock = null;
-                    boolean doJump = random.nextFloat()<0.1f;
-                    if(itemTargetTile!=null&&itemTargetTile.build!=null&&itemTargetTile.build.block!=null)itemTargetBlock = itemTargetTile.build.block;
-                    adj = tile.nearby(Geometry.d4(i).x*(doJump?2:1),Geometry.d4(i).y*(doJump?2:1)).build;
-                    
-                    if(i==randomDirI)randomTarget=adj;
-                    if(itemTargetBlock!=null&&itemTargetBlock instanceof BioHeart){
-                        if(adj != null && (adj.block instanceof Root || adj.block instanceof BioHeart)){
-                            float dist = Mathf.dst(itemTargetX, itemTargetY, adj.tile.x, adj.tile.y);
-                            if(dist<bestDist&&adj.acceptItem(this, lastItem)){
-                                target = adj;
-                                bestDist = dist;
-                            }
-                        }
-                    }
-                    if(itemTargetBlock!=null&&itemTargetBlock instanceof BioTurret){
-                        if(adj != null && (adj.block instanceof Root || adj.block instanceof BioTurret)){
-                            float dist = Mathf.dst(itemTargetX, itemTargetY, adj.tile.x, adj.tile.y);
-                            if(dist<bestDist&&adj.acceptItem(this, lastItem)){
-                                target = adj;
-                                bestDist = dist;
-                            }
-                        }
-                    }
-                    if(itemTargetBlock!=null&&itemTargetBlock instanceof BioSpawner){
-                        if(adj != null && (adj.block instanceof Root || adj.block instanceof BioSpawner)){
-                            float dist = Mathf.dst(itemTargetX, itemTargetY, adj.tile.x, adj.tile.y);
-                            if(dist<bestDist&&adj.acceptItem(this, lastItem)){
-                                target = adj;
-                                bestDist = dist;
-                            }
-                        }
-                    }
-                    if(itemTargetBlock==null||(itemTargetBlock!=null&&itemTargetBlock instanceof Root)){
-                        //if the destinated block is destroyed or null -> item is lost -> reset to default destination (nearest heart)
-                        //Or, if the destinated block isn't null but instead is a root, its not the actual target and the actual target is destroyed because root never request items.
-                        if(getNearestHeart()!=null){
-                            itemTargetX = getNearestHeart().tile.x;
-                            itemTargetY = getNearestHeart().tile.y;
-                        }
-                    }
-                }
-                if(target != null && randomTarget != null && target == itemFrom){
-                    //if the target turns out to be where this item come from, its just looping around and is stuck.
-                    //pick random target and hope to get unstuck
-                    target=randomTarget;
-                }
+            if(lastItem != null && path.size>0 && extraFloat1<=0) {
+                Point2 next = (Point2)path.get(0);
+                Building target = world.tile(next.x,next.y).build;
                 //for root
                 if(target != null && target instanceof RootBuild targetr){
                     if(target.acceptItem(this, lastItem)){
                         target.handleItem(this, lastItem);
                         targetr.itemTargetX = itemTargetX;
                         targetr.itemTargetY = itemTargetY;
+                        path.remove(0);
+                        targetr.path = path;
+                        targetr.lastTarget = new Point2(itemTargetX,itemTargetY);
                         extraFloat2 = 0;
                         itemTargetX = -1;
                         itemTargetY = -1;
+                        lastTarget = new Point2(-1,-1);
                         items.remove(lastItem, 1);
                         lastItem = null;
-                    }else{
-                        //swap item (removed)
-                        /*
-                        Item ti=targetr.lastItem;
-                        target.items.remove(lastItem, 1);
-                        target.handleItem(this, lastItem);
-                        int tx=targetr.itemTargetX;
-                        int ty=targetr.itemTargetY;
-                        targetr.itemTargetX = itemTargetX;
-                        targetr.itemTargetY = itemTargetY;
-                        itemTargetX = tx;
-                        itemTargetY = ty;
-                        items.remove(lastItem, 1);
-                        handleItem(target,ti);
-                        lastItem = ti;
-                        */
                     }
                 }
                 //for biobuilding that is not root
@@ -410,6 +345,9 @@ public class Root extends BioBlock {
                         Lines.line(pl.x*tilesize,pl.y*tilesize,p.x*tilesize,p.y*tilesize);
                         Draw.reset();
                     }
+                    Lines.stroke(1f,KrathaPal.debugPurple);
+                    Lines.line(x,y,itemTargetX*tilesize,itemTargetY*tilesize);
+                    Draw.reset();
                 }
             }
         }
