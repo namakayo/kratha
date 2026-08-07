@@ -15,7 +15,7 @@ public class RootPathfinder{
     int limit=0;
     int maxLimit=100000;
     boolean notFound=false;
-    Tile targetTile=world.tile(tox,toy):
+    Tile targetTile=world.tile(tox,toy);
     if(targetTile==null||targetTile.build==null){
       return new Seq();
     }
