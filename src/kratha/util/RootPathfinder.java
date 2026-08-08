@@ -52,7 +52,7 @@ public class RootPathfinder{
             Tile a=world.tile(ax,ay);
             if(a!=null&&a.build!=null&&a.build.block instanceof Root){
               if(!hasPos(done,ax,ay)){
-                float penality=a.build.items.total()>0?8:0;
+                float penality=a.build.items.total()>0?4:0;
                 queue.add(new Node(ax,ay,n.x,n.y,Mathf.dst(ax,ay,tox,toy)+penality));
               }
             }else if(a!=null&&a.build!=null&&a.build==target){
