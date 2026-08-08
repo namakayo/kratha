@@ -25,7 +25,6 @@ import mindustry.gen.*;
 import java.util.Random;
 import kratha.graphics.*;
 import kratha.content.terraplasm.Terraplasm;
-import kratha.util.*;
 
 import static mindustry.Vars.*;
 
@@ -33,7 +32,6 @@ import static mindustry.Vars.*;
 public class Root extends BioBlock {
     public TextureRegion[][] atlasRegion = new TextureRegion[12][4];
     protected Seq<Building> heartArray = new Seq<>(Building.class);
-    protected RootPathfinder pf = new RootPathfinder();
     
     //dont worry about those two bitmask thing, its only for texture
     //100% handwritten btw, beautiful isnt it?
@@ -42,7 +40,6 @@ public class Root extends BioBlock {
     };
     public int[] verBitmask = {
         3,3,3,3,2,1,2,2,3,3,3,3,2,1,2,2,3,3,3,3,1,3,1,3,3,3,3,3,2,1,2,2,3,3,3,3,2,1,2,2,3,3,3,3,2,1,2,2,3,3,3,3,1,3,1,3,3,3,3,3,2,1,2,2,0,0,0,0,1,3,1,1,0,0,0,0,1,3,1,1,0,2,0,2,2,0,2,1,0,2,0,2,2,0,2,2,0,0,0,0,1,3,1,1,0,0,0,0,1,3,1,1,0,2,0,2,0,3,0,1,0,2,0,2,1,3,1,0,3,3,3,3,2,1,2,2,3,3,3,3,2,1,2,2,3,3,3,3,1,3,1,3,3,3,3,3,2,1,2,2,3,3,3,3,2,1,2,2,3,3,3,3,2,1,2,2,3,3,3,3,1,3,1,3,3,3,3,3,2,1,2,2,0,0,0,0,1,3,1,1,0,0,0,0,1,3,1,1,0,0,0,0,2,2,2,2,0,0,0,0,2,2,2,0,0,0,0,0,1,3,1,1,0,0,0,0,1,3,1,1,0,0,0,0,0,3,0,1,0,0,0,0,1,1,1,1
-        
     };
     public Root(String name){
         super(name);
@@ -259,6 +256,12 @@ public class Root extends BioBlock {
                 lastTarget.x=itemTargetX;
                 lastTarget.y=itemTargetY;
                 path=pf.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
+                Building finalTarget = world.tile(itemTargetX,itemTargetY).build;
+                if(path.size<=0&&finalTarget!=null&&finalTarget.block instanceof BioHeart){
+                    //if the item cant find a way back home, it dies. Worthless.
+                    items.remove(lastItem,1);
+                    lastItem=null;
+                }
             }
             
             if(lastItem == null && items.any()){
@@ -339,17 +342,25 @@ public class Root extends BioBlock {
                     extraFloat2 = 0;
                     itemTargetX = -1;
                     itemTargetY = -1;
+                    lastTarget = new Point2(-1,-1);
                     items.remove(lastItem, 1);
                     lastItem = null;
                 }
                 //for bioturret (it doesnt extend biobuilding)
-                if(target != null && target instanceof BioTurret.BioTurretBuild && target.acceptItem(this, lastItem)){
-                    target.handleItem(this, lastItem);
-                    extraFloat2 = 0;
-                    itemTargetX = -1;
-                    itemTargetY = -1;
-                    items.remove(lastItem, 1);
-                    lastItem = null;
+                if(target != null && target instanceof BioTurret.BioTurretBuild){
+                    if(target.acceptItem(this, lastItem)){
+                        target.handleItem(this, lastItem);
+                        extraFloat2 = 0;
+                        itemTargetX = -1;
+                        itemTargetY = -1;
+                        lastTarget = new Point2(-1,-1);
+                        items.remove(lastItem, 1);
+                        lastItem = null;
+                    }else{
+                        itemTargetX = -1;
+                        itemTargetY = -1;
+                        lastTarget = new Point2(-1,-1);
+                    }
                 }
             }
         }

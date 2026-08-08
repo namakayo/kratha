@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import kratha.content.*;
 import kratha.content.terraplasm.Terraplasm;
+import kratha.util.RootPathfinder;
 
 import static mindustry.Vars.*;
 
@@ -34,6 +35,7 @@ import static mindustry.Vars.*;
 public class BioBlock extends Block {
     public boolean isRoot=false;
     public float pulseScale=0.5f;
+    public RootPathfinder pf = new RootPathfinder();
     
     //Parameters, to be overriden by data patch
     public boolean allowRoot=false;
@@ -281,7 +283,7 @@ public class BioBlock extends Block {
             return Units.findAllyTile(team, x, y, 1000, b -> b.block instanceof BioHeart);
         }
         //return all hearts excluding this (if this is a heart too)
-        public Seq getNearestHearts(){
+        public Seq getHearts(){
             Seq returnSeq=new Seq();
             indexer.eachBlock(team,x,y,1000,b->b.block instanceof BioHeart,b->returnSeq.add(b));
             if(!(block instanceof BioHeart)){
@@ -294,6 +296,11 @@ public class BioBlock extends Block {
                     break;
                 }
             }
+            return returnSeq;
+        }
+        //same as getHearts but only the ones it can pathfind to
+        public Seq getHeartsReachable(){
+            Seq returnSeq=getHearts().removeAll(b->pf.findPath(this,b).size<=0);
             return returnSeq;
         }
         @Override

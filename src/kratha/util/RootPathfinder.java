@@ -11,6 +11,9 @@ import static mindustry.Vars.*;
 
 //Greedy best first search for items in roots
 public class RootPathfinder{
+  public Seq findPath(Building from, building to){
+    return findPath(from.tile.x,from.tile.y,to.tile.x,to.tile.y);
+  }
   public Seq findPath(int fromx, int fromy, int tox, int toy){
     int limit=0;
     int maxLimit=100000;
@@ -26,9 +29,26 @@ public class RootPathfinder{
     while(true){
       for(int i=0;i<done.size;i++){
         if(done.get(i) instanceof Node n&&!n.checked){
+          Tile doneTile=world.tile(n.x,n.y);
+          if(doneTile==null||doneTile.build==null){
+            continue;
+          }
+          int bsize=doneTile.build.block.size;
           for(int j=0;j<4;j++){
-            int ax=n.x+Geometry.d4[j].x;
-            int ay=n.y+Geometry.d4[j].y;
+            int gx=Geometry.d4[j].x;
+            int gy=Geometry.d4[j].y;
+            if(gx>0||gx%2!=0){
+              gx*=bsize;
+            }else{
+              gx*=bsize-1;
+            }
+            if(gy>0||gy%2!=0){
+              gy*=bsize;
+            }else{
+              gy*=bsize-1;
+            }
+            int ax=n.x+gx;
+            int ay=n.y+gy;
             Tile a=world.tile(ax,ay);
             if(a!=null&&a.build!=null&&a.build.block instanceof Root){
               if(!hasPos(done,ax,ay)){

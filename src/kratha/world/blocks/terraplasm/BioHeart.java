@@ -90,10 +90,13 @@ public class BioHeart extends BioBlock {
                 for(int i=0;i<itemss;i++){
                     int item=items.get(i);
                     if(item>=shareThreshold){
-                        Seq hearts=getNearestHearts();
+                        Seq hearts=getHeartsReachable();
                         for(int j=0;j<hearts.size;j++){
                             Building h=(Building)hearts.get(j);
-                            send(content.items().get(i),h.tile.x,h.tile.y);
+                            boolean success=send(content.items().get(i),h.tile.x,h.tile.y);
+                            if(success){
+                                items.remove(content.items().get(i),1);
+                            }
                         }
                     }
                 }
