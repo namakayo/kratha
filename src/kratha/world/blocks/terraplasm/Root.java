@@ -395,7 +395,7 @@ public class Root extends BioBlock {
                 Lines.stroke(1f,KrathaPal.debugPurple.a(0.5f));
                 Lines.line(x,y,itemTargetX*tilesize,itemTargetY*tilesize);
                 Draw.reset();
-                if(path.size>0&&path.get(0) instanceof Point2 p){
+                if(path.size>0&&path.get(path.size-1) instanceof Point2 p){
                     Lines.stroke(1f,KrathaPal.debugPink);
                     Lines.line(x,y,p.x*tilesize,p.y*tilesize);
                     Draw.reset();
