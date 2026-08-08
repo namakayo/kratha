@@ -284,7 +284,7 @@ public class BioBlock extends Block {
         public Seq getNearestHearts(){
             Seq returnSeq=new Seq();
             indexer.eachBlock(team,x,y,1000,b->b.block instanceof BioHeart,b->returnSeq.add(b));
-            if(!(block instanceof BioHeart){
+            if(!(block instanceof BioHeart)){
                 return returnSeq;
             }
             for(int i=0;i<returnSeq.size;i++){
