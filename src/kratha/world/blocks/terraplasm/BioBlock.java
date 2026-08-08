@@ -300,7 +300,7 @@ public class BioBlock extends Block {
         }
         //same as getHearts but only the ones it can pathfind to
         public Seq getHeartsReachable(){
-            Seq returnSeq=getHearts().removeAll(b->pf.findPath(this,b).size<=0);
+            Seq returnSeq=getHearts().removeAll(b->pf.findPath(this,(Building)b).size<=0);
             return returnSeq;
         }
         @Override
