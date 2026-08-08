@@ -370,7 +370,7 @@ public class Root extends BioBlock {
                     }
                 }
                 //if target is not BioBlock (retry pathfinding)
-                if(!(target.block instanceof BioBlock)&&!(target.block instanceof BioTurret)){
+                if(target!=null&&!(target.block instanceof BioBlock)&&!(target.block instanceof BioTurret)){
                     path=new Seq();
                     itemTargetX = -1;
                     itemTargetY = -1;
