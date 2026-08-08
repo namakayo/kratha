@@ -293,8 +293,10 @@ public class Root extends BioBlock {
                 if(target==null||(!(target instanceof RootBuild)&&target!=finalTarget)){
                     //retry pathfinding
                     path=pf.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
-                    next = (Point2)path.get(path.size-1);
-                    target = world.tile(next.x,next.y).build;
+                    if(path.size>0){
+                        next=(Point2)path.get(path.size-1);
+                        target=world.tile(next.x,next.y).build;
+                    }
                 }
                 clogTime++;
                 //for root
