@@ -334,6 +334,11 @@ public class Root extends BioBlock {
                         items.remove(lastItem,1);
                         handleItem(targetr,targetri);
                         lastItem = targetri;
+                    }else{
+                        //retry pathfinding
+                        path=pf.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
+                        next=(Point2)path.get(path.size-1);
+                        target=world.tile(next.x,next.y).build;
                     }
                 }
                 //for biobuilding that is not root
