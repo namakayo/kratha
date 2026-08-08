@@ -19,7 +19,6 @@ public class RootPathfinder{
     int limit=0;
     int maxLimit=1000;
     boolean notFound=false;
-    boolean found=false; //Only to break out from while loop for performance
     Tile targetTile=world.tile(tox,toy);
     if(targetTile==null||targetTile.build==null){
       return new Seq();
@@ -70,21 +69,19 @@ public class RootPathfinder{
       }
       float closest=Float.POSITIVE_INFINITY;
       int closesti=0;
-      while(queue.size>0){
-        for(int i=0;i<queue.size;i++){
-          if(queue.get(i) instanceof Node n){
-            if(n.val<closest){
-              closest=n.val;
-              closesti=i;
-            }
+      for(int i=0;i<queue.size;i++){
+        if(queue.get(i) instanceof Node n){
+          if(n.val<closest){
+            closest=n.val;
+            closesti=i;
           }
         }
-        if(queue.size>closesti&&queue.get(closesti) instanceof Node priority){
-          queue.remove(closesti);
-          done.add(priority);
-          if(priority.val==0){
-            found=true;
-          }
+      }
+      if(queue.size>closesti&&queue.get(closesti) instanceof Node priority){
+        queue.remove(closesti);
+        done.add(priority);
+        if(priority.val==0){
+          break;
         }
       }
       limit++;
