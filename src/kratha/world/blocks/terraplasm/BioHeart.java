@@ -94,7 +94,7 @@ public class BioHeart extends BioBlock {
                         Seq hearts=getHeartsReachable();
                         for(int j=0;j<hearts.size;j++){
                             Building h=(Building)hearts.get(j);
-                            if(h.items.has(item,shareThreshold){
+                            if(h.items.has(item,shareThreshold)){
                                 continue;
                             }
                             boolean success=send(item,h.tile.x,h.tile.y);
