@@ -284,25 +284,17 @@ public class BioBlock extends Block {
         public Seq getNearestHearts(){
             Seq returnSeq=new Seq();
             indexer.eachBlock(team,x,y,1000,b->b.block instanceof BioHeart,b->returnSeq.add(b));
-            Seq sortedSeq=new Seq();
-            int thisIsHeart=(block instanceof BioHeart)?1:0;
-            while(returnSeq.size>thisIsHeart){
-                float closest=Float.POSITIVE_INFINITY;
-                int closesti=0;
-                for(int i=0;i<returnSeq.size;i++){
-                    Building b=(Building)returnSeq.get(i);
-                    float dist=Mathf.dst(x,y,b.x,b.y);
-                    if(dist<closest){
-                        closest=dist;
-                        closesti=i;
-                    }
-                }
-                Building removed=(Building)returnSeq.remove(closesti);
-                if(removed!=this){
-                    sortedSeq.add(removed);
+            if(!(block instanceof BioHeart){
+                return returnSeq;
+            }
+            for(int i=0;i<returnSeq.size;i++){
+                Building b=(Building)returnSeq.get(i);
+                if(b==this){
+                    returnSeq.remove(i);
+                    break;
                 }
             }
-            return sortedSeq;
+            return returnSeq;
         }
         @Override
         public void write(Writes write){
