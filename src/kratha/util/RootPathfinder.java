@@ -11,7 +11,7 @@ import static mindustry.Vars.*;
 
 //Greedy best first search for items in roots
 public class RootPathfinder{
-  public Seq findPath(Building from, building to){
+  public Seq findPath(Building from, Building to){
     return findPath(from.tile.x,from.tile.y,to.tile.x,to.tile.y);
   }
   public Seq findPath(int fromx, int fromy, int tox, int toy){
