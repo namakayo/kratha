@@ -257,12 +257,11 @@ public class Root extends BioBlock {
                 lastTarget.x=itemTargetX;
                 lastTarget.y=itemTargetY;
                 path=pf.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
-                Building finalTarget = world.tile(itemTargetX,itemTargetY).build;
-                if(path.size<=0&&finalTarget!=null&&finalTarget.block instanceof BioHeart){
-                    //if the item cant find a way back home, it dies. Worthless.
-                    items.remove(lastItem,1);
-                    lastItem=null;
-                }
+            }
+            if(path.size<=0&&lastItem!=null&&itemTargetX!=-1&&itemTargetY!=-1&&(lastTarget.x==itemTargetX&&lastTarget.y==itemTargetY)){
+                //if the item cant a way, it dies. Worthless.
+                items.remove(lastItem,1);
+                lastItem=null;
             }
             
             if(lastItem == null && items.any()){
