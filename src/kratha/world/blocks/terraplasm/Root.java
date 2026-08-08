@@ -106,6 +106,7 @@ public class Root extends BioBlock {
         
         public Seq path=new Seq();
         public Point2 lastTarget=new Point2(-1,-1);
+        int clogTime=0;
         
         @Override
         public void updateTile(){
@@ -295,6 +296,7 @@ public class Root extends BioBlock {
                     next = (Point2)path.get(path.size-1);
                     target = world.tile(next.x,next.y).build;
                 }
+                clogTime++;
                 //for root
                 if(target != null && target instanceof RootBuild targetr){
                     Seq targetpath=targetr.path;
@@ -311,6 +313,7 @@ public class Root extends BioBlock {
                         lastTarget = new Point2(-1,-1);
                         items.remove(lastItem, 1);
                         lastItem = null;
+                        clogTime = 0;
                     }else if(targetpath.size>0&&((Point2)targetpath.get(targetpath.size-1)).x==tile.x&&((Point2)targetpath.get(targetpath.size-1)).y==tile.y){
                         //swap items
                         Item targetri = targetr.lastItem;
@@ -334,7 +337,8 @@ public class Root extends BioBlock {
                         items.remove(lastItem,1);
                         handleItem(targetr,targetri);
                         lastItem = targetri;
-                    }else{
+                        clogTime = 0;
+                    }else if(clogTime>4){
                         //retry pathfinding
                         path=pf.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
                         next=(Point2)path.get(path.size-1);
@@ -350,6 +354,7 @@ public class Root extends BioBlock {
                     lastTarget = new Point2(-1,-1);
                     items.remove(lastItem, 1);
                     lastItem = null;
+                    clogTime = 0;
                 }
                 //for bioturret (it doesnt extend biobuilding)
                 if(target != null && target instanceof BioTurret.BioTurretBuild){
@@ -361,6 +366,7 @@ public class Root extends BioBlock {
                         lastTarget = new Point2(-1,-1);
                         items.remove(lastItem, 1);
                         lastItem = null;
+                        clogTime = 0;
                     }else{
                         itemTargetX = -1;
                         itemTargetY = -1;
