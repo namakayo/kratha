@@ -79,7 +79,7 @@ public class RootPathfinder{
             }
           }
         }
-        if(queue.get(closesti) instanceof Node priority){
+        if(queue.size>closesti&&queue.get(closesti) instanceof Node priority){
           queue.remove(closesti);
           done.add(priority);
           if(priority.val==0){
