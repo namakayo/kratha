@@ -10,7 +10,7 @@ import kratha.world.blocks.terraplasm.*;
 import static mindustry.Vars.*;
 
 //Greedy best first search for items in roots
-//important: output order sequence is to -> from
+//@return order sequence is to -> from
 public class RootPathfinder{
   public Seq findPath(Building from, Building to){
     return findPath(from.tile.x,from.tile.y,to.tile.x,to.tile.y);
@@ -27,7 +27,7 @@ public class RootPathfinder{
     Seq queue=new Seq();
     Seq done=new Seq();
     done.add(new Node(fromx,fromy,fromx,fromy,Mathf.dst(fromx,fromy,tox,toy)));
-    while(!found){
+    while(true){
       for(int i=0;i<done.size;i++){
         if(done.get(i) instanceof Node n&&!n.checked){
           Tile doneTile=world.tile(n.x,n.y);
