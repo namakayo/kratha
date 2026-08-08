@@ -293,10 +293,6 @@ public class Root extends BioBlock {
                 if(target==null||(!(target instanceof RootBuild)&&target!=finalTarget)){
                     //retry pathfinding
                     path=pf.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
-                    if(path.size>0){
-                        next=(Point2)path.get(path.size-1);
-                        target=world.tile(next.x,next.y).build;
-                    }
                 }
                 clogTime++;
                 //for root
@@ -343,8 +339,6 @@ public class Root extends BioBlock {
                     }else if(clogTime>4){
                         //retry pathfinding
                         path=pf.findPath(tile.x,tile.y,itemTargetX,itemTargetY);
-                        next=(Point2)path.get(path.size-1);
-                        target=world.tile(next.x,next.y).build;
                     }
                 }
                 //for biobuilding that is not root
@@ -374,6 +368,13 @@ public class Root extends BioBlock {
                         itemTargetY = -1;
                         lastTarget = new Point2(-1,-1);
                     }
+                }
+                //if target is not BioBlock (retry pathfinding)
+                if(!(target.block instanceof BioBlock)&&!(target.block instanceof BioTurret)){
+                    path=new Seq();
+                    itemTargetX = -1;
+                    itemTargetY = -1;
+                    lastTarget = new Point2(-1,-1);
                 }
             }
         }
