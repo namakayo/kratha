@@ -93,7 +93,7 @@ public class BioHeart extends BioBlock {
                         Seq hearts=getNearestHearts();
                         for(int j=0;j<hearts.size;j++){
                             Building h=(Building)hearts.get(j);
-                            send(content.item(i),h.tile.x,h.tils.y);
+                            send(content.item(i),h.tile.x,h.tile.y);
                         }
                     }
                 }
