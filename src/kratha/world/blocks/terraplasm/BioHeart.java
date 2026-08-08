@@ -9,6 +9,7 @@ import arc.util.*;
 import arc.util.pooling.Pools;
 import arc.scene.ui.layout.Scl;
 import arc.math.geom.*;
+import arc.struct.*;
 import mindustry.world.blocks.defense.*;
 import mindustry.gen.Building;
 import mindustry.graphics.*;
@@ -29,6 +30,7 @@ public class BioHeart extends BioBlock {
     public float heartBpm=80;
     public int heartPower=32;
     public boolean hideWarning=false;
+    public int shareThreshold=10;
     public BioHeart(String name){
         super(name);
         priority = TargetPriority.core;
@@ -81,6 +83,17 @@ public class BioHeart extends BioBlock {
                                 adjbuild.biopulse=Math.max(adjbuild.biopulse,heartPower);
                                 adjbuild.pulseSource=tile;
                             }
+                        }
+                    }
+                }
+                int itemss=content.items().size;
+                for(int i=0;i<itemss;i++){
+                    int item=items.get(i);
+                    if(item>=shareThreshold){
+                        Seq hearts=getNearestHearts();
+                        for(int j=0;j<hearts.size;j++){
+                            Building h=(Building)hearts.get(j);
+                            send(content.item(i),h.tile.x,h.tils.y);
                         }
                     }
                 }

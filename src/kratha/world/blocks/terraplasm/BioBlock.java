@@ -9,6 +9,7 @@ import arc.math.*;
 import arc.util.*;
 import arc.util.io.*;
 import arc.math.geom.*;
+import arc.struct.*;
 import mindustry.world.blocks.defense.*;
 import mindustry.gen.Building;
 import mindustry.graphics.*;
@@ -278,6 +279,26 @@ public class BioBlock extends Block {
         }
         public Building getNearestHeart() {
             return Units.findAllyTile(team, x, y, 1000, b -> b.block instanceof BioHeart);
+        }
+        //return all hearts sorted by distance (index 0 is closest)
+        public Seq getNearestHearts(){
+            Seq returnSeq=new Seq();
+            indexer.eachBlock(team,x,y,1000,b->b.block instanceof BioHeart,b->returnSeq.add(b));
+            Seq sortedSeq=new Seq();
+            for(int i=0;i<returnSeq.size;i++){
+                float closest=Float.POSITIVE_INFINITY;
+                int closesti=0;
+                for(int j=0;j<returnSeq.size;j++){
+                    Building b=(Building)returnSeq.get(j);
+                    float dist=Mathf.dst(x,y,b.x,b.y);
+                    if(dist<closest){
+                        closest=dist;
+                        closesti=j;
+                    }
+                }
+                sortedSeq.add(returnSeq.remove(closesti));
+            }
+            return sortedSeq;
         }
         @Override
         public void write(Writes write){
