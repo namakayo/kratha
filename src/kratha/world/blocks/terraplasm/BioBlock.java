@@ -285,10 +285,11 @@ public class BioBlock extends Block {
             Seq returnSeq=new Seq();
             indexer.eachBlock(team,x,y,1000,b->b.block instanceof BioHeart,b->returnSeq.add(b));
             Seq sortedSeq=new Seq();
-            for(int i=0;i<returnSeq.size;i++){
+            boolean thisIsHeart=block instanceof BioHeart;
+            while(returnSeq.size>thisIsHeart?1:0)){
                 float closest=Float.POSITIVE_INFINITY;
                 int closesti=0;
-                for(int j=0;j<returnSeq.size;j++){
+                for(int i=0;i<returnSeq.size;i++){
                     Building b=(Building)returnSeq.get(j);
                     float dist=Mathf.dst(x,y,b.x,b.y);
                     if(dist<closest){
@@ -296,7 +297,10 @@ public class BioBlock extends Block {
                         closesti=j;
                     }
                 }
-                sortedSeq.add(returnSeq.remove(closesti));
+                Building removed=(Building)returnSeq.remove(closesti);
+                if(removed!=this){
+                    sortedSeq.add(removed);
+                }
             }
             return sortedSeq;
         }
