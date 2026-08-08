@@ -396,7 +396,13 @@ public class Root extends BioBlock {
             }
             Draw.z(Layer.blockUnder+0.1f);
             if(lastItem!=null){
-                Draw.rect(lastItem.fullIcon, x, y, itemSize, itemSize);
+                if(itemFrom!=null){
+                    float dx=itemFrom.x-x,dy=itemFrom.y-y;
+                    float p=extraFloat1/8f;
+                    Draw.rect(lastItem.fullIcon,x+dx*p,y+dy*p, itemSize, itemSize);
+                }else{
+                    Draw.rect(lastItem.fullIcon, x, y, itemSize, itemSize);
+                }
             }
             if(lastItem!=null&&Core.settings.getBool("kratha.terraplasm-item-debug")&&itemTargetX>-1&&itemTargetY>-1){
                 Draw.z(Layer.power);
@@ -434,7 +440,7 @@ public class Root extends BioBlock {
         public void handleItem(Building source, Item item){
             items.add(item, 1);
             lastItem = item;
-            extraFloat1 = 5f;
+            extraFloat1 = 8f;
             itemFrom = source;
         }
 

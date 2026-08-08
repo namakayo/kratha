@@ -149,7 +149,7 @@ public class BioBlock extends Block {
                     pulsed=false;
                 }
             }
-            if (biopulse>=0&&deathTimer<deathTimerLimit&&extraFloat1<10f){
+            if (biopulse>=0&&deathTimer<deathTimerLimit&&extraFloat1<8f){
                 deathTimer+=delta();
             }
             if (deathTimer>=deathTimerLimit){
