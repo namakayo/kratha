@@ -280,7 +280,7 @@ public class BioBlock extends Block {
         public Building getNearestHeart() {
             return Units.findAllyTile(team, x, y, 1000, b -> b.block instanceof BioHeart);
         }
-        //return all hearts sorted by distance (index 0 is closest)
+        //return all hearts excluding this (if this is a heart too)
         public Seq getNearestHearts(){
             Seq returnSeq=new Seq();
             indexer.eachBlock(team,x,y,1000,b->b.block instanceof BioHeart,b->returnSeq.add(b));
