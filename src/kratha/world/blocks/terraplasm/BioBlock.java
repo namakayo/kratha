@@ -290,11 +290,11 @@ public class BioBlock extends Block {
                 float closest=Float.POSITIVE_INFINITY;
                 int closesti=0;
                 for(int i=0;i<returnSeq.size;i++){
-                    Building b=(Building)returnSeq.get(j);
+                    Building b=(Building)returnSeq.get(i);
                     float dist=Mathf.dst(x,y,b.x,b.y);
                     if(dist<closest){
                         closest=dist;
-                        closesti=j;
+                        closesti=i;
                     }
                 }
                 Building removed=(Building)returnSeq.remove(closesti);
