@@ -17,7 +17,7 @@ public class RootPathfinder{
   }
   public Seq findPath(int fromx, int fromy, int tox, int toy){
     int limit=0;
-    int maxLimit=100000;
+    int maxLimit=1000;
     boolean notFound=false;
     Tile targetTile=world.tile(tox,toy);
     if(targetTile==null||targetTile.build==null){
