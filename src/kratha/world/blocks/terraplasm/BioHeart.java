@@ -88,14 +88,18 @@ public class BioHeart extends BioBlock {
                 }
                 int itemss=content.items().size;
                 for(int i=0;i<itemss;i++){
-                    int item=items.get(i);
-                    if(item>=shareThreshold){
+                    int itemhas=items.get(i);
+                    Item item=content.items().get(i);
+                    if(itemhas>=shareThreshold){
                         Seq hearts=getHeartsReachable();
                         for(int j=0;j<hearts.size;j++){
                             Building h=(Building)hearts.get(j);
-                            boolean success=send(content.items().get(i),h.tile.x,h.tile.y);
+                            if(h.items.has(item,shareThreshold){
+                                continue;
+                            }
+                            boolean success=send(item,h.tile.x,h.tile.y);
                             if(success){
-                                items.remove(content.items().get(i),1);
+                                items.remove(item,1);
                             }
                         }
                     }
