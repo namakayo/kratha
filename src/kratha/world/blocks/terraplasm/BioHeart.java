@@ -90,7 +90,7 @@ public class BioHeart extends BioBlock {
                     }
                 }
                 int itemss=content.items().size;
-                totalHearts=getHearts();
+                int totalHearts=getHearts();
                 if(totalHearts!=lastTotalHearts){
                     lastTotalHearts=totalHearts;
                     hearts=getHeartsReachable();
