@@ -399,8 +399,7 @@ public class Root extends BioBlock {
                 if(itemFrom!=null){
                     float dx=itemFrom.x-x,dy=itemFrom.y-y;
                     float p=extraFloat1/8f;
-                    p=1-p;
-                    p=1-(1-p)*(1-p);
+                    p=p*p*p;
                     Draw.rect(lastItem.fullIcon,x+dx*p,y+dy*p, itemSize, itemSize);
                 }else{
                     Draw.rect(lastItem.fullIcon, x, y, itemSize, itemSize);
