@@ -38,7 +38,10 @@ public class BioHeart extends BioBlock {
         itemCapacity = 20;
         unloadable = false;
     }
-    public class BioHeartBuild extends BioBuilding {        
+    public class BioHeartBuild extends BioBuilding {
+        protected Seq hearts=new Seq(); //List of reachable hearts this can pathfind to...reachable hearts...
+        protected int lastTotalHearts=-1;
+        
         @Override
         public void updateTile() {
             if (fullyGrown){
@@ -87,11 +90,15 @@ public class BioHeart extends BioBlock {
                     }
                 }
                 int itemss=content.items().size;
+                totalHearts=getHearts();
+                if(totalHearts!=lastTotalHearts){
+                    lastTotalHearts=totalHearts;
+                    hearts=getHeartsReachable();
+                }
                 for(int i=0;i<itemss;i++){
                     int itemhas=items.get(i);
                     Item item=content.items().get(i);
                     if(itemhas>=shareThreshold){
-                        Seq hearts=getHeartsReachable();
                         for(int j=0;j<hearts.size;j++){
                             Building h=(Building)hearts.get(j);
                             if(h.items.has(item,shareThreshold)){
