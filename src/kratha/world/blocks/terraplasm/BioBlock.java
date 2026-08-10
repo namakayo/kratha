@@ -57,6 +57,7 @@ public class BioBlock extends Block {
     public boolean allowAll=false;
     
     public int pulseToGrowRoot=2;
+    public int noPulseDamage=2;
 
     public boolean showMarkers = true;
 
@@ -153,7 +154,7 @@ public class BioBlock extends Block {
                 deathTimer+=delta();
             }
             if (deathTimer>=deathTimerLimit){
-                this.damage(2);
+                this.damage(noPulseDamage);
             }
             
             if (drawPulseScale>0.01f) {

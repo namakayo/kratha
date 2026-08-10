@@ -38,7 +38,7 @@ public class Terraplasm {
     public static Block
             skewerMarker,cradleMarker,trimMarker,
             falseCore,dataPatchInfo,
-            heart, root, eye, harvester, cradle, skewer, trim;
+            heart, root, eye, harvester, cradle, rootWall, skewer, trim;
     public static void load() {
         {
             {
@@ -81,6 +81,12 @@ public class Terraplasm {
                     requiredItem1 = 3;
                     inputItem2 = KrathaItems.cobalt;
                     requiredItem2 = 2;
+                }};
+                rootWall = new BioWall("root-wall"){{
+                    requirements(Category.defense, with(KrathaItems.cobalt,1));
+                    health = 1000;
+                    noPulseDamage=20;
+                    variants = 2;
                 }};
                 skewer = new BioTurret("skewer"){{
                     health = 300;
