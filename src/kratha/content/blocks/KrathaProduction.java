@@ -64,7 +64,7 @@ public class KrathaProduction {
             ambientSoundVolume = 0.04f;
         }};
         teracCollector = new AncientAttributeCrafter("terac-collector"){{
-            requirements(Category.production, with(KrathaItems.krathite, 40, KrathaItems.guartz, 50));
+            requirements(Category.production, BuildVisibility.sandboxOnly, with(KrathaItems.krathite, 40, KrathaItems.guartz, 50));
             craftEffect = Fx.none;
             attribute = Attribute.steam;
             minEfficiency = 8.999f;
