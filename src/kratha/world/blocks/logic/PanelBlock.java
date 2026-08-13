@@ -5,6 +5,7 @@ import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.util.io.*;
 import arc.util.*;
+import arc.math.geom.*;
 import mindustry.ui.*;
 import mindustry.gen.*;
 import mindustry.world.*;
@@ -90,7 +91,7 @@ public class PanelBlock extends Block{
 
     public class PanelBuild extends Building{
         public boolean active = false;
-        public float hacking = 0;
+        public float hacking = 0, time=0;
         public int progress = 0;
         public int hackTime = 10;
         protected float pprogress = 0;
