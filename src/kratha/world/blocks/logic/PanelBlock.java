@@ -27,6 +27,25 @@ public class PanelBlock extends Block{
     public Item chip2 = KrathaItems.guartz;
     public Item chip3 = KrathaItems.spurstone;
     public Item chip4 = KrathaItems.cobalt;
+    
+    public final static Point2[] d4x4 = {
+        new Point2(3, -1),
+        new Point2(3, 0),
+        new Point2(3, 1),
+        new Point2(3, 2),
+        new Point2(2, 3),
+        new Point2(1, 3),
+        new Point2(0, 3),
+        new Point2(-1, 3),
+        new Point2(-2, 2),
+        new Point2(-2, 1),
+        new Point2(-2, 0),
+        new Point2(-2, -1),
+        new Point2(-1, -2),
+        new Point2(0, -2),
+        new Point2(1, -2),
+        new Point2(2, -2)
+    };
 
     public PanelBlock(String name){
         super(name);
@@ -71,16 +90,32 @@ public class PanelBlock extends Block{
 
     public class PanelBuild extends Building{
         public boolean active = false;
+        public float hacking = 0;
         public int progress = 0;
         public int hackTime = 10;
         protected float pprogress = 0;
 
         public int reqChip1 = 0, reqChip2 = 0, reqChip3 = 0, reqChip4 = 0;
 
+        protected float getEfficiency(){
+            float maxe=0;
+            for(Point2 pos : d4x4){
+                Tile other = tile.nearby(pos);
+                if(other==null||other.build==null)continue;
+                if(other.build instanceof PanelLogger.PanelLoggerBuild p){
+                    if(p.efficiency>maxe){
+                        maxe=p.efficiency;
+                    }
+                }
+            }
+            return maxe;
+        }
         @Override
         public void updateTile(){
             super.updateTile();
+            hacking=getEfficiency();
             pprogress=((float)(progress))/hackTime;
+            time+=edelta()*hacking;
         }
         
         @Override
@@ -108,6 +143,8 @@ public class PanelBlock extends Block{
 
             if(active){
                 Draw.rect(onRegion, x, y);
+            }else if(hacking>0){
+                Draw.draw(Layer.blockOver,()->Drawf.construct(x,y,onRegion,KrathaPal.arkteraOrange,0,pprogress,0.5f,time));
             }
         }
 
