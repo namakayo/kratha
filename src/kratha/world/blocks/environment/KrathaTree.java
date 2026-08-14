@@ -52,7 +52,7 @@ public class KrathaTree extends TallBlock{
         return !state.rules.limitMapArea || Rect.contains(state.rules.limitX * tilesize, state.rules.limitY * tilesize, state.rules.limitWidth * tilesize, state.rules.limitHeight * tilesize, tile.worldx(), tile.worldy());
     }
 
-    @Override``
+    @Override
     public void drawBase(Tile tile){
         if(!isInMapArea(tile)){
             return;
