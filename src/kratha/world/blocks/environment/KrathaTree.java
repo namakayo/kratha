@@ -3,11 +3,13 @@ package kratha.world.blocks.environment;
 import arc.Core;
 import arc.graphics.g2d.*;
 import arc.math.*;
+import arc.math.geom.*;
 import arc.util.*;
 import mindustry.world.*;
 import mindustry.world.blocks.environment.TallBlock;
-import mindustry.Vars;
 import kratha.content.blocks.KrathaEnv;
+
+import static mindustry.Vars.*;
 
 public class KrathaTree extends TallBlock{
     //dont ask why
@@ -45,9 +47,16 @@ public class KrathaTree extends TallBlock{
       branchRegion2s=Core.atlas.find(name+"-branch2-shadow");
       woodRegion=Core.atlas.find(name+"-wood");
     }
+    
+    public boolean isInMapArea(Tile tile){
+        return !state.rules.limitMapArea || Rect.contains(state.rules.limitX * tilesize, state.rules.limitY * tilesize, state.rules.limitWidth * tilesize, state.rules.limitHeight * tilesize, tile.worldx(), tile.worldy());
+    }
 
-    @Override
+    @Override``
     public void drawBase(Tile tile){
+        if(!isInMapArea(tile)){
+            return;
+        }
         boolean shouldFade=Core.settings.getInt("kratha.tree-fade-distance")>0&&Core.settings.getInt("kratha.tree-fade-amount")>0;
         boolean doParallax=Core.settings.getBool("kratha.render-3d");
         float fadeAmount=Core.settings.getInt("kratha.tree-fade-amount")/100f;
