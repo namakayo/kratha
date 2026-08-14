@@ -69,8 +69,8 @@ public class KrathaTree extends TallBlock{
         float rot = Mathf.randomSeedRange(tile.pos() + 1, rotationRand);
 
         float tAlpha=1f;
-        if(shouldFade&&Vars.player.unit()!=null&&!Vars.player.unit().dead()){
-            tAlpha=Math.max(0,Math.min(fadeDist-fadeDistTo,Mathf.dst(tile.worldx(),tile.worldy(),Vars.player.unit().x,Vars.player.unit().y)-fadeDistTo))/(fadeDist-fadeDistTo)*fadeAmount+(1-fadeAmount);
+        if(shouldFade&&player.unit()!=null&&!player.unit().dead()){
+            tAlpha=Math.max(0,Math.min(fadeDist-fadeDistTo,Mathf.dst(tile.worldx(),tile.worldy(),player.unit().x,player.unit().y)-fadeDistTo))/(fadeDist-fadeDistTo)*fadeAmount+(1-fadeAmount);
         }
     
         for(int i = 0; i < lobes; i++){
@@ -87,8 +87,8 @@ public class KrathaTree extends TallBlock{
                 thisBranchParallaxAmount=(float)irand.random(branchParallaxAmount/2, branchParallaxAmount*3/4);
             }
             float bAlpha=1f;
-            if(shouldFade&&Vars.player.unit()!=null&&!Vars.player.unit().dead()){
-                bAlpha=Math.max(0,Math.min(fadeDist-fadeDistTo,Mathf.dst(tile.worldx() + Angles.trnsx(angle, origin + w*0.5f),tile.worldy() + Angles.trnsy(angle, origin + h*0.5f),Vars.player.unit().x,Vars.player.unit().y)-fadeDistTo))/(fadeDist-fadeDistTo)*fadeAmount+(1-fadeAmount);
+            if(shouldFade&&player.unit()!=null&&!player.unit().dead()){
+                bAlpha=Math.max(0,Math.min(fadeDist-fadeDistTo,Mathf.dst(tile.worldx() + Angles.trnsx(angle, origin + w*0.5f),tile.worldy() + Angles.trnsy(angle, origin + h*0.5f),player.unit().x,player.unit().y)-fadeDistTo))/(fadeDist-fadeDistTo)*fadeAmount+(1-fadeAmount);
             }
             Draw.color(0f, 0f, 0f, shadowAlpha*(Core.settings.getBool("kratha.tree-fade-shadow")?bAlpha:1f));
             if(sRegion!=null){
