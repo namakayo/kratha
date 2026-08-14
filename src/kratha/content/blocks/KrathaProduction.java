@@ -118,7 +118,7 @@ public class KrathaProduction {
             ambientSound = Sounds.loopCultivator;
             ambientSoundVolume = 0.075f;
         }};
-        earthenExtractor= new AttributeCrafter("earthen-extractor"){{
+        earthenExtractor= new AncientAttributeCrafter("earthen-extractor"){{
             requirements(Category.crafting, BuildVisibility.sandboxOnly, with(KrathaItems.spurstone, 50, KrathaItems.cobalt, 30));
             craftEffect = Fx.drillSteam;
             attribute = Attribute.steam;
