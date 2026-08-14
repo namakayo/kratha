@@ -63,6 +63,7 @@ public class KrathaDefense{
             glowColor = KrathaPal.krathiteLight;
             customShadow = true;
             rebuildable = false;
+            health = 1000000;
         }};
         initialRadar = new InitialRadar("initial-radar"){{
             requirements(Category.effect, BuildVisibility.editorOnly, with());
