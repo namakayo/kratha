@@ -206,6 +206,7 @@ public class PanelLogger extends Block{
         }
 
         public boolean acceptChip(Building panel, Item item){
+            if(panel==null)return false;
             if(!(panel.block instanceof PanelBlock pb))return false;
             if(!(panel instanceof PanelBlock.PanelBuild p))return false;
             if(item==pb.chip1&&p.reqChip1>0)return true;
