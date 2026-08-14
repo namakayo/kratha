@@ -44,7 +44,7 @@ public class KrathaProduction {
             consumePower(2/60f);
             consumeLiquid(Liquids.hydrogen, 0.05f).boost();
 
-            drillTime = 415;
+            drillTime = 410;
             tier = 3;
             size = 2;
             squareSprite = false;
@@ -136,7 +136,7 @@ public class KrathaProduction {
             ambientSound = Sounds.loopSmelter;
             ambientSoundVolume = 0.1f;
 
-            consumeItems(with(KrathaItems.krathite, 2));
+            consumeItems(with(KrathaItems.arkscrap, 2));
         }};
         spurstoneForge = new AncientCrafter("spurstone-forge"){{
             requirements(Category.crafting, BuildVisibility.sandboxOnly, with(KrathaItems.krathite, 200, KrathaItems.guartz, 80, KrathaItems.cobalt, 100));
