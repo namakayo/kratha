@@ -26,6 +26,7 @@ public class BioWall extends BioBlock {
     public BioWall(String name){
         super(name);
         isRoot=false;
+        solid=true; 
     }
     public class BioWallBuild extends BioBuilding {
         //its just a wall, nothing here

@@ -222,12 +222,12 @@ public class Terraplasm {
                         despawnEffect = hitEffect = new ParticleEffect(){{
                             colorFrom = KrathaPal.krathiteLight;
                             colorTo = KrathaPal.krathiteDark.a(0.1f);
-                            cone = 180;
+                            cone = 30;
                             particles = 7;
                             sizeFrom = 3;
                             sizeTo = 0;
-                            length = 40;
-                            lifetime = 60;
+                            length = 50;
+                            lifetime = 40;
                         }};
                         knockback = 4f;
                         height = 19f;
