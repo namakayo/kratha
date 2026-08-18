@@ -46,7 +46,7 @@ public class KrathaUnits {
                     requirements(Category.units, BuildVisibility.sandboxOnly, with());
                     size = 6;
                     solid = false;
-                    consumeItems(with(KrathaItems.arkscrap, 12, KrathaItems.cobalt, 9));
+                    consumeItems(with(KrathaItems.spurstone, 12, KrathaItems.cobalt, 9));
                     consumeLiquid(KrathaLiquids.terac, 6f / 60f);
                     constructTime = 60f * 8f;
                     upgrades.add(new UnitType[]{KrathaUnitTypes.sail, KrathaUnitTypes.sailRocket});
