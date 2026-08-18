@@ -63,9 +63,6 @@ public class KrathaTechTree {
                 node(KrathaProduction.crystallizationBasin, Seq.with(new Objectives.SectorComplete(comingSoon)),() -> {
                 
                 });
-                node(KrathaProduction.earthenExtractor, Seq.with(new Objectives.SectorComplete(comingSoon)),() -> {
-                
-                });
             });
             
             node(KrathaPower.windTurbine, () -> {
@@ -84,7 +81,7 @@ public class KrathaTechTree {
                 
             });
 
-            node(KrathaTurrets.impede, Seq.with(new Objectives.SectorComplete(comingSoon)),() -> {
+            node(KrathaTurrets.impede, Seq.with(new Objectives.OnSector(seaport)),() -> {
                 node(KrathaTurrets.debase, Seq.with(new Objectives.SectorComplete(comingSoon)),() -> {
                 
                 });
@@ -111,13 +108,15 @@ public class KrathaTechTree {
                 });
             });
             
-            node(KrathaSectorPresets.theFountain, () -> {
-                node(KrathaSectorPresets.comingSoon, Seq.with(new Objectives.SectorComplete(theFountain)),() -> {
-                    
+            node(theFountain, () -> {
+                node(seaport, Seq.with(new Objectives.SectorComplete(theFountain)),() -> {
+                    node(comingSoon, Seq.with(new Objectives.SectorComplete(seaport)),() -> {
+                        
+                    });
                 });
             });
 
-            node(KrathaUnits.nauticAssembler, Seq.with(new Objectives.SectorComplete(comingSoon)),() -> {
+            node(KrathaUnits.nauticAssembler, Seq.with(new Objectives.OnSector(seaport)),() -> {
                 node(KrathaUnitTypes.sail, () -> {
                 
                 });
