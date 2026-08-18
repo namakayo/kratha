@@ -152,7 +152,7 @@ public class PanelLogger extends Block{
                 reqChipAmount+=(reqChip-p.items.get(chip));
                 reqChipTotal+=reqChip;
             }
-            log.info(reqChipAmount);
+            Log.info(reqChipAmount);
             if(p.progress>=p.hackTime&&reqChipAmount<=0){
                 p.progress=p.hackTime;
                 progress=1;
