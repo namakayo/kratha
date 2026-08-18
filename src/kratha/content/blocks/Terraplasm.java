@@ -227,7 +227,7 @@ public class Terraplasm {
                             sizeFrom = 3;
                             sizeTo = 0;
                             length = 50;
-                            lifetime = 40;
+                            lifetime = 20;
                         }};
                         knockback = 4f;
                         height = 19f;
