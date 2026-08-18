@@ -17,7 +17,7 @@ public class KrathaSectorPresets {
            difficulty = 3;
            overrideLaunchDefaults = true;
         }};
-        comingSoon = new KrathaSectorPreset("coming-soon", KrathaPlanets.kratha, 32){{
+        comingSoon = new KrathaSectorPreset("coming-soon", KrathaPlanets.kratha, 679){{
            difficulty = 0;
            overrideLaunchDefaults = true;
         }};
