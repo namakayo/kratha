@@ -5,9 +5,9 @@ name: "kratha"
 author: "namaka"
 main: "kratha.KrathaMod"
 description:'''
-[accent[]]A Mindustry Java Mod
+A Mindustry Java Mod
 
-Current version : 0.3
+[gray[]]Current version : 0.3
 '''
 version: 0.3
 minGameVersion: 159
