@@ -95,7 +95,7 @@ public class AncientTunnel extends Block{
             }
             if(isOutput){
                 Tile linkTile=world.tile(link);
-                if(linkTile.build!=null&&linkTile.build instanceof AncientTunnelBuild a&&world.tile(a.link).build!=null&&world.tile(a.link).build==this){
+                if(linkTile!=null&&linkTile.build!=null&&linkTile.build instanceof AncientTunnelBuild a&&world.tile(a.link).build!=null&&world.tile(a.link).build==this){
                     tunnelItem=a.tunnelItem;
                 }else{
                     link=-1;
