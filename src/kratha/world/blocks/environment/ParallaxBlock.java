@@ -220,7 +220,10 @@ public class ParallaxBlock extends TallBlock{
     public boolean synthetic(){
         return true;
     }
-    
+    @Override
+    public boolean canBreak(Tile tile){
+        return false;
+    }
     
     public class ParallaxBuild extends Building{
         @Override
@@ -229,6 +232,7 @@ public class ParallaxBlock extends TallBlock{
                 unit.kill();
             }
         }
+        
         @Override
         public void damage(float damage){
             return; //no damage
