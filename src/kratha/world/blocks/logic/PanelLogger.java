@@ -66,6 +66,7 @@ public class PanelLogger extends Block{
     }
 
     public Building connectedTo(Tile tile, int rot){
+        if(tile==null)return null;
         Tile tile1=tile.nearby(d4x2[rot][0]);
         Tile tile2=tile.nearby(d4x2[rot][1]);
         //insane amount of returns
