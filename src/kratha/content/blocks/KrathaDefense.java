@@ -69,9 +69,10 @@ public class KrathaDefense{
             requirements(Category.effect, BuildVisibility.editorOnly, with());
             outlineColor = KrathaPal.krathaOutline;
             fogRadius = 50;
-            discoveryTime = 0f;
+            discoveryTime = 1f;
             glowColor = KrathaPal.krathiteLight;
             rebuildable = false;
+            health = 1000000;
         }};
     }
 }
